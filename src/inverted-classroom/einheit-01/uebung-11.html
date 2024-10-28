@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übung 11 - Alles zusammen</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+</head>
+<body class="bg-slate-100 p-20">
+<div class="lg:content-auto prose-lg mx-auto p-20 bg-white rounded-3xl">
+    <h1 class="text-3xl font-bold text-cyan-700">Projektarbeit zu Grundzüge der Wirtschaftsinformatik</h1>
+    <p>In dieser Veranstaltung sollen wir die Grundzüge lernen. Diese erlernen wir durch die praktische Anwendung der Inahlte, die wir uns selber aneignen und im Inverted Classroom zu festigen und auch anderen helfen ein besseres Versändnis zu entwickeln. </p>
+
+    <!-- Vorstellung der Gruppenmitglieder -->
+    <h2>Unsere Gruppe: </h2>
+    <p>Wir sind 5 Personen in dieser Gruppe, die gemeinsam die Aufgaben bestreiten werden und das Ziel haben eine Webseite aufzubauen, die Grundlegende Funktionen vorweist, wie eine Anbindung an eine Datenbank und die Basic Operationen wie (Hinzufügen, Lesen, Ändern, Löschen etc. (CRUD))</p>
+
+    <h3>Mitglieder: </h3>
+    <div class="flex" style="display: flex; flex-direction: row; gap: 20px;">
+        <!-- Timothy -->
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <img src="./assets/timothy.jpg" alt="Bild von Timothy Lüdtke" style="width: 200px; height: 200px; object-fit: cover; overflow: hidden;">
+            <Strong>Timothy Lüdtke</Strong>
+        </div>
+        <!-- Raphael -->
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <img src="./assets/raphael.jpeg" alt="Bild von Timothy Lüdtke" style="width: 200px; height: 200px; object-fit: cover; overflow: hidden;">
+            <Strong>Raphael Quast</Strong>
+        </div>
+        <!-- Lenny -->
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <img src="./assets/leo.jpg" alt="Bild von Timothy Lüdtke" style="width: 200px; height: 200px; object-fit: cover; overflow: hidden;">
+            <Strong>Leo Springrose</Strong>
+        </div>
+        <!-- Leo -->
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <img src="./assets/lenny.jpeg" alt="Bild von Timothy Lüdtke" style="width: 200px; height: 200px; object-fit: cover; overflow: hidden;">
+            <Strong>Lenny Pöhler</Strong>
+        </div>
+        <!-- ???? -->
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <img src="./assets/mussnah.jpeg" alt="Bild von Timothy Lüdtke" style="width: 200px; height: 200px; object-fit: cover; overflow: hidden;">
+            <Strong>Mussnah Ahmed</Strong>
+        </div>
+    </div>
+    <br><br>
+    <hr>
+    <!-- Zeitplan der Veranstaltungen -->
+    <h2>Zeitplan</h2>
+<div class="flex">
+    <table class="flex-1">
+        <tr class="border-b text-left">
+            <th>Datum</th>
+            <th>Uhrzeit</th>
+            <th>Thema</th>
+            <th>Plan</th>
+            <th>Notiz</th>
+        </tr>
+        <tr class="border-b py-8">
+            <td>01.11.2024</td>
+            <td>15.00 - 17:30</td>
+            <td>Rechnernetze Einführung, HTML I</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="border-b">
+            <td>15.11.2024</td>
+            <td>15.00 - 17:30</td>
+            <td>HTML II, CSS</td>
+            <td>Statusupdate</td>
+            <td></td>
+        </tr>
+        <tr class="border-b">
+            <td>22.11.2024</td>
+            <td>15.00 - 17:30</td>
+            <td>Softwareentwicklung- Einführung</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="border-b">
+            <td>29.11.2024</td>
+            <td>15.00 - 17:30</td>
+            <td>UML</td>
+            <td>Statusupdate</td>
+            <td></td>
+        </tr>
+        <tr class="border-b">
+            <td>06.12.2024</td>
+            <td>15.00 - 17:30</td>
+            <td>Datenbanken</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="border-b">
+            <td>13.12.2024</td>
+            <td>15.00 - 17:30</td>
+            <td>Datenbanken Forts.</td>
+            <td>Statusupdate</td>
+            <td></td>
+        </tr>
+        <tr class="border-b">
+            <td>20.12.2024</td>
+            <td>15.00 - 17:30</td>
+            <td>PHP</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="border-b">
+            <td>03.01.2024</td>
+            <td>15.00 - 17:30</td>
+            <td>PHP Forts.</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="border-b">
+            <td>10.01.2024</td>
+            <td>12:15 - 17:30</td>
+            <td>Präsentation der Prüfungsleistung</td>
+            <td></td>
+            <td>Alle müssen es Präsentieren können</td>
+        </tr>
+    </table>
+</div>
+     <hr>
+     <!-- Zeitenerfassung -->
+    <h2>Zeitenerfassung</h2>
+    <form action="#">
+        <!-- Name -->
+        <fieldset>
+            <legend>Bearbeiter</legend>
+            <select class="rounded-full" name="bearbeiter">
+                <option value="timothy">Timothy Lüdtke</option>
+                <option value="raphael">Raphael Quast</option>
+                <option value="lenny">Leo Springrose</option>
+                <option value="leo">Lenny Pöhler</option>
+                <option value="mussnah">Mussnah Ahmed</option>
+            </select>
+        </fieldset>
+        <!-- Vorlesungsbewertung -->
+        <fieldset>
+            <legend>Projektarbeiten</legend>
+            <select class="rounded-full" name="thema">
+                <option selected="selected" value="html-css">HTML/CSS</option>
+                <option value="softwareentwicklung">Softwareentwicklung</option>
+                <option value="uml">UML</option>
+                <option value="datenbanken">Datenbanken</option>
+                <option value="php">PHP</option>
+            </select>
+            <input class="rounded-full" type="number" name="dauer" size="25" maxlength="5" placeholder="Minuten als Ganzzahl"><br><br>
+        </fieldset>
+        <!-- Freitextfeld -->
+        <fieldset>
+            <legend>Kommentar</legend>
+            <textarea class="rounded-3xl p-4"name="freitext" cols="30" rows="10" placeholder="Was hast du erledigt?"></textarea>
+        </fieldset>
+        <input class="bg-sky-700 rounded-full px-8 py-2 text-white cursor-pointer hover:bg-sky-900" type="submit" name="absenden"/>
+        <input class="bg-neutral-100 rounded-full px-8 py-2 text-neutral-800 hover:bg-neutral-300 cursor-pointer" type="reset" name="zuruecksetzen">
+
+    </form>
+     <hr>
+    <!-- Aufgaben der Veranstaltung -->
+    <h2>Erledigte Aufgaben</h2>
+    Während der Veranstaltung werden wir viele Aufgaben erledigen müssen. Diese werden hier erstmal auffindbar sein.
+
+    <!-- Auflistung der Einheiten als untergeordnete Einheiten (unter H1) -->
+     <br>
+    <h3>Einheit 01:</h3>
+    <p>In der ersten Einheit ging es überwiegend um Rechnernetze und wie diese aufgebaut sind und wie diese kommunizieren. Hierzu gab es kaum aufgaben, aber soll nicht unerwähnt bleiben.</p>
+    <p>Direkt anschließend sind wir in das Thema von HTML und Markup Sprachen eingestiegen. Diese Seite ist auch einer dieser Seiten der Übungen.</p>
+    <p>Es gab folgende Aufgaben bezgl. HTML in diser Einheit:</p>
+    <ol style="list-style: decimal-leading-zero;">
+        <li><a class="text-sky-900 hover:text-sky-700 hover:underline" href="./uebung-01.html">Übung 1 - Erste Homepage</a></li>
+        <li><a class="text-sky-900 hover:text-sky-700 hover:underline" href="./uebung-02.html">Übung 2 - Abschnitte</a></li>
+        <li><a class="text-sky-900 hover:text-sky-700 hover:underline" href="./uebung-03.html">Übung 3 - Überschriften</a></li>
+        <li><a class="text-sky-900 hover:text-sky-700 hover:underline" href="./uebung-04.html">Übung 4 - Verschiedene Tags</a></li>
+        <li><a class="text-sky-900 hover:text-sky-700 hover:underline" href="./uebung-05-Seite1.html">Übung 5 - Verweise</a></li>
+        <li><a class="text-sky-900 hover:text-sky-700 hover:underline" href="./uebung-06.html">Übung 6 - Unterseiten</a></li>
+        <li><a class="text-sky-900 hover:text-sky-700 hover:underline" href="./uebung-07.html">Übung 7 - Listen</a></li>
+        <li><a class="text-sky-900 hover:text-sky-700 hover:underline" href="./uebung-08.html">Übung 8 - Bilder einbetten</a></li>
+        <li><a class="text-sky-900 hover:text-sky-700 hover:underline" href="./uebung-09.html">Übung 9 - Tabellen</a></li>
+        <li><a class="text-sky-900 hover:text-sky-700 hover:underline" href="./uebung-10.html">Übung 10 - Formulare</a></li>
+        <li><a class="text-sky-900 hover:text-sky-700 hover:underline" href="#">Übung 11 - Dalles zusammen (Diese Seite)</a></li>
+
+    </ol>
+</div>
+</body>
+</html>

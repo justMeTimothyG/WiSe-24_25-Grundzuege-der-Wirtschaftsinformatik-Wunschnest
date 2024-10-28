@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übung 10 - Formulare</title>
+</head>
+<body>
+    <h1>Kontaktformular</h1>
+    <form action="#" method="get">
+        <!-- Name -->
+        <fieldset>
+            <legend>Vor- und Nachname</legend>
+            <label for="vorname">Vorname</label>
+            
+            <input type="text" name="vorname" size="30" maxlength="40" placeholder="Vorname">
+            <label for="nachname">Nachname</label>
+            <input type="text" name="nachname" size="30" maxlength="40" placeholder="Nachname">
+        </fieldset>
+        <!-- Vorlesungsbewertung -->
+        <fieldset>
+            <legend>Vorlesungsbewertung</legend>
+            <select name="thema">
+                <option selected="webtechnologien">Webtechnologien</option>
+                <option value="css">CSS</option>
+                <option value="datenbanken">Datenbanken</option>
+                <option value="serverseitig">Serverseitige Ausführung (PHP)</option>
+            </select>
+            <input type="radio" name="bewertung">++<input type="radio" name="bewertung">+-<input type="radio" name="bewertung">-- <br><br>
+            Wurde ein Tutorium angeboten? <input type="checkbox" name="tutorium" value="tutorium"/> 
+        </fieldset>
+        <!-- Freitextfeld -->
+        <fieldset>
+            <legend>Freitextfeld</legend>
+            <textarea name="freitext" cols="30" rows="10" placeholder="Dein Freitext zur Einheit"></textarea>
+        </fieldset>
+        <input type="submit" name="absenden"/>
+        <input type="reset" name="zuruecksetzen">
+
+    </form>
+</body>
+</html>

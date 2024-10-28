@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übung 9 - Tabellen</title>
+
+    <style>
+        table, th, td {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+        }
+        th, td {
+            padding: 10px 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Stundenplan</h1>
+    <table>
+        <!-- Kopfzeile -->
+        <tr>
+            <th>Zeiten</th>
+            <th>Montag</th>
+            <th>Dienstag</th>
+            <th>Mittwoch</th>
+            <th>Donnerstag</th>
+            <th>Freitag</th>
+        </tr>
+        <!-- 1. Stunde -->
+        <tr>
+            <td>08:15 - 09:45</td>
+            <td></td>
+            <td></td>
+            <td>Mathematik</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <!-- 2. Stunde -->
+        <tr>
+            <td>10:00 - 11:30</td>
+            <td>Technische Physik</td>
+            <td>Technische Physik - Übung</td>
+            <td>Unternehmensrechnung</td>
+            <td></td>
+            <td>Tutorium Mathematik</td>
+        </tr>
+        <!-- 3. Stunde -->
+        <tr>
+            <td>12:15 - 13:45</td>
+            <td rowspan="2">Allgemeine BWL</td>
+            <td>Unternehmensrechnung Übung</td>
+            <td rowspan="2">Elektrotechnik</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <!-- 4. Stunde -->
+        <tr>
+            <td>14:00 - 15:30</td>
+            <!-- <td></td> taken in from Rowspan-->
+            <td></td>
+            <!-- <td></td> taken from rowspan -->
+            <td></td>
+            <td></td>
+        </tr>
+        <!-- 5. Stunde -->
+        <tr>
+            <td>15:00 - 17:30</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Grundzüge der Wirtschaftsinformatik</td>
+        </tr>
+        <!-- 6. Stunde -->
+        <tr>
+            <td>19:00 - 21:00</td>
+            <td></td>
+            <td>Volleyball</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>
