@@ -19,4 +19,4 @@ pnpm-debug.log*
 .idea/
 
 # Media Files 
-./Mockups
+Mockups/
