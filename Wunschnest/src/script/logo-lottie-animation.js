@@ -1,11 +1,10 @@
-//Select all elemts with the class 'lottie-animation'
+//Alle ELemente mit der Klasse 'lottie-animation' auswählen -> Ergenis ist ein Array aller dieser Items
 const lottieAnimationElements = document.querySelectorAll(".lottie-animation");
 
-// Anomationen speichern in einem Array
+// Animationen speichern in einem Array
 const animations = [];
 
-console.log(lottieAnimationElements)
-// Add Event Listeners to all Elements to animate with mouseovers
+// Durch alle Elemente durchgehen und Funktionnen hinzufügen
 lottieAnimationElements.forEach((element, index) => {
   // Lade die Animation
   let animation = lottie.loadAnimation({

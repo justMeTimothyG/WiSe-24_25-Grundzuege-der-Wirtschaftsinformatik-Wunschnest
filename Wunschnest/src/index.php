@@ -22,24 +22,19 @@ $title = "WunschNest"
     <title><?php echo $title ?></title>
 </head>
 
-<body class="">
+<body class="max-w-screen-x mx-auto">
+
+    <!--
+
+        Hinweis:
+        Die Seite ist aktuell noch sehr eintönig und es fehlt noch pepp. ggf. können hier ein paar mehr Farben eingebaut oder sachte Farbverläufe im Hintergrund integriert werden. 
+
+    -->
 
 
     <!-- Navbar Bereich -->
 
-    <nav class="bg-white border-gray-200">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="./assets/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap 
-                    ">WunschNest</span>
-            </a>
-            <div class="flex space-x-3 rtl:space-x-reverse">
-                <button type="button" class="text-gray-800 hover:text-blue-700 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center">Login</button>
-                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Registrieren</button>
-            </div>
-        </div>
-    </nav>
+    <?php include './components/navbar.php' ?>
 
     <!-- Hero Section - Startseitenbereich  -->
 
@@ -64,6 +59,8 @@ $title = "WunschNest"
     </div>
 
     <!-- Features Erklären  -->
+
+    <!-- TODO - Die Anzeige bei kleinen Bildschirmen optimieren. also den Spacer verstecken und dann die Features in der richtigten Reihenfolge untereinander (Flexbox optimieren) -->
 
     <section class="w-10/12 mx-auto my-32 flex gap-8">
         <div class="flex flex-col w-1/2 gap-8">
@@ -129,6 +126,9 @@ $title = "WunschNest"
 
     <!-- Satistiken  -->
 
+    <!-- TODO: Anbindung an die Datenbank für die Zahlen der Statistik! -->
+    <!-- TODO: Zahlen beim Einscrollen der Zahlen animieren/hochzählen lassen -->
+
     <section id="statistiken" class="w-10/12 mx-auto my-16 mb-8 text-center">
         <span class="mb-2 text-lg text-orange-500 w-full">Überzeuge dich selbst durch andere</span>
         <h2 class="mb-16 text-5xl  font-semibold text-gray-900 my-4">Statistiken</h2>
@@ -142,6 +142,9 @@ $title = "WunschNest"
 
 
     <!-- FAQ Bereich - -->
+
+    <!-- TODO: GGF. Als Akkordion Elemente aufbauen und FAQs geschlossen anzeigen, so wird die Seite etwas kleiner und nur die den Nutzer interessanten Details können aufgeklappt werden (Javascript nötig) -->
+
     <section id="faq" class="w-10/12 mx-auto my-16 mb-8">
         <span class="mb-2 text-lg text-orange-500">Wie war das nochmal?</span>
         <h2 class="mb-16 text-5xl  font-semibold text-gray-900 my-4">Häufig gestellte Fragen</h2>
@@ -193,51 +196,14 @@ $title = "WunschNest"
 
     <!-- Letzter Call to Action -->
 
-    <section class="w-3/5 text-center mx-auto my-16 flex flex-col items-center leading-relaxed mb-32">
-        <div class="h-[200px] flex">
-            <div class="lottie-animation w-full h-full align-middle"></div>
-        </div>
-        <h2 class="mb-8 text-5xl font-semibold text-orange-500 my-4 leading-snug">Dein persönlicher Wunschzettel wartet!</h2>
-        <p class="w-3/5 font-light">Na Los! am Ende fragt doch sowieso jeder was du dir wünscht. </p>
-        <div class="mt-12 flex space-x-16">
-            <button type="button" class="text-white bg-gray-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-light rounded-lg text-sm px-10 py-4 text-center">Kostenlos Registrieren</button>
-            <button type="button" class="text-gray-800 hover:text-blue-700 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-4 text-center flex gap-4 items-center">Demo testen
-                <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                </svg>
-            </button>
-        </div>
-    </section>
+    <!-- Call to Action kann ggf. noch woanders benutzt werden, also als eigene Datei verwenden um sich im Code nicht zu wiederholen -->
+    <?php include 'components/bottom-cta.php'; ?> 
 
 
     <!-- Footer -->
 
-    <footer class=" rounded-lg  m-4 w-10/12 mx-auto">
-        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-            <span class="text-sm text-gray-500 sm:text-center ">© 2024 <a href="https://hs-osnabrueck.de/" class="hover:underline">HSOS</a>
-            </span>
-            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-400   sm:mt-0">
-                <li class="me-4">
-                    <a href="https://github.com/justMeTimothyG/WiSe-24_25-Grundzuege-der-Wirtschaftsinformatik-Wunschnest" class="text-gray-400 hover:text-gray-900">
-                        <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                        </svg>
-                        <span class="sr-only">GitHub account</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Impressum</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Datenschutz</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:underline">Kontakt</a>
-                </li>
-            </ul>
-
-        </div>
-    </footer>
+    <!-- Footer wird oft bentut und kaum verändert, also auch hier als separate Datei Komponente hier einfach einbetten.  -->
+    <?php include 'components/footer.php'; ?>
 
 </body>
 
