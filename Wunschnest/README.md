@@ -10,7 +10,9 @@ Damit die Entwicklung in geordneter Weise von statten geht gilt es folgende Ding
 ### PHP Server
 Den PHP Server kannst in einem Terminal mit folgendem Kommando starten
 
-`php -S localhost:8888`
+```bash
+php -S localhost:8888
+```
 
 Hierfür solltest du im Verzeichnis `/Wunschnest/` dich befinden, damit auch alles korrekt funktioniert.
 
