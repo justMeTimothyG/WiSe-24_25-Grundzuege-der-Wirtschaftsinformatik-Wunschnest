@@ -22,4 +22,6 @@ Die Projektarbeit ist die eigentliche Prüfungsleistung der Gruppe. Um die Inhal
 
 Der Code der Projektarbeit ist in diesem Repo unter `/src/Wunschnest/` zu finden. Die Erläuterungen und die Ideen dahinter sind in dem Ordner unter `docs` zu finden.
 
-;tldr Das Projekt ist eine Webanwendung in der man seine Wünsche in eine Liste eintragen kann und diese anschließend mit anderen Leuten teilt, wo die Schenker sehen können wer schon was geschenkt hat, aber der Beschenkte diese Ansicht nicht besitzt. 
+> [!NOTE]
+> TLDR
+> Das Projekt ist eine Webanwendung in der man seine Wünsche in eine Liste eintragen kann und diese anschließend mit anderen Leuten teilt, wo die Schenker sehen können wer schon was geschenkt hat, aber der Beschenkte diese Ansicht nicht besitzt. 
