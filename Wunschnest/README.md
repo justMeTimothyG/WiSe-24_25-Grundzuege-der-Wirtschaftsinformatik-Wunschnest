@@ -20,17 +20,23 @@ Hierfür solltest du im Verzeichnis `/Wunschnest/` dich befinden, damit auch all
 
 Vorausgesetzt du hast php installiert und hast eine UNIX kompatible Umgebung. Desweiteren benötigt du `node` und `npm` um die Tailwindklassen generieren zu lassen. du kannst prüfen ob du beides hast mit. 
 
-`node -v`
+```bash
+node -v
+```
 
 und 
 
-`npm -v`
+```bash
+npm -v
+```
 
-Wenn du eine Version rauskriegst kannst du ganz entspannt Tailwind Klassen generieren lassen. 
+Wenn du eine Version rauskriegst kannst du ganz entspannt Tailwind Klassen generieren lassen. Da sollte sowas wie `v22.9.0` oder `10.8.3` als Ausgabe rauskommen. Falls nicht musst du diese beiden noch installieren. 
 
 Dafür setzt du folgendes ein: 
 
-`npx tailwindcss -i ./css/tailwind.css -o ./css/style.css --watch`
+```bash
+npx tailwindcss -i ./css/tailwind.css -o ./css/style.css --watch
+``` 
 
 Das eröffnet ein Process der ständig danach schaut, wenn du .php Dateien speicherst, dass alle verwendeten Tailwind Klassen auch in der output CSS Datei verfügbar sind. Im generellen Header `/components/basic-head.php` wird auch diese Output datei verlinkt.
 
@@ -39,16 +45,22 @@ Git ist die Versionierung des Codes. So kann man zurückgehen, falls man was kap
 
 > [!NOTE]
 > Zur Installation von git Verweise ich mal an die [Offizielle Dokumentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). Für Windows ist die Anleitung ist etwas verwirrend, aber [Heise](https://www.heise.de/tipps-tricks/Git-auf-Windows-installieren-und-einrichten-5046134.html) hatte beim Überfliegen eine gute und Kurze Anleitung (Ganz unten ist sogar eine Kurzanleitung der schon eh kurzen Anleitung).
+> 
+> Alternativ kannst du natürlich auch WSL (Windows Subsystem for Linux) verwenden, wo du dann ein Linux System auf Windows hast, um diese ganze Entwicklung auch einfacher zu verfolgen. 
 
 Damit du mit git anfangen kannst zu arbeiten solltest du die dir aktuelle Version vom Repo immer holen. Falls du dies zum ersten mal machst kannst du erstmal das Repo wie folgt kopieren. 
 
-`git clone https://github.com/justMeTimothyG/WiSe-24_25-Grundzuege-der-Wirtschaftsinformatik-Wunschnest.git`
+```bash
+git clone https://github.com/justMeTimothyG/WiSe-24_25-Grundzuege-der-Wirtschaftsinformatik-Wunschnest.git
+```
 
 oder du lädst dir den Code als Zip datei herunter vom Web.
 
 Falls du schon alles eingerichtet hast kannst du einfach denn aktuellen Code dir einfach "ziehen" 
 
-`git pull`
+```bash
+git pull
+```
 
 
 
