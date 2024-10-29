@@ -1,28 +1,21 @@
 <?php
 # Variablen definieren für die Homepage
-$title = "WunschNest"
+$title = "WunschNest";
+
+include './components/basic-head.php';
 
 ?>
 <!-- Hier bauen wir die Homepage der Webanwendung. 
  Sie kann mit einer Landingpage verglichen werden. 
  Details über die Anwendung, Nutzen, und Einsatzgebiete erläutern.   -->
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="./assets/logo.png">
-    <link rel="stylesheet" href="./css/style.css">
+
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
     <script defer src="./script/logo-lottie-animation.js"></script>
-    <title><?php echo $title ?></title>
 </head>
 
-<body class="max-w-screen-x mx-auto">
+<body class="max-w-screen-xl mx-auto">
 
     <!--
 
