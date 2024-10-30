@@ -31,7 +31,7 @@ include './components/basic-head.php';
 
     <!-- Hero Section - Startseitenbereich  -->
 
-    <section class="bg-white border-2 border-gray-200 w-10/12 mx-auto my-16 rounded-3xl flex p-16 items-center hover:shadow-xl hover:border-white transition duration-300 ease-in-out">
+    <section class="bg-white border-[1px] border-gray-200 w-10/12 mx-auto my-16 rounded-3xl flex p-16 items-center hover:shadow-xl hover:border-white transition duration-300 ease-in-out">
         <div class="align-center py-8 px-4">
             <div class="flex flex-col">
                 <h2 class="mb-2 text-xl font-extrabold lg:text-xl text-orange-500">WunschNest</h2>
