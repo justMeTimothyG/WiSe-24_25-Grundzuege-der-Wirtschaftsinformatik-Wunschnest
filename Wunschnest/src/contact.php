@@ -39,7 +39,7 @@ include './components/basic-head.php';
                 </div>
                 <div class="flex items-start mb-5">
                     <div class="flex items-center h-5">
-                        <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 " required />
+                        <input id="datenschutz" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 " required />
                     </div>
                     <label for="datenschutz" class="ms-2 text-sm font-medium text-gray-900 ">Ich bin mit den <a class="underline hover:text-blue-900" href="./datenschutz.php">Datenschutzbestimmungen</a> einverstanden</label>
                 </div>

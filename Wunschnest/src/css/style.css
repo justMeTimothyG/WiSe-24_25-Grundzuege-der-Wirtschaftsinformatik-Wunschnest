@@ -781,6 +781,14 @@ video {
   width: 12rem;
 }
 
+.w-96 {
+  width: 24rem;
+}
+
+.w-3\/4 {
+  width: 75%;
+}
+
 .max-w-\[300px\] {
   max-width: 300px;
 }
@@ -830,6 +838,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-between {
@@ -1024,6 +1036,10 @@ video {
   padding-bottom: 2rem;
 }
 
+.pt-8 {
+  padding-top: 2rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1215,6 +1231,11 @@ video {
 .hover\:text-blue-900:hover {
   --tw-text-opacity: 1;
   color: rgb(30 58 138 / var(--tw-text-opacity));
+}
+
+.hover\:text-blue-600:hover {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {
