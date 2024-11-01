@@ -14,7 +14,7 @@ lottieAnimationElements.forEach((element, index) => {
     renderer: "svg", // render as SVG
     loop: false, // loop the animation
     autoplay: false, // start playing the animation
-    path: "./assets/animation.json", // the path to the JSON animation file
+    path: "/assets/animation.json", // the path to the JSON animation file
   });
 
   //Animation im Array Speichern

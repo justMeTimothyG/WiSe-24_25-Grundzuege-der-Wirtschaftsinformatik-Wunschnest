@@ -26,10 +26,10 @@ include './components/basic-head.php';
         <div class="mx-auto max-w-screen-xl dark:bg-gray-900 dark:text-white">
             <!--
 
-        Hinweis:
-        Die Seite ist aktuell noch sehr eintönig und es fehlt noch pepp. ggf. können hier ein paar mehr Farben eingebaut oder sachte Farbverläufe im Hintergrund integriert werden. 
+            Hinweis:
+            Die Seite ist aktuell noch sehr eintönig und es fehlt noch pepp. ggf. können hier ein paar mehr Farben eingebaut oder sachte Farbverläufe im Hintergrund integriert werden. 
 
-    -->
+            -->
 
 
 
@@ -42,6 +42,19 @@ include './components/basic-head.php';
                         <h2 class="mb-2 text-xl font-extrabold text-orange-500 lg:text-xl">WunschNest</h2>
                         <h1 class="my-0 mb-4 text-3xl font-bold tracking-tight">Dein Persönlicher Wunschzettel</h1>
                         <p class="dark:text-gray-400">Erstelle ganz einfach deine persönlichen Wunschlisten und teile sie mit Familie und Freunden. Keine unpassenden Überraschungen mehr - nur Geschenke, die Freude bereiten!</p>
+                        <div class="mt-12 flex space-x-16">
+                            <a href="/register.php">
+                                <button type="button" class="rounded-lg bg-gray-800 px-10 py-4 text-center text-sm font-light text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-gray-700 dark:hover:bg-blue-700">Kostenlos Registrieren</button>
+                            </a>
+                            <a href="/test-page.php">
+                                <button type="button" class="flex items-center gap-4 rounded-lg px-10 py-4 text-center text-sm font-medium text-gray-800 hover:bg-blue-100 hover:text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-blue-800 dark:hover:text-white">
+                                    Demo testen
+                                    <svg class="h-3 w-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="flex max-w-[300px] flex-[0_0_50%]">
