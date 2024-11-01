@@ -6,6 +6,8 @@ const animations = [];
 
 // Durch alle Elemente durchgehen und Funktionnen hinzufügen
 lottieAnimationElements.forEach((element, index) => {
+  // Lösche den Inhalt des Elements
+  element.innerHTML = "";
   // Lade die Animation
   let animation = lottie.loadAnimation({
     container: element, // the DOM element where the animation will be rendered
@@ -27,8 +29,10 @@ lottieAnimationElements.forEach((element, index) => {
 
   startAnimationAfterDelay();
 
+  // Finde das Parent Element mit der Klasse 'lottie-hover-target um die Animation zu starten
+  const parentElement = element.closest(".lottie-hover-target") || element;
   // Add Event Listeners
-  element.addEventListener("mouseenter", function () {
+  parentElement.addEventListener("mouseenter", function () {
     // Check if the animation is already finished
     if (animation.currentFrame >= animation.totalFrames) {
       animation.goToAndStop(0, true); // Reset to the beginning
@@ -36,7 +40,7 @@ lottieAnimationElements.forEach((element, index) => {
     animation.play(); // Play on hover
     animation.loop = true; // wiederholt abspielen
   });
-  element.addEventListener("mouseleave", function () {
+  parentElement.addEventListener("mouseleave", function () {
     animation.loop = false; // nicht wiederholen
     //wenn die animation zu ende animieren lassen
     if (!animation.isPaused) {

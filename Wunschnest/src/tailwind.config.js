@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./*.php', './components/*.php', './pages/*.php'],
+  content: ['./*.php', './components/*.php', './pages/*.php', './components/*.html'],
+  darkMode: 'class',
   theme: {
     extend: {
       animation: {
