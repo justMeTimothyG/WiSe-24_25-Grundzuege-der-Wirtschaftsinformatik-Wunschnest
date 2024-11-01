@@ -62,7 +62,7 @@ include './components/basic-head.php';
 
             <section class="mx-auto my-32 flex w-10/12 gap-8">
                 <div class="flex w-1/2 flex-col gap-8">
-                    <div class="border-[1px] border-gray-200 p-8 transition-all duration-200 ease-in-out hover:border-gray-50 hover:shadow-lg hover:shadow-gray-200 dark:border-gray-950 dark:hover:shadow-md dark:hover:shadow-gray-950">
+                    <div class="dar:hover:bg-gray-700 border-[1px] border-gray-200 p-8 transition-all duration-200 ease-in-out hover:border-gray-50 hover:shadow-lg hover:shadow-gray-200 dark:border-gray-950 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:shadow-md">
                         <div class="mb-6 flex items-center gap-4">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -78,7 +78,7 @@ include './components/basic-head.php';
                         </div>
                         <p class="dark:text-gray-400">Hilf Freunden und Familie, das perfekte Geschenk zu finden - ohne doppelte Überraschungen!</p>
                     </div>
-                    <div class="border-[1px] border-gray-200 p-8 transition-all duration-200 ease-in-out hover:border-gray-50 hover:shadow-lg hover:shadow-gray-200 dark:border-gray-950 dark:hover:shadow-md dark:hover:shadow-gray-950">
+                    <div class="dar:hover:bg-gray-700 border-[1px] border-gray-200 p-8 transition-all duration-200 ease-in-out hover:border-gray-50 hover:shadow-lg hover:shadow-gray-200 dark:border-gray-950 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:shadow-md">
                         <div class="mb-6 flex items-center gap-4">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -96,7 +96,7 @@ include './components/basic-head.php';
                 </div>
                 <div class="flex w-1/2 flex-col gap-8">
                     <div class="h-16"></div>
-                    <div class="border-[1px] border-gray-200 p-8 transition-all duration-200 ease-in-out hover:border-gray-50 hover:shadow-lg hover:shadow-gray-200 dark:border-gray-950 dark:hover:shadow-md dark:hover:shadow-gray-950">
+                    <div class="dar:hover:bg-gray-700 border-[1px] border-gray-200 p-8 transition-all duration-200 ease-in-out hover:border-gray-50 hover:shadow-lg hover:shadow-gray-200 dark:border-gray-950 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:shadow-md">
                         <div class="mb-6 flex items-center gap-4">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -108,7 +108,7 @@ include './components/basic-head.php';
                         <p class="dark:text-gray-400">Deine Liste ist immer verfügbar und lässt sich jederzeit anpassen. Wenn einer etwas abhackt, sehen andere, dass das
                             Geschenk schon vergeben ist.</p>
                     </div>
-                    <div class="border-[1px] border-gray-200 p-8 transition-all duration-200 ease-in-out hover:border-gray-50 hover:shadow-lg hover:shadow-gray-200 dark:border-gray-950 dark:hover:shadow-md dark:hover:shadow-gray-950">
+                    <div class="dar:hover:bg-gray-700 border-[1px] border-gray-200 p-8 transition-all duration-200 ease-in-out hover:border-gray-50 hover:shadow-lg hover:shadow-gray-200 dark:border-gray-950 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:shadow-md">
                         <div class="mb-6 flex items-center gap-4">
                             <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
