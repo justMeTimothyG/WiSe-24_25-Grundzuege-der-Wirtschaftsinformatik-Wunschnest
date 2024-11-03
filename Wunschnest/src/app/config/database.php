@@ -1,8 +1,14 @@
 <?php
 
-# Lade die Datenbank Verbindung
+/**
+ * Stellt ein Verbindungsobjekt zur Datenbank her.
+ *
+ * @return PDO Gibt das Objekt zurück, dass sich mit der Datenbank verbindet
+ */
 function getDatabaseConnection()
 {
+    # Lade die Datenbank Verbindung
+
     # Hole Variabeln aus der .env
     $host = $_ENV['DB_HOST'];
     $dbname = $_ENV['DB_NAME'];

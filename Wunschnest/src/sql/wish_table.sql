@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS wunschnest_db;
 USE wunschnest_db;
 
 -- Erstelle die `wish` Tabelle, wenn sie noch nicht existiert
-CREATE TABLE WISH (
+CREATE TABLE IF NOT EXISTS wish (
     -- PK wird automatisch erstellt
     wish_id INT PRIMARY KEY AUTO_INCREMENT,
     -- Zuordnung zu einer Wunschliste anhand der id
@@ -27,7 +27,7 @@ CREATE TABLE WISH (
     -- Datum, zu dem der Wunsch erledigt wurde
     fulfilled_at TIMESTAMP,
     -- von Wem der Wunsch erfüllt wurde
-    fulfilled_by VARCHAR(255)
+    fulfilled_by VARCHAR(255),
     -- Zuordnung zu einer Wunschliste, lösche alle Daten, wenn die Wunschliste gelöscht wird
-    FOREIGN KEY (wishlist_id) REFERENCES WISHLIST(wishlist_id) ON DELETE CASCADE,
+    FOREIGN KEY (wishlist_id) REFERENCES WISHLIST(wishlist_id) ON DELETE CASCADE
 );

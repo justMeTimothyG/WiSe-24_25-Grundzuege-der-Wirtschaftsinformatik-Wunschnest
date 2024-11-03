@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS wishlist (
     -- Favorit oder nicht -> Zum speichern in der Seitenleiste
     is_favorite BOOLEAN DEFAULT FALSE,
     -- Datum, zu der der Eintrag erstellt wurde
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     -- Zuordnung zu einem User, lösche alle Daten, wenn der User gelöscht wird
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 

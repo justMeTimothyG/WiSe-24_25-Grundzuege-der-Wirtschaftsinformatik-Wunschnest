@@ -1,10 +1,23 @@
 <?php
+require_once BASE_PATH . '/app/controllers/FavoriteTrait.php';
 
+/**
+ * Controller für die Wunschlisten
+ * 
+ * 
+ */
 class WishlistController
 {
+    # Lade Favoriten FUnktionen
+    use FavoriteTrait;
     # Datenbank benötigt, also speichere die Datenbankverbindung als Eigenschaft
     private $db;
 
+    /**
+     * Contructor
+     *
+     * @param PDO $pdo Das Datenbankverbindungsobjekt zur Datenbank
+     */
     public function __construct($pdo)
     {
         $this->db = $pdo;
@@ -15,27 +28,43 @@ class WishlistController
     # GET Funktionen #
     ##################
 
-
-    # Lade alle Wunschlisten aus der Datenbank
+    /**
+     * Hole alle Wunschlisten die es in der Datenbank gibt.
+     *
+     * @return array Gibt ein Array der Wunschlisten zurück
+     */
     public function getWishlists()
     {
+        # Lade alle Wunschlisten aus der Datenbank
         $stmt = $this->db->prepare("SELECT * FROM wishlist");
         $stmt->execute();
         return $stmt->fetchAll();
     }
 
-    # Lade eine Wunschliste aus der Datenbank anhand ihrer ID
+    /**
+     * Lade eine Wunschliste aus der Datenbank anhand ihrer ID
+     *
+     * @param int $id Die ID der Wunschliste
+     * @return array Gibt ein Array der Wunschliste zuruck
+     */
     public function getWishlist($id)
     {
-        $stmt = $this->db->prepare("SELECT * FROM wishlist WHERE id = :id");
-        $stmt->bindParam(':id', $id);
+        # Lade eine Wunschliste aus der Datenbank anhand ihrer ID
+        $stmt = $this->db->prepare("SELECT * FROM wishlist WHERE wishlist_id = :wishlist_id");
+        $stmt->bindParam(':wishlist_id', $id);
         $stmt->execute();
         return $stmt->fetch();
     }
 
-    # Lade alle Wunschlisten eines Nutzers aus der Datenbank
+    /**
+     * Lade alle Wunschlisten eines Nutzers
+     *
+     * @param int $user_id ID des Nutzers
+     * @return array Gibt ein Array der Wunschlisten zuruck
+     */
     public function getWishlistsByUser($user_id)
     {
+        # Lade alle Wunschlisten eines Nutzers aus der Datenbank
         $stmt = $this->db->prepare("SELECT * FROM wishlist WHERE user_id = :user_id");
         $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
@@ -46,9 +75,20 @@ class WishlistController
     # Create Funktionen #
     ##################
 
-    # Erstelle eine neue Wunschliste
+    /**
+     * Erstelle eine neue Wunschliste
+     *
+     * @param int $user_id ID des Nutzers
+     * @param array $data
+     * - name (string): Name der Wunschliste
+     * - description (string): Beschreibung der Wunschliste
+     * - is_favorite (boolean): Ist die Wunschliste favorisiert
+     * - targetDate (string): Ziel Datum der Wunschliste
+     * @return void
+     */
     public function createWishlist($user_id, $data)
     {
+        # Erstelle eine neue Wunschliste
         # Lade die Daten falls es unausgefüllte Felder gibt die NULL sein dürfen
         $description = isset($data['description']) && !empty($data['description']) ? $data['description'] : null;
         $is_favorite = isset($data['is_favorite']) && !empty($data['is_favorite']) ? $data['is_favorite'] : false;
@@ -82,24 +122,40 @@ class WishlistController
     # Update Funktionen #
     #####################
 
-    # Markiere als Favorit oder nicht
-    public function markAsFavorite($id, $bool)
+    /**
+     * Markiere eine Wunschliste als favorisiert. 
+     *
+     * @param int $userID ID des Nutzers
+     * @param int $wishlistID ID der Wunschliste
+     * @param bool $bool True, falls die Wunschliste favorisiert ist
+     * @return void
+     */
+    public function markAsFavorite($userID, $wishlistID, $bool)
     {
-        $stmt = $this->db->prepare("UPDATE wishlist SET is_favorite = :is_favorite WHERE id = :id");
-        $stmt->bindParam(':is_favorite', $bool);
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
+        # Markiere als Favorit oder nicht
+        # Nutzer hierfür die Funktionen aus der Favoriten Trait
+        if ($bool) {
+            $this->addFavorite($userID, $wishlistID);
+        } else {
+            $this->removeFavorite($userID, $wishlistID);
+        }
     }
 
     #####################
     # Delete Funktionen #
     #####################
 
-    # Lösche eine Wunschliste
+    /**
+     * Loescht eine Wunschliste
+     *
+     * @param int $id Die ID der Wunschliste
+     * @return bool True, falls die Wunschliste gelöscht wurde
+     */
     public function deleteWishlist($id)
     {
-        $stmt = $this->db->prepare("DELETE FROM wishlist WHERE id = :id");
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
+        # Lösche eine Wunschliste
+        $stmt = $this->db->prepare("DELETE FROM wishlist WHERE wishlist_id = :wishlist_id");
+        $stmt->bindParam(':wishlist_id', $id);
+        return $stmt->execute();
     }
 }
