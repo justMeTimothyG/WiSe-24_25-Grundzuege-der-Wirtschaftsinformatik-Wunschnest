@@ -1,19 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./*.php', './components/*.php', './pages/*.php'],
+  content: [
+    "./*.php",
+    "./components/**/*.php",
+    "./components/**/*.html",
+    "./components/templates/*.html",
+    "./demo/*.php",
+    "./public/**/*.js",
+  ],
+  darkMode: "class",
   theme: {
     extend: {
       animation: {
-        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
         pulse: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(10px)' },
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(10px)" },
         },
       },
     },
   },
   plugins: [],
-}
-
+};
