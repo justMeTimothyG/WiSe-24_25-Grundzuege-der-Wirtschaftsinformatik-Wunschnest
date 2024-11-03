@@ -1,17 +1,19 @@
 <?php
+include_once './config.php';
+
 # Variablen definieren für die Homepage
 $title = "WunschNest - Kontakt";
 
-include './components/basic-head.php';
+include BASE_PATH . '/components/includes/basic-head.php';
 
 ?>
 
 </head>
 
 <body>
-    <div class="min-h-screen dark:bg-gray-900">
+    <div class="min-h-screen dark:bg-gray-900 flex flex-col">
         <!-- Navbar Einfügen aus Komponenten -->
-        <?php include './components/navbar.php'; ?>
+        <?php include BASE_PATH . '/components/includes/navbar.php'; ?>
 
         <div class="mx-auto max-w-screen-xl dark:text-white">
             <!-- Anfangsbereich - Impressum -->
@@ -66,7 +68,7 @@ include './components/basic-head.php';
 
 
             <!-- Footer Section einfügen    -->
-            <?php include './components/footer.php'; ?>
+            <?php include BASE_PATH . '/components/includes/footer.php'; ?>
         </div>
     </div>
 </body>

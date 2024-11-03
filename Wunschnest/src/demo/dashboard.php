@@ -19,7 +19,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 <div class="active flex items-center gap-4 rounded-lg p-3">
                     <a class="lottie-hover-target flex items-center gap-4" href="/">
                         <div class="lottie-animation size-7">
-                            <img src="../assets/logo.svg" alt="WunschNest Logo" />
+                            <img src="/public/assets/logo.svg" alt="WunschNest Logo" />
                         </div>
                         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">WunschNest</span>
                     </a>

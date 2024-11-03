@@ -8,15 +8,10 @@ $title = "WunschNest";
 include BASE_PATH . '/components/includes/basic-head.php';
 
 ?>
-
-
-<!-- Script für die Logo Animation -->
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
-<script defer src="/public/js/logo-lottie-animation.js"></script>
 </head>
 
 <body>
-    <div class="min-h-screen dark:bg-gray-900">
+    <div class="min-h-screen dark:bg-gray-900 flex flex-col">
 
 
         <!-- Navbar Bereich -->

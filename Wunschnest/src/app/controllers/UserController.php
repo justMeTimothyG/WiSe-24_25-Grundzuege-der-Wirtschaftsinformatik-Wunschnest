@@ -1,15 +1,17 @@
 <?php
-
+require_once BASE_PATH . '/app/controllers/FavoriteTrait.php';
 # Erstelle eine Klasse, die die Nutzerfunnktionen bereitstellt. 
 class UserController
 {
+    # Lade Favoriten FUnktionen
+    use FavoriteTrait;
     # Definiere Variablen
-    private $pdo;
+    private $db;
 
     # Constructor - Also Funktion die aufgerufen wird, wenn die Klasse instanziiert wird
     public function __construct($pdo)
     {
-        $this->pdo = $pdo;
+        $this->db = $pdo;
     }
 
     # Registriere einen Nutzer
@@ -22,7 +24,7 @@ class UserController
         try {
 
             # Erstelle die SQL Abfrage (SQL Statement)
-            $stmt = $this->pdo->prepare("INSERT INTO users (name, username,  email, password_hash) VALUES (:name, :username, :email, :password_hash)");
+            $stmt = $this->db->prepare("INSERT INTO users (name, username,  email, password_hash) VALUES (:name, :username, :email, :password_hash)");
 
             # Füge die Parameter in die Abfrage ein, auf diese art werden Injektions verhindert.
             $stmt->bindParam(':name', $name);
@@ -64,7 +66,7 @@ class UserController
     # Lade alle Nutzer aus der Datenbank
     public function getUsers()
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM users");
+        $stmt = $this->db->prepare("SELECT * FROM users");
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -72,7 +74,7 @@ class UserController
     # Lade einen Nutzer aus der Datenbank anhand seiner ID
     public function getUser($id)
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE id = :id");
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE id = :id");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         return $stmt->fetch();
@@ -81,7 +83,7 @@ class UserController
     # Lade einen Nutzer aus der Datenbank anhand seiner Email
     public function getUserByEmail($email)
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE email = :email");
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         return $stmt->fetch();
@@ -90,7 +92,7 @@ class UserController
     # Lade einen Nutzer aus der Datenbank anhand seiner Email
     public function getUserByUsername($username)
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE username = :username");
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE username = :username");
         $stmt->bindParam(':username', $username);
         $stmt->execute();
         return $stmt->fetch();
@@ -98,7 +100,7 @@ class UserController
     # Lade einen Nutzer aus der Datenbank anhand seiner Email ODER Nutzername
     public function getUserByUsernameOrEmail($kennung)
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE email = :kennung OR username = :kennung");
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE email = :kennung OR username = :kennung");
         $stmt->bindParam(':kennung', $kennung);
         $stmt->execute();
         return $stmt->fetch();

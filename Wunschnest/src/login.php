@@ -22,7 +22,7 @@ session_start();
 
 
         <!-- Kontaktformular -->
-        <div class="mx-auto max-w-screen-xl dark:text-white">
+        <div class="mx-auto max-w-screen-xl dark:text-white flex flex-col">
 
 
 

@@ -10,4 +10,7 @@
     <link rel="stylesheet" href="/public/css/style.css">
     <!-- Script für Dark Mode -->
     <script src="/public/js/dark-mode.js" defer></script>
+    <!-- Scripts für Lottie Animation -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <script src="/public/js/logo-lottie-animation.js" defer></script>
     <title><?php echo $title ?></title>

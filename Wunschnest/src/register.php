@@ -17,7 +17,7 @@ include  BASE_PATH . '/components/includes/basic-head.php';
         <!-- Navbar Einfügen aus Komponenten -->
         <?php include BASE_PATH . '/components/includes/navbar.php'; ?>
 
-        <div class="mx-auto max-w-screen-xl dark:text-white">
+        <div class="mx-auto max-w-screen-xl dark:text-white flex flex-col">
             <!-- Registrierformular -->
             <section class="mx-auto mb-32 mt-16 flex w-10/12 justify-center gap-16">
                 <div class="w-1/2 rounded-3xl bg-gray-50 p-16 transition duration-300 hover:shadow-xl dark:bg-gray-800">
