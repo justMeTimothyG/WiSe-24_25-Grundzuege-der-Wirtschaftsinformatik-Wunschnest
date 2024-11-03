@@ -2,7 +2,7 @@
     <nav class="mx-auto max-w-screen-xl">
         <div class="mx-auto flex w-10/12 flex-wrap items-center justify-between py-4">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="./assets/logo.svg" class="h-8" alt="Flowbite Logo" />
+                <img src="public/assets/logo.svg" class="h-8" alt="Wunschnest Logo" />
                 <span class="self-center whitespace-nowrap text-2xl font-semibold">WunschNest</span>
             </a>
             <div class="flex items-center space-x-3 rtl:space-x-reverse">

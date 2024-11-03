@@ -1,25 +1,14 @@
 <?php
-$title = "Demo Dashboard"
+# Lade die Config Datei 
+include_once '../config.php';
 
+$title = "Demo Dashboard";
+
+include BASE_PATH . '/components/includes/basic-head.php';
 
 ?>
 
-<!DOCTYPE html>
-<html lang="de">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="../assets/logo.png">
-    <link rel="stylesheet" href="../css/style.css">
-    <!-- Script für Dark Mode -->
-    <script src="../script/dark-mode.js" defer></script>
-    <!-- Script für die Logo Animation -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
-    <script defer src="../script/logo-lottie-animation.js"></script>
-    <title><?php echo $title ?></title>
+<title><?php echo $title ?></title>
 </head>
 
 <body>
@@ -207,14 +196,14 @@ $title = "Demo Dashboard"
 
                             # Erstelle Testdaten
                             $wunschliste_alternative_daten = [
-                                ["title" => "Weihnachten", "datum" => "2024-12-31", "count" => 5],
-                                ["title" => "Geburtstag", "datum" => "2025-03-16", "count" => 12],
-                                ["title" => "Hochzeit", "datum" => "2025-08-28", "count" => 10],
-                                ["title" => "Generelle Ideen", "datum" => "2030-12-31", "count" => 20],
+                                ["title" => "Weihnachten", "datum" => "2024-12-31", "count" => 5, "shared" => true],
+                                ["title" => "Geburtstag", "datum" => "2025-03-16", "count" => 12, "shared" => true],
+                                ["title" => "Hochzeit", "datum" => "2025-08-28", "count" => 10, "shared" => false],
+                                ["title" => "Generelle Ideen", "datum" => "2030-12-31", "count" => 20, "shared" => false],
                             ];
 
                             # Importiere Funktion, um Kacheln zu erstellen
-                            include __DIR__ . "/../components/wunschlisten.php";
+                            include BASE_PATH . "/components/elements/wunschlisten.php";
 
                             # Gehe durch Daten und erstelle eine Kachel
                             foreach ($wunschliste_alternative_daten as $liste) {
@@ -223,7 +212,7 @@ $title = "Demo Dashboard"
                                 # diff in Zahl umwandeln
                                 $daysUntil = $diff->format("%a");
                                 # Erstelle Kachel
-                                echo wunschlistenAlternative($liste["title"], $daysUntil, $liste["count"]);
+                                echo wunschlistenAlternative($liste["title"], $daysUntil, $liste["count"], $liste["shared"]);
                             }
                             ?>
                             <li
@@ -274,7 +263,7 @@ $title = "Demo Dashboard"
                     ];
 
                     # Importiere Funktion um Kategorien mit Anzahl anzuzeigen
-                    include "../components/category-counter-tag.php";
+                    include BASE_PATH . "/components/elements/category-counter-tag.php";
 
                     # Durch das Array durchgehen und einzelne Kategorien anzeigen
                     foreach ($test_kategorien as $kategorie) {
@@ -316,7 +305,7 @@ $title = "Demo Dashboard"
                                 <th scope="col" class="px-6 py-3 text-right">
                                     Preis
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-6 py-3 text-right">
                                     Aktion
                                 </th>
                             </tr>
@@ -336,7 +325,7 @@ $title = "Demo Dashboard"
                             ];
 
                             # Importiere die Funnktion, die die Daten in geeignetes HTML umwandelt. 
-                            include '../components/wishlist-table-item.php';
+                            include BASE_PATH . '/components/elements/wishlist-table-item.php';
 
                             # Gehe die Daten durch und erstelle eine Zeile Für die Tabelle der Wunschliste.
                             foreach ($data as $row) {

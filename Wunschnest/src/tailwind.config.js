@@ -2,10 +2,11 @@
 module.exports = {
   content: [
     "./*.php",
-    "./components/*.php",
-    "./pages/*.php",
-    "./components/*.html",
+    "./components/**/*.php",
+    "./components/**/*.html",
+    "./components/templates/*.html",
     "./demo/*.php",
+    "./public/**/*.js",
   ],
   darkMode: "class",
   theme: {

@@ -1,19 +1,18 @@
 <?php
+# Lade die Config Datei 
+include_once './config.php';
+
 # Variablen definieren für die Homepage
 $title = "WunschNest";
 
-include './components/basic-head.php';
+include BASE_PATH . '/components/includes/basic-head.php';
 
 ?>
-<!-- Hier bauen wir die Homepage der Webanwendung. 
- Sie kann mit einer Landingpage verglichen werden. 
- Details über die Anwendung, Nutzen, und Einsatzgebiete erläutern.   -->
 
-<!-- Script für Dark Mode -->
-<script src="./script/dark-mode.js" defer></script>
+
 <!-- Script für die Logo Animation -->
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
-<script defer src="./script/logo-lottie-animation.js"></script>
+<script defer src="/public/js/logo-lottie-animation.js"></script>
 </head>
 
 <body>
@@ -22,7 +21,7 @@ include './components/basic-head.php';
 
         <!-- Navbar Bereich -->
 
-        <?php include './components/navbar.php' ?>
+        <?php include BASE_PATH . '/components/includes/navbar.php' ?>
         <div class="mx-auto max-w-screen-xl dark:bg-gray-900 dark:text-white">
             <!--
 
@@ -46,7 +45,7 @@ include './components/basic-head.php';
                             <a href="/register.php">
                                 <button type="button" class="rounded-lg bg-gray-800 px-10 py-4 text-center text-sm font-light text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-gray-700 dark:hover:bg-blue-700">Kostenlos Registrieren</button>
                             </a>
-                            <a href="/test-page.php">
+                            <a href="/demo/dashboard.php">
                                 <button type="button" class="flex items-center gap-4 rounded-lg px-10 py-4 text-center text-sm font-medium text-gray-800 hover:bg-blue-100 hover:text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-blue-800 dark:hover:text-white">
                                     Demo testen
                                     <svg class="h-3 w-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -208,13 +207,13 @@ include './components/basic-head.php';
             <!-- Letzter Call to Action -->
 
             <!-- Call to Action kann ggf. noch woanders benutzt werden, also als eigene Datei verwenden um sich im Code nicht zu wiederholen -->
-            <?php include 'components/bottom-cta.php'; ?>
+            <?php include BASE_PATH . '/components/bottom-cta.php'; ?>
 
 
             <!-- Footer -->
 
             <!-- Footer wird oft bentut und kaum verändert, also auch hier als separate Datei Komponente hier einfach einbetten.  -->
-            <?php include 'components/footer.php'; ?>
+            <?php include BASE_PATH . '/components/includes/footer.php'; ?>
         </div>
     </div>
 </body>
