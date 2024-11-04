@@ -25,8 +25,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
 
             -->
 
-
-
+            <button class="p-4 text-white bg-blue-700rounded-lg">Hallo</button>
 
             <!-- Hero Section - Startseitenbereich  -->
 

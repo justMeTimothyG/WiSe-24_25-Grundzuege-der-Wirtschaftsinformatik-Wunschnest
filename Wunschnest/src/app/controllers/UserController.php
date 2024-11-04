@@ -97,7 +97,7 @@ class UserController
     # Update LastLogin
     public function updateLastLogin($id)
     {
-        $stmt = $this->db->prepare("UPDATE users SET last_login = NOW() WHERE user_id = :id");
+        $stmt = $this->db->prepare("UPDATE users SET last_login_at = NOW() WHERE user_id = :id");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }

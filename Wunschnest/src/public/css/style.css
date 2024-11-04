@@ -976,6 +976,10 @@ video {
   flex-direction: column;
 }
 
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -2097,6 +2101,10 @@ h6:is(.dark *) {
 
   .sm\:w-auto {
     width: auto;
+  }
+
+  .sm\:flex-col-reverse {
+    flex-direction: column-reverse;
   }
 
   .sm\:rounded-lg {
