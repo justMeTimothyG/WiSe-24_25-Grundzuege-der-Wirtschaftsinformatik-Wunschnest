@@ -1,6 +1,4 @@
 <?php
-# Lade die Config Datei 
-include_once './config.php';
 
 # Variablen definieren für die Homepage
 $title = "WunschNest";

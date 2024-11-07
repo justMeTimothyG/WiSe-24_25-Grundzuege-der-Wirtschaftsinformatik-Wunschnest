@@ -50,13 +50,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['register_message'] = $message;
     $_SESSION['register_check'] = "success";
 
-    header("Location: /login.php");
+    header("Location: /index.php?page=login");
     exit();
 } else {
     $message = "Falsche Anfrage Methode. Nutze ein POST Request.";
     # Setze die Nachricht in die Session zur Ausgabe im Register Formular Wenn Fehlerhaft
     $_SESSION['register_message'] = $message;
     $_SESSION['register_check'] = "fail";
-    header("Location: /register.php");
+    header("Location: /index.php?page=register");
     exit();
 }

@@ -2,6 +2,7 @@
 # Definiere die Basis Pfade, damit keine Kaputten Links entstehen / also die verweise iin unterschieldichen pfaden funktionieren.
 define('BASE_PATH', __DIR__);
 define('COMPONENTS_PATH', BASE_PATH . '/components/includes/');
+define('VIEWS_PATH', BASE_PATH . '/app/views/');
 
 # Lade Datenbank Daten aus der .env datei 
 function loadENV($file)

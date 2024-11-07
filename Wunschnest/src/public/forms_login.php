@@ -36,13 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         # Wenn login Fehlschägt dann gebe Fehler aus
         $_SESSION['login_check'] = "error";
         $_SESSION['login_message'] = "Falscher Benutzername oder Passwort";
-        header("Location: /login.php");
+        header("Location: /public/index.php?page=login.php");
         exit();
     } else {
         # $user ist nicht false, also muss $user ein Nutzer Objekt sein. 
         $_SESSION['login_check'] = "success";
         $_SESSION['login_message'] = "Login erfolgreich";
-        header("Location: /login.php");
+        header("Location: /public/index.php?page=login");
         exit();
     }
 
@@ -54,6 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     # Setze die Nachricht in die Session zur Ausgabe im Register Formular Wenn Fehlerhaft
     $_SESSION['login_message'] = $message;
     $_SESSION['login_check'] = "error";
-    header("Location: /login.php");
+    header("Location: /public/index.php?page=login");
     exit();
 }

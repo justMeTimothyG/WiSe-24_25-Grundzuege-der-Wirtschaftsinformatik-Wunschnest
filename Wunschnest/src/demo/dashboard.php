@@ -138,7 +138,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
             </div>
 
             <!-- Main Content -->
-            <div class="mx-auto w-full max-w-screen-xl p-8">
+            <div class="mx-auto w-full max-w-screen-xl p-8 pb-0">
                 <!-- Breadcrumbs Navigation -->
                 <nav class="mb-8 flex" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -286,7 +286,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                         </button>
                     </div>
                 </div>
-                <div class="mb-8 sm:rounded-lg">
+                <div class="mb-4 sm:rounded-lg">
                     <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
                         <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
@@ -336,6 +336,10 @@ include BASE_PATH . '/components/includes/basic-head.php';
                         </tbody>
                     </table>
                 </div>
+                <?php
+                # Footer Importieren
+                include BASE_PATH . '/components/includes/footer.php';
+                ?>
             </div>
         </div>
     </div>
