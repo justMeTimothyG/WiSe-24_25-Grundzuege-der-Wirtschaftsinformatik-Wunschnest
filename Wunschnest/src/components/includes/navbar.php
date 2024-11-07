@@ -6,9 +6,9 @@
                 <span class="self-center whitespace-nowrap text-2xl font-semibold">WunschNest</span>
             </a>
             <div class="flex items-center space-x-3 rtl:space-x-reverse">
-                <div id="dark-toggle">
+                <div id="dark-toggle" class="h-8 w-8 flex items-center justify-center cursor-pointer rounded-full dark:hover:bg-gray-700 ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        <path id="dark-mode-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </div>
                 <a href="/public/index.php?page=login">
