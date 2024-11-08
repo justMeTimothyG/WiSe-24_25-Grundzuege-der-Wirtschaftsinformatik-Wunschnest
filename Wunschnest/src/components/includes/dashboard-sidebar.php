@@ -131,7 +131,7 @@ $active = 'bg-gray-500 dark:bg-gray-900 hover:shadow-md';
                 </div>
                 <span class="text-md font-semibold"><?php echo $_SESSION['name']; ?></span>
             </div>
-            <div class="flex items-center gap-4 p-3">
+            <!-- <div class="flex items-center gap-4 p-3">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="3"></circle>
@@ -139,7 +139,7 @@ $active = 'bg-gray-500 dark:bg-gray-900 hover:shadow-md';
                     </svg>
                 </span>
                 <h2 class="text-md font-semibold">Einstellungen</h2>
-            </div>
+            </div> -->
         </div>
     </nav>
 </div>
