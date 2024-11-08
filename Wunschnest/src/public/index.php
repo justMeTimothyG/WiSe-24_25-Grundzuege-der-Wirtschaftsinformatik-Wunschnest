@@ -35,9 +35,11 @@ switch ($page) {
     case 'dashboard':
         # Authenticate
         include_once VIEWS_PATH . 'dashboard.php';
+
         break;
     case 'wishlist':
         # Authenticate
+        include_once VIEWS_PATH . 'wishlist.php';
         break;
     case 'wish':
         # Authenticate

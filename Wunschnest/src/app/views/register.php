@@ -19,7 +19,7 @@ include  BASE_PATH . '/components/includes/basic-head.php';
             <section class="mx-auto mb-32 mt-16 flex w-10/12 justify-center gap-16">
                 <div class="w-1/2 rounded-3xl bg-gray-50 p-16 transition duration-300 hover:shadow-xl dark:bg-gray-800">
                     <h1 class="mb-8 text-center text-2xl">Registrieren</h1>
-                    <form action="/public/forms_register.php" method="post" class="mx-auto max-w-sm">
+                    <form action="/forms_register.php" method="post" class="mx-auto max-w-sm">
                         <div class="mb-5">
                             <label for="name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-200">Name</label>
                             <input type="text" name="name" id="name" class="block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Max Mustermann" required />

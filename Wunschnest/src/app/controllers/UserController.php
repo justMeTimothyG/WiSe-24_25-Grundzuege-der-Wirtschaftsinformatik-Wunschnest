@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Kontroller, um Nutzerdaten aus der Datenbank zu laden und zu bearbeiten
  * 
@@ -31,7 +32,7 @@ class UserController
      * @param string $password Das Passwort im Klartext (wird gehasht)
      * @return string Nachricht als Rückgabe der Registrierung (Erfolg oder ggf. die Fehlermeldung)
      */
-    public function register($name, $username, $email, $password)
+    public function register($name, $username, $email, $password, $categoryController)
     {
         # Registriere einen Nutzer
         # Passwort Hashen - also unkenntlich in Datenbank speichern
@@ -52,11 +53,19 @@ class UserController
             # Führe die Abfrage aus
             $stmt->execute();
 
+            $user = $this->getUserByUsernameOrEmail($username);
+            $user_id = $user["user_id"];
+
+
+            # Füge die Standard Kategorien hinzu
+            $categoryController->addDefaultCategories($user_id);
+
+
             return "Ihr Nutzerkonto wurde erfolgreich angelegt!";
 
             # Wenn die Abfrage fehlschlägt dann gebe eine Fehlermedlung aus
         } catch (PDOException $e) {
-            return "Fehler beim Anlegen des Nutzers: " . $e->getMessage() . "<br> <br>. Bitte versuchen Sie es erneut.";
+            return "Fehler beim Anlegen des Nutzers: " . $e->getMessage() . ".<br> <br>Bitte versuchen Sie es erneut.";
         }
     }
 
@@ -79,8 +88,28 @@ class UserController
 
         # Vergleiche das Passwort mit dem Passwort aus der Datenbank
         if (password_verify($password, $user['password_hash'])) {
+            # Last Login updaten
             $this->updateLastLogin($user['user_id']);
-            # Passwort stimmt
+
+            # Session Token mit 90 Zeichen erstellen / Expiry in 24h
+            $token = bin2hex(random_bytes(32));
+            $expiration = date('Y-m-d H:i:s', strtotime('+24 hours'));
+
+            #SQl Ausführen
+            try {
+
+                $stmt = $this->db->prepare("UPDATE users SET session_token = :session_token, session_token_expiration = :session_token_expiration WHERE user_id = :user_id");
+                $stmt->bindParam(':user_id', $user['user_id']);
+                $stmt->bindParam(':session_token', $token);
+                $stmt->bindParam(':session_token_expiration', $expiration);
+                $stmt->execute();
+            } catch (PDOException $e) {
+                return false;
+            }
+
+            # Get updated User
+            $user = $this->getUserById($user['user_id']);
+            # Nutzerdaten zurückgeben
             return $user;
         } else {
             # Passwort stimmt nicht
@@ -155,6 +184,21 @@ class UserController
         # Lade einen Nutzer aus der Datenbank anhand seiner Email
         $stmt = $this->db->prepare("SELECT * FROM users WHERE username = :username");
         $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    /**
+     * Lade einen Nutzer aus der Datenbank anhand seines Nutzernamens
+     * 
+     * @param int $userId
+     * @return array
+     */
+    public function getUserById($userId)
+    {
+        # Lade einen Nutzer aus der Datenbank anhand seiner Email
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE user_id = :user_id");
+        $stmt->bindParam(':user_id', $userId);
         $stmt->execute();
         return $stmt->fetch();
     }

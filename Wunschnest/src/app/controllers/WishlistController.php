@@ -53,7 +53,15 @@ class WishlistController
         $stmt = $this->db->prepare("SELECT * FROM wishlist WHERE wishlist_id = :wishlist_id");
         $stmt->bindParam(':wishlist_id', $id);
         $stmt->execute();
-        return $stmt->fetch();
+        $list = $stmt->fetch();
+
+        # Hole die Anzahl an Geschenken der Wunschliste und füge dies in das Array ein
+        $stmt = $this->db->prepare("SELECT COUNT(*) AS count FROM wish WHERE wishlist_id = :wishlist_id");
+        $stmt->bindParam(':wishlist_id', $id);
+        $stmt->execute();
+        $list['wish_count'] = $stmt->fetch()['count'];
+
+        return $list;
     }
 
     /**
@@ -65,10 +73,31 @@ class WishlistController
     public function getWishlistsByUser($user_id)
     {
         # Lade alle Wunschlisten eines Nutzers aus der Datenbank
-        $stmt = $this->db->prepare("SELECT * FROM wishlist WHERE user_id = :user_id");
+        // $stmt = $this->db->prepare("SELECT * FROM wishlist WHERE user_id = :user_id");
+        $stmt = $this->db->prepare("SELECT w.*, COUNT(wi.wishlist_id) AS wish_count FROM wishlist w LEFT JOIN wish wi ON w.wishlist_id = wi.wishlist_id WHERE user_id = :user_id GROUP BY w.wishlist_id ORDER BY  w.target_date IS NULL ASC, w.target_date DESC");
         $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
         return $stmt->fetchAll();
+    }
+
+    /**
+     * Lade alle Statistike aus der Wunschliste eines Nutzer
+     *
+     * @param int $user_id ID des Nutzers
+     * @return array Gibt ein Array der Statistiken zuruck
+     * - wishlist_count (int): Anzahl der Wunschlisten
+     * - wish_count (int): Anzahl der Geschenken
+     * - shared_count (int): Anzahl der geteilten Wunschlisten
+     * - archived_count (int): Anzahl der Archivierten Wunschlisten
+     */
+    public function getStatsByUser($user_id)
+    {
+        # Lade alle Statistike aus der Wunschliste eines Nutzer
+        # Anzahl der Listen, Anzahl aller Wünsche eines Nutzer, Anzahl der geteilten Listen, Anzahl der Archivierten Listen
+        $stmt = $this->db->prepare("SELECT COUNT(*) AS wishlist_count, SUM(wish_count) AS wish_count, COUNT(CASE WHEN is_public = 1 THEN 1 END) AS shared_count, COUNT(CASE WHEN is_archived = 1 THEN 1 END) AS archived_count FROM wishlist w LEFT JOIN (SELECT wishlist_id, COUNT(*) AS wish_count FROM wish GROUP BY wishlist_id) wi ON w.wishlist_id = wi.wishlist_id WHERE user_id = :user_id");
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+        return $stmt->fetch();
     }
 
     ##################
