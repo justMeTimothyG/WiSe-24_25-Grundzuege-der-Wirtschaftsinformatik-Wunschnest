@@ -5,15 +5,25 @@ include_once '../config.php';
 # Lade Datenbank
 include_once BASE_PATH . '/app/config/database.php';
 
-# Lade Wishlist Controller 
+# Lade Controller
 include_once BASE_PATH . '/app/controllers/WishlistController.php';
+include_once BASE_PATH . '/app/controllers/UserController.php';
+include_once BASE_PATH . '/app/controllers/CategoryController.php';
 
 # Initialisiere Datenbank und Controller
 $pdo = getDatabaseConnection();
 $wishlistController = new WishlistController($pdo);
+$userController = new UserController($pdo);
+$categoryController = new CategoryController($pdo);
 
-# Da Demo Nutzer: Benutze ID 1 für den ersten User in Datenbank, der der Test User ist.
-$user_id = 1;
+# Prüfe ob Testdaten geladen werden sollen oder die des Nutzers: 
+if (isset($_GET['demo']) && $_GET['demo'] == 'true') {
+    # Da Demo Nutzer: Benutze ID 1 für den ersten User in Datenbank, der der Test User ist.
+    $user_id = 1;
+} else {
+    $user = $userController->getUserByUsername($_SESSION['username']);
+    $user_id = $user['user_id'];
+}
 
 # Hole die Wunschlistn des Users   
 $wishlists = $wishlistController->getWishlistsByUser($user_id);
@@ -125,7 +135,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                             # Favoriten auflisten in einer foreach schleife
                             foreach ($favorites as $favorite) {
                                 echo '<li>';
-                                echo '<a href="/index.php?page=wishlist?wishlist_id=' . $favorite['wishlist_id'] . '">';
+                                echo '<a href="/index.php?page=wishlist&wishlist_id=' . $favorite['wishlist_id'] . '">';
                                 echo '<div class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">';
                                 echo '<h2 class="text-md">' . $favorite['name'] . '</h2>';
                                 echo '</div>';
@@ -164,14 +174,14 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 </div>
             </nav>
         </div>
-        <div class="w-full">
+        <div class="w-full flex flex-col">
             <!-- Banner Image  -->
             <div class="h-32 bg-teal-700 bg-gradient-to-tr from-cyan-500">
 
             </div>
 
             <!-- Main Content -->
-            <div class="mx-auto w-full max-w-screen-xl p-8 pb-0">
+            <div class="mx-auto w-full max-w-screen-xl flex flex-col flex-grow p-8 pb-0">
                 <!-- Breadcrumbs Navigation -->
                 <nav class="mb-8 flex" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -208,7 +218,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 <!-- Darstellung der Listen -->
                 <div class="mb-4 flex justify-between align-middle">
 
-                    <h2 class="mb-4 dark:text-gray-300">
+                    <h2 class="mb-4 dark:text-gray-400">
                         Meine Listen
                     </h2>
                     <div class="inline-flex rounded-md items-center shadow-sm" role="group">
@@ -287,35 +297,43 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 </h2>
                 <div class="flex flex-wrap gap-4">
                     <?php
+                    # Lade Kategorien
+                    $categories = [];
 
-                    # Test Daten an Kategorien 
-                    $test_kategorien = [
-                        ["Elektronik", 13],
-                        ["Haushalt", 5],
-                        ["Familie", 2],
-                        ["Wohnen", 1],
-                        ["Hobby", 3],
-                        ["Sonstiges", 1]
-                    ];
-
-
+                    # Wenn user_id = 1 (Test Nutzer), benutzer Testdaten, sonst die echten Daten
+                    if ($user_id == 1) {
+                        $categories = [
+                            ["name" => "Elektronik", "wish_count" => 13],
+                            ["name" => "Haushalt", "wish_count" => 5],
+                            ["name" => "Familie", "wish_count" => 2],
+                            ["name" => "Wohnen", "wish_count" => 1],
+                            ["name" => "Hobby", "wish_count" => 3],
+                            ["name" => "Sonstiges", "wish_count" => 1]
+                        ];
+                    } else {
+                        $categories = $categoryController->getCategoriesByUser($user_id);
+                    }
 
                     # Importiere Funktion um Kategorien mit Anzahl anzuzeigen
                     include BASE_PATH . "/components/elements/category-counter-tag.php";
 
+                    # Console.log the categories
+                    echo "<script>console.log(" . json_encode($categories) . ");</script>";
                     # Durch das Array durchgehen und einzelne Kategorien anzeigen
-                    foreach ($test_kategorien as $kategorie) {
-                        echo categoryCounterTag($kategorie[0], $kategorie[1]);
+                    foreach ($categories as $kategorie) {
+                        echo categoryCounterTag($kategorie["name"], $kategorie["wish_count"]);
                     }
                     ?>
 
                 </div>
 
+                <div class="mt-auto">
 
-                <?php
-                # Footer Importieren
-                include BASE_PATH . '/components/includes/footer.php';
-                ?>
+                    <?php
+                    # Footer Importieren
+                    include BASE_PATH . '/components/includes/footer.php';
+                    ?>
+                </div>
             </div>
         </div>
     </div>

@@ -103,7 +103,7 @@ class CategoryController
     public function getCategoriesByUser($userId)
     {
         # Holle alle Kategorien eines Nutzers - Gebe direkt die Anzahl an Wünschen für eine Jeweilige Kategorie zurück
-        $stmt = $this->db->prepare("SELECT C.*, COUNT(w.wish_id) AS wish_count FROM category C LEFT JOIN wish W ON C.category_id = W.category_id WHERE C.user_id = :user_id GROUP BY C.category_id, c.name ORDER BY C.name DESC");
+        $stmt = $this->db->prepare("SELECT C.*, COUNT(w.wish_id) AS wish_count FROM category C LEFT JOIN wish W ON C.category_id = W.category_id WHERE C.user_id = :user_id GROUP BY C.category_id, c.name ORDER BY C.name ASC");
         $stmt->bindParam(':user_id', $userId);
 
         $stmt->execute();
