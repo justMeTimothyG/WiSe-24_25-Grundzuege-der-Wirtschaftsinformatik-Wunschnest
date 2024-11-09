@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(100) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    last_login_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    last_login_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     session_token VARCHAR(64) DEFAULT NULL,
-    session_token_expiration TIMESTAMP,
+    session_token_expiration TIMESTAMP
 );

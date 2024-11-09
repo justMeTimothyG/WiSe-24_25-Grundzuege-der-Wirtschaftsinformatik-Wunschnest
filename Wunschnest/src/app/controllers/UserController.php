@@ -50,15 +50,16 @@ class UserController
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password_hash', $hashedPassword);
 
-            # Führe die Abfrage aus
-            $stmt->execute();
+            # Führe die Abfrage aus, wenn erfolgreich, füge kategorien hinzu
+            if ($stmt->execute()) {
 
-            $user = $this->getUserByUsernameOrEmail($username);
-            $user_id = $user["user_id"];
+                $user = $this->getUserByUsernameOrEmail($username);
+                $user_id = $user["user_id"];
 
 
-            # Füge die Standard Kategorien hinzu
-            $categoryController->addDefaultCategories($user_id);
+                # Füge die Standard Kategorien hinzu
+                $categoryController->addDefaultCategories($user_id);
+            };
 
 
             return "Ihr Nutzerkonto wurde erfolgreich angelegt!";
