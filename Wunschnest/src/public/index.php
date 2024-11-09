@@ -21,7 +21,7 @@ switch ($page) {
         include_once VIEWS_PATH . 'contact.php';
         break;
     case 'datenschutz':
-        include_once VIEWS_PATH . 'impressum.php';
+        include_once VIEWS_PATH . 'datenschutz.php';
         break;
     case 'register':
         include_once VIEWS_PATH . 'register.php';
