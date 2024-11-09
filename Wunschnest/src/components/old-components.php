@@ -192,3 +192,49 @@
         </tbody>
     </table>
 </div>
+
+<!-- TOAST KOMPOENTE VON LOGIN -->
+
+<?php
+echo '<div class="mt-8">';
+
+
+# Prüfe in den Session Daten, ob der Nutzer aus einer Registrierung kommt
+if (isset($_SESSION['register_message']) && isset($_SESSION['register_check'])) {
+    # Lade die Toast Komponente
+    include BASE_PATH . "/components/elements/toast.php";
+
+    # Wenn Erfolgreich gebe eine Erfolgsnachricht aus
+    if ($_SESSION['register_check'] === 'success') {
+        echo toast('success', $_SESSION['register_message'] . " Bitte loggen Sie sich nun ein.");
+    } else {
+        # Normal sollte der Nutzer hierhin nicht hinkommen, da bei Fehler zurück zur Registrierung weitergeleitet wird.
+        # Falls doch einfach, gebe eine Fehlernachricht aus und leite den Nutzer zur Registrierung nach 10 sec.
+        echo toast('error', $_SESSION['register_message']);
+    }
+    # Lösche die Session Variablen, da Erfolg oder Fehler bereits angezeigt worden ist.
+    unset($_SESSION['register_message']);
+    unset($_SESSION['register_check']);
+}
+
+# Prüfe ob der Nutzer aus einem Login kommt. Wenn ja, dann wahrscheinlich falsche Login daten. 
+if (isset($_SESSION['login_message']) && isset($_SESSION['login_check'])) {
+    # Lade die Toast Komponente
+    include BASE_PATH . "/components/elements/toast.php";
+
+    # Wenn Erfolgreich gebe eine Erfolgsnachricht aus
+    if ($_SESSION['login_check'] === 'success') {
+        # Eigentlich der Unwahrscheinlichere Fall, da dieser ja weitergeleitet wird auf das Dashboard.
+        # Zu Testzwecken kann das hier bleiben wenn die Weiterleitung noch nicht funktioniert
+        echo toast('success', $_SESSION['login_message']);
+    } else {
+        # Der Normallfall da der Nutzer bei Fehlern wieder hierhin kommen sollte
+        echo toast('error', $_SESSION['login_message']);
+    }
+    # Lösche die Session Variablen, da Erfolg oder Fehler bereits angezeigt worden ist. Und der Nutzer sonst in einer Schleife sich befinden wird
+    unset($_SESSION['login_message']);
+    unset($_SESSION['login_check']);
+}
+
+echo "</div>";
+?>

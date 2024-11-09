@@ -113,7 +113,8 @@ class WishlistController
      * - description (string): Beschreibung der Wunschliste
      * - is_favorite (boolean): Ist die Wunschliste favorisiert
      * - targetDate (string): Ziel Datum der Wunschliste
-     * @return void
+     * - share_token (string): Share Token der Wunschliste (64 Zeichen)
+     * @return mixed Gibt die ID der Wunschliste zuruck oder false bei Fehler.
      */
     public function createWishlist($user_id, $data)
     {
@@ -126,23 +127,27 @@ class WishlistController
         # Prüfe ob target Date überhaupt gesetzt worden ist und nicht leer ist
         $targetDate = isset($data['targetDate']) && !empty($data['targetDate']) ? $data['targetDate'] : null;
 
-        # Wenn es ein Fatum gibt, dann formatieren
+        # Wenn es ein Datum gibt, dann formatieren
         if ($targetDate) {
             # Formatieren ins Format YYYY-MM-DD 
             $targetDate = date('Y-m-d', strtotime($targetDate));
         }
+        try {
+            # Erstelle die SQL Abfrage (SQL Statement)
+            $stmt = $this->db->prepare("INSERT INTO wishlist (user_id, name, description, target_date, is_favorite, share_token) VALUES (:user_id, :name, :description, :targetDate, :is_favorite, :share_token)");
 
-        # Erstelle die SQL Abfrage (SQL Statement)
-        $stmt = $this->db->prepare("INSERT INTO wishlist (user_id, name, description, target_date, is_favorite) VALUES (:user_id, :name, :description, :targetDate, :is_favorite)");
-
-        # Füge die Parameter in die Abfrage ein, auf diese art werden Injektions verhindert.
-        $stmt->bindParam(':user_id', $user_id);
-        $stmt->bindParam(':name', $data['name']);
-        $stmt->bindParam(':description', $description);
-        $stmt->bindParam(':targetDate', $targetDate);
-        $stmt->bindParam(':is_favorite', $is_favorite);
-        $stmt->execute();
-
+            # Füge die Parameter in die Abfrage ein, auf diese art werden Injektions verhindert.
+            $stmt->bindParam(':user_id', $user_id);
+            $stmt->bindParam(':name', $data['name']);
+            $stmt->bindParam(':description', $description);
+            $stmt->bindParam(':targetDate', $targetDate);
+            $stmt->bindParam(':is_favorite', $is_favorite);
+            $stmt->bindParam(':share_token', $data['share_token']);
+            $stmt->execute();
+        } catch (Exception $e) {
+            # Gebe Fehlermeldung aus
+            return $e->getMessage();
+        }
         # Gebe die zuletzt eingefügte Zeilen ID zurück
         return $this->db->lastInsertId();
     }

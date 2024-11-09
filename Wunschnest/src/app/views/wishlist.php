@@ -69,7 +69,9 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 echo dashboard_breadcrumb(false, $wishlist);
 
                 ?>
-
+                <?php
+                include BASE_PATH . '/components/includes/toast.php';
+                ?>
                 <div class="mb-16">
                     <h1 class="text-4xl font-bold tracking-tight mb-4"><?php echo $wishlist['name'] ?></h1>
                     <!-- Details -->

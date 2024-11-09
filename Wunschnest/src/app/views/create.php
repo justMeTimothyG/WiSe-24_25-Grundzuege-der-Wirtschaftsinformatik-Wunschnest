@@ -56,6 +56,9 @@ include BASE_PATH . '/components/includes/basic-head.php';
             <!-- Main Content -->
             <div class="mx-auto w-full max-w-screen-xl flex flex-col flex-grow p-8 pb-0">
 
+                <?php
+                include BASE_PATH . '/components/includes/toast.php';
+                ?>
                 <div class="mx-auto mb-16 mt-8">
                     <span class=" text-lg text-orange-500">Ich habe mir schon immer gewünscht...</span>
                     <h1 class="my-4 mb-8 text-3xl font-semibold text-gray-900 dark:text-gray-200">Wunsch Erstellen</h1>

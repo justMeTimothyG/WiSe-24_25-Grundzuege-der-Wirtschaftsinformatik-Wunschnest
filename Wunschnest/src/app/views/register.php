@@ -17,6 +17,9 @@ include  BASE_PATH . '/components/includes/basic-head.php';
         <div class="mx-auto max-w-screen-xl dark:text-white flex flex-col">
             <!-- Registrierformular -->
             <section class="mx-auto mb-32 mt-16 flex w-10/12 justify-center gap-16">
+                <?php
+                include BASE_PATH . '/components/includes/toast.php';
+                ?>
                 <div class="w-1/2 rounded-3xl bg-gray-50 p-16 transition duration-300 hover:shadow-xl dark:bg-gray-800">
                     <h1 class="mb-8 text-center text-2xl">Registrieren</h1>
                     <form action="/forms_register.php" method="post" class="mx-auto max-w-sm">

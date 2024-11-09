@@ -64,6 +64,9 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 echo dashboard_breadcrumb(true);
 
                 ?>
+                <?php
+                include BASE_PATH . '/components/includes/toast.php';
+                ?>
                 <!-- Darstellung der Listen -->
                 <div class="mb-4 flex justify-between align-middle">
 
