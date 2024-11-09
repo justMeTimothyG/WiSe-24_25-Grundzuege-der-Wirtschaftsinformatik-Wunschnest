@@ -109,4 +109,19 @@ class CategoryController
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    /**
+     * Lade eine Kategorie anhand der ID
+     *
+     * @param int $categoryId ID der Kategorie
+     * @return array Gibt ein Array der Kategorien zuruck
+     */
+    public function getCategoryById($categoryId)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM category WHERE category_id = :category_id");
+        $stmt->bindParam(':category_id', $categoryId);
+
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }

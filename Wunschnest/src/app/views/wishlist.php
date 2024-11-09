@@ -191,12 +191,12 @@ include BASE_PATH . '/components/includes/basic-head.php';
                     <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
                         <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="p-4">
+                                <!-- <th scope="col" class="p-4">
                                     <div class="flex items-center">
                                         <input id="checkbox-all-search" type="checkbox" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-800">
                                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                                     </div>
-                                </th>
+                                </th> -->
                                 <th scope="col" class="px-6 py-3">
                                     Name
                                 </th>
@@ -207,6 +207,9 @@ include BASE_PATH . '/components/includes/basic-head.php';
                                     Preis
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-right">
+                                    Link
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-right">
                                     Aktion
                                 </th>
                             </tr>
@@ -214,23 +217,39 @@ include BASE_PATH . '/components/includes/basic-head.php';
                         <tbody>
                             <?php
 
+                            # Hole alle Wünsche
+                            $wishlistItems = $wishController->getWishesByWishlist($wishlist['wishlist_id']);
+
                             # Erstelle Test Daten zur Darstellung. 
                             # Dies wäre auch ein geeignetes Format um die Daten später zu speichern oder anzunehmen. 
-                            $data = [
-                                ["name" => "Apple MacBook Pro 17 Zoll", "category" => "Elektronik", "price" => "2999,00"],
-                                ["name" => "Microsoft Surface Pro ", "category" => "Elektronik", "price" => "1999,99"],
-                                ["name" => "Magic Mouse 2", "category" => "Elektronik", "price" => "99,99"],
-                                ["name" => "Apple Watch", "category" => "Elektronik", "price" => "179,99"],
-                                ["name" => "iPad", "category" => "Elektronik", "price" => "699,00"],
-                                ["name" => "Apple iMac Pro", "category" => "Elektronik", "price" => "3999,00"],
-                            ];
+                            // $data = [
+                            //     ["name" => "Apple MacBook Pro 17 Zoll", "category" => "Elektronik", "link" => "https://www.apple.com/de/macbook-pro-16/", "price" => "2999,00"],
+                            //     ["name" => "Microsoft Surface Pro ", "category" => "Elektronik", "link" => "https://www.microsoft.com/de-de/surface-pro-8", "price" => "1999,99"],
+                            //     ["name" => "Magic Mouse 2", "category" => "Elektronik", "link" => "https://www.apple.com/de/magic-mouse-2/", "price" => "99,99"],
+                            //     ["name" => "Apple Watch", "category" => "Elektronik", "link" => "https://www.apple.com/de/apple-watch/", "price" => "179,99"],
+                            //     ["name" => "iPad", "category" => "Elektronik", "link" => "https://www.apple.com/de/ipad/", "price" => "699,00"],
+                            //     ["name" => "Apple iMac Pro", "category" => "Elektronik", "link" => "https://www.apple.com/de/imac-pro/", "price" => "3999,00"],
+                            // ];
 
                             # Importiere die Funnktion, die die Daten in geeignetes HTML umwandelt. 
                             include BASE_PATH . '/components/elements/wishlist-table-item.php';
 
+                            # console log the wishlistItems
+                            echo "<script>console.log(" . json_encode($wishlistItems) . ");</script>";
+
                             # Gehe die Daten durch und erstelle eine Zeile Für die Tabelle der Wunschliste.
-                            foreach ($data as $row) {
-                                echo wishlistTableItem($row['name'], $row['category'], $row['price']);
+                            foreach ($wishlistItems as $row) {
+                                # Set optionals to empty string
+                                $categoryName = $row['category_id'] ?? "";
+                                $link = $row['url'] ?? "";
+
+                                if (!empty($categoryName)) {
+                                    $category = $categoryController->getCategoryByID($categoryName);
+                                    $categoryName = $category['name'];
+                                }
+                                $row['category'] = $categoryName;
+
+                                echo wishlistTableItem($row['name'], $row['category'], $row['price'], $row['url']);
                             }
 
                             ?>

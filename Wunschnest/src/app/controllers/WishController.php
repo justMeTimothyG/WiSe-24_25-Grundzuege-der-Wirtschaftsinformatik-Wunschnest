@@ -43,6 +43,12 @@ class WishController
         $url = isset($data['url']) && !empty($data['url']) ? $data['url'] : null;
         $category_id = isset($data['category']) && !empty($data['category']) ? $data['category'] : null;
 
+        # Properly format URL
+        $url = filter_var($url, FILTER_SANITIZE_URL);
+        if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+            $url = "https://" . $url;
+        }
+
         # Erstelle die SQL Abfrage (SQL Statement)
         $stmt = $this->db->prepare("INSERT INTO WISH (wishlist_id, name, description, price, url, category_id) VALUES (:wishlist_id, :name, :description, :price, :url, :category_id)");
 
@@ -85,7 +91,7 @@ class WishController
     public function getWishesByWishlist($wishlistId)
     {
         # Lade alle Wunschlisten eines Nutzers
-        $stmt = $this->db->prepare("SELECT * FROM WISH WHERE wishlist_id = ?");
+        $stmt = $this->db->prepare("SELECT * FROM WISH WHERE wishlist_id = :wishlist_id");
         $stmt->bindParam(':wishlist_id', $wishlistId);
         $stmt->execute();
         return $stmt->fetchAll();
