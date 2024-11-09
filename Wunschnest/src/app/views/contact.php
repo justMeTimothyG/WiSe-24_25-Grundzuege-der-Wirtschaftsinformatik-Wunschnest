@@ -54,7 +54,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                     <!-- Nützliche Links einfügen -->
 
                     <ul class="ml-5 list-disc dark:text-gray-400">
-                        <li>Demo ausprobieren</li>
+                        <li><a class="hover:text-orange-500" href="index.php?page=demo-dashboard">Demo ausprobieren</a></li>
                         <li><a class="hover:text-orange-500" href="index.php#faq">FAQ</a></li>
                     </ul>
                 </div>
