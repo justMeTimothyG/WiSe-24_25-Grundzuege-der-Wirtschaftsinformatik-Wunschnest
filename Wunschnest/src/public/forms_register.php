@@ -3,7 +3,8 @@ include_once '../config.php';
 include_once BASE_PATH . '/app/config/database.php';
 
 # Importiere den Controller, um besser Nutzerdaten zu verarbeiten
-include BASE_PATH . '/app/controllers/UserController.php';
+include_once BASE_PATH . '/app/controllers/UserController.php';
+include_once BASE_PATH . '/app/controllers/CategoryController.php';
 
 # Starte eine Session, wenn nicht schon vorhanden
 session_start();
@@ -44,19 +45,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userController = new UserController($pdo);
 
     # Trage den Nutzer in die Datenbank ein
-    $message = $userController->register($name, $username, $email, $password);
+    $message = $userController->register($name, $username, $email, $password, new CategoryController($pdo));
 
     # Setze die Nachricht in die Session zur Ausgabe im Login Formular
     $_SESSION['register_message'] = $message;
     $_SESSION['register_check'] = "success";
 
-    header("Location: /login.php");
+    header("Location: /index.php?page=login");
     exit();
 } else {
     $message = "Falsche Anfrage Methode. Nutze ein POST Request.";
     # Setze die Nachricht in die Session zur Ausgabe im Register Formular Wenn Fehlerhaft
     $_SESSION['register_message'] = $message;
     $_SESSION['register_check'] = "fail";
-    header("Location: /register.php");
+    header("Location: /index.php?page=register");
     exit();
 }

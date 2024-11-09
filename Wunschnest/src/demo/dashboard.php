@@ -2,6 +2,27 @@
 # Lade die Config Datei 
 include_once '../config.php';
 
+# Lade Datenbank
+include_once BASE_PATH . '/app/config/database.php';
+
+# Lade Wishlist Controller 
+include_once BASE_PATH . '/app/controllers/WishlistController.php';
+
+# Initialisiere Datenbank und Controller
+$pdo = getDatabaseConnection();
+$wishlistController = new WishlistController($pdo);
+
+# Da Demo Nutzer: Benutze ID 1 für den ersten User in Datenbank, der der Test User ist.
+$user_id = 1;
+
+# Hole die Wunschlistn des Users   
+$wishlists = $wishlistController->getWishlistsByUser($user_id);
+
+# Hole die Favoriten des Users
+$favorites = $wishlistController->getFavoritesByUser($user_id);
+
+
+
 $title = "Demo Dashboard";
 
 include BASE_PATH . '/components/includes/basic-head.php';
@@ -24,7 +45,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">WunschNest</span>
                     </a>
                     <!-- Dark Mode Wechseln -->
-                    <div id="dark-toggle">
+                    <div id="dark-toggle" class="h-8 w-8 flex items-center justify-center cursor-pointer rounded-full dark:hover:bg-gray-700 hover:bg-gray-100">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
@@ -82,30 +103,30 @@ include BASE_PATH . '/components/includes/basic-head.php';
                             </div>
                         </li>
                     </ul>
+
+                    <!-- Favoriten  -->
+
                     <div>
                         <h3 class="ml-3 pb-2 text-sm font-semibold uppercase">Favoriten</h3>
                         <ul>
-                            <li>
+                            <?php
+                            # Favoriten auflisten in einer foreach schleife
+                            foreach ($favorites as $favorite) {
+                                echo '<li>';
+                                echo '<a href="/public/index.php?page=wishlist?wishlist_id=' . $favorite['wishlist_id'] . '">';
+                                echo '<div class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">';
+                                echo '<h2 class="text-md">' . $favorite['name'] . '</h2>';
+                                echo '</div>';
+                                echo '</a>';
+                                echo '</li>';
+                            }
+
+                            ?>
+                            <!-- <li>
                                 <div class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
                                     <h2 class="text-md">Weihnachtswünsche</h2>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-
-                                    <h2 class="text-md">Geburtstag</h2>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                                    <!-- <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                                        </svg>
-                                    </span> -->
-                                    <h2 class="text-md">Hochzeit</h2>
-                                </div>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
 
@@ -138,7 +159,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
             </div>
 
             <!-- Main Content -->
-            <div class="mx-auto w-full max-w-screen-xl p-8">
+            <div class="mx-auto w-full max-w-screen-xl p-8 pb-0">
                 <!-- Breadcrumbs Navigation -->
                 <nav class="mb-8 flex" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -173,6 +194,16 @@ include BASE_PATH . '/components/includes/basic-head.php';
                     -->
                     </ol>
                 </nav>
+
+                <p>
+                    <?php
+                    # JSON Encode Variablen und ausgabe in der Console
+                    $console = json_encode($favorites, JSON_PRETTY_PRINT);
+
+                    # console.log wird in der Console ausgegeben
+                    echo '<script>console.log(' . $console . ');</script>';
+                    ?>
+                </p>
                 <!-- Alternative Darstellung der Listen -->
                 <div class="mb-4 flex justify-between align-middle">
 
@@ -286,7 +317,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                         </button>
                     </div>
                 </div>
-                <div class="mb-8 sm:rounded-lg">
+                <div class="mb-4 sm:rounded-lg">
                     <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
                         <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
@@ -336,6 +367,10 @@ include BASE_PATH . '/components/includes/basic-head.php';
                         </tbody>
                     </table>
                 </div>
+                <?php
+                # Footer Importieren
+                include BASE_PATH . '/components/includes/footer.php';
+                ?>
             </div>
         </div>
     </div>

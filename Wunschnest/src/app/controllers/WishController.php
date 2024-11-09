@@ -41,10 +41,10 @@ class WishController
         # Setze den Presi auf Null wenn nicht vorhanden
         $price = isset($data['price']) && !empty($data['price']) ? $data['price'] : null;
         $url = isset($data['url']) && !empty($data['url']) ? $data['url'] : null;
-        $category = isset($data['category']) && !empty($data['category']) ? $data['category'] : null;
+        $category_id = isset($data['category']) && !empty($data['category']) ? $data['category'] : null;
 
         # Erstelle die SQL Abfrage (SQL Statement)
-        $stmt = $this->db->prepare("INSERT INTO WISH (wishlist_id, name, description, price, url, category) VALUES (:wishlist_id, :name, :description, :price, :url, :category)");
+        $stmt = $this->db->prepare("INSERT INTO WISH (wishlist_id, name, description, price, url, category_id) VALUES (:wishlist_id, :name, :description, :price, :url, :category_id)");
 
         # Füge die Parameter in die Abfrage ein, auf diese art werden Injektions verhindert.
         $stmt->bindParam(':wishlist_id', $wishlistId);
@@ -52,7 +52,7 @@ class WishController
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':url', $url);
-        $stmt->bindParam(':category', $category);
+        $stmt->bindParam(':category_id', $category_id);
 
         # Führe die Abfrage aus und gebe die ID zurueck
         $stmt->execute();

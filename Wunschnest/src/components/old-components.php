@@ -114,3 +114,127 @@
         </li>
     </ul>
 </div>
+
+
+<!-- LIst Items in Side bar (Favorites) -->
+
+<li>
+    <div class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+        <h2 class="text-md">Weihnachtswünsche</h2>
+    </div>
+</li>
+<li>
+    <div class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+
+        <h2 class="text-md">Geburtstag</h2>
+    </div>
+</li>
+<li>
+    <div class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+        <!-- <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                        </svg>
+                                    </span> -->
+        <h2 class="text-md">Hochzeit</h2>
+    </div>
+</li>
+
+<!-- Test Tabelle für eine Wunschliste -->
+
+<div class="mb-4 sm:rounded-lg">
+    <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
+        <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-all-search" type="checkbox" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-800">
+                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                    </div>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Kategorie
+                </th>
+                <th scope="col" class="px-6 py-3 text-right">
+                    Preis
+                </th>
+                <th scope="col" class="px-6 py-3 text-right">
+                    Aktion
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+
+            # Erstelle Test Daten zur Darstellung. 
+            # Dies wäre auch ein geeignetes Format um die Daten später zu speichern oder anzunehmen. 
+            $data = [
+                ["name" => "Apple MacBook Pro 17 Zoll", "category" => "Elektronik", "price" => "2999,00"],
+                ["name" => "Microsoft Surface Pro ", "category" => "Elektronik", "price" => "1999,99"],
+                ["name" => "Magic Mouse 2", "category" => "Elektronik", "price" => "99,99"],
+                ["name" => "Apple Watch", "category" => "Elektronik", "price" => "179,99"],
+                ["name" => "iPad", "category" => "Elektronik", "price" => "699,00"],
+                ["name" => "Apple iMac Pro", "category" => "Elektronik", "price" => "3999,00"],
+            ];
+
+            # Importiere die Funnktion, die die Daten in geeignetes HTML umwandelt. 
+            include BASE_PATH . '/components/elements/wishlist-table-item.php';
+
+            # Gehe die Daten durch und erstelle eine Zeile Für die Tabelle der Wunschliste.
+            foreach ($data as $row) {
+                echo wishlistTableItem($row['name'], $row['category'], $row['price']);
+            }
+
+            ?>
+        </tbody>
+    </table>
+</div>
+
+<!-- TOAST KOMPOENTE VON LOGIN -->
+
+<?php
+echo '<div class="mt-8">';
+
+
+# Prüfe in den Session Daten, ob der Nutzer aus einer Registrierung kommt
+if (isset($_SESSION['register_message']) && isset($_SESSION['register_check'])) {
+    # Lade die Toast Komponente
+    include BASE_PATH . "/components/elements/toast.php";
+
+    # Wenn Erfolgreich gebe eine Erfolgsnachricht aus
+    if ($_SESSION['register_check'] === 'success') {
+        echo toast('success', $_SESSION['register_message'] . " Bitte loggen Sie sich nun ein.");
+    } else {
+        # Normal sollte der Nutzer hierhin nicht hinkommen, da bei Fehler zurück zur Registrierung weitergeleitet wird.
+        # Falls doch einfach, gebe eine Fehlernachricht aus und leite den Nutzer zur Registrierung nach 10 sec.
+        echo toast('error', $_SESSION['register_message']);
+    }
+    # Lösche die Session Variablen, da Erfolg oder Fehler bereits angezeigt worden ist.
+    unset($_SESSION['register_message']);
+    unset($_SESSION['register_check']);
+}
+
+# Prüfe ob der Nutzer aus einem Login kommt. Wenn ja, dann wahrscheinlich falsche Login daten. 
+if (isset($_SESSION['login_message']) && isset($_SESSION['login_check'])) {
+    # Lade die Toast Komponente
+    include BASE_PATH . "/components/elements/toast.php";
+
+    # Wenn Erfolgreich gebe eine Erfolgsnachricht aus
+    if ($_SESSION['login_check'] === 'success') {
+        # Eigentlich der Unwahrscheinlichere Fall, da dieser ja weitergeleitet wird auf das Dashboard.
+        # Zu Testzwecken kann das hier bleiben wenn die Weiterleitung noch nicht funktioniert
+        echo toast('success', $_SESSION['login_message']);
+    } else {
+        # Der Normallfall da der Nutzer bei Fehlern wieder hierhin kommen sollte
+        echo toast('error', $_SESSION['login_message']);
+    }
+    # Lösche die Session Variablen, da Erfolg oder Fehler bereits angezeigt worden ist. Und der Nutzer sonst in einer Schleife sich befinden wird
+    unset($_SESSION['login_message']);
+    unset($_SESSION['login_check']);
+}
+
+echo "</div>";
+?>

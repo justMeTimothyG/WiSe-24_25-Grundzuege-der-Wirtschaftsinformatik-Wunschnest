@@ -12,13 +12,13 @@
                 </a>
             </li>
             <li>
-                <a href="/impressum.php" class="hover:underline me-4 md:me-6">Impressum</a>
+                <a href="/index.php?page=impressum" class="hover:underline me-4 md:me-6">Impressum</a>
             </li>
             <li>
-                <a href="/datenschutz.php" class="hover:underline me-4 md:me-6">Datenschutz</a>
+                <a href="/index.php?page=datenschutz" class="hover:underline me-4 md:me-6">Datenschutz</a>
             </li>
             <li>
-                <a href="contact.php" class="hover:underline">Kontakt</a>
+                <a href="/index.php?page=contact" class="hover:underline">Kontakt</a>
             </li>
         </ul>
 

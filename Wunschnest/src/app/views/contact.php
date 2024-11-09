@@ -1,5 +1,4 @@
 <?php
-include_once './config.php';
 
 # Variablen definieren für die Homepage
 $title = "WunschNest - Kontakt";
@@ -55,8 +54,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                     <!-- Nützliche Links einfügen -->
 
                     <ul class="ml-5 list-disc dark:text-gray-400">
-                        <li></li>
-
+                        <li>Demo ausprobieren</li>
                         <li>FAQ</li>
                     </ul>
                 </div>

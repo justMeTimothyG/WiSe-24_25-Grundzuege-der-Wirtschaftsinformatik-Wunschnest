@@ -53,7 +53,15 @@ class WishlistController
         $stmt = $this->db->prepare("SELECT * FROM wishlist WHERE wishlist_id = :wishlist_id");
         $stmt->bindParam(':wishlist_id', $id);
         $stmt->execute();
-        return $stmt->fetch();
+        $list = $stmt->fetch();
+
+        # Hole die Anzahl an Geschenken der Wunschliste und füge dies in das Array ein
+        $stmt = $this->db->prepare("SELECT COUNT(*) AS count FROM wish WHERE wishlist_id = :wishlist_id");
+        $stmt->bindParam(':wishlist_id', $id);
+        $stmt->execute();
+        $list['wish_count'] = $stmt->fetch()['count'];
+
+        return $list;
     }
 
     /**
@@ -65,10 +73,31 @@ class WishlistController
     public function getWishlistsByUser($user_id)
     {
         # Lade alle Wunschlisten eines Nutzers aus der Datenbank
-        $stmt = $this->db->prepare("SELECT * FROM wishlist WHERE user_id = :user_id");
+        // $stmt = $this->db->prepare("SELECT * FROM wishlist WHERE user_id = :user_id");
+        $stmt = $this->db->prepare("SELECT w.*, COUNT(wi.wishlist_id) AS wish_count FROM wishlist w LEFT JOIN wish wi ON w.wishlist_id = wi.wishlist_id WHERE user_id = :user_id GROUP BY w.wishlist_id ORDER BY  w.target_date IS NULL ASC, w.target_date DESC");
         $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
         return $stmt->fetchAll();
+    }
+
+    /**
+     * Lade alle Statistike aus der Wunschliste eines Nutzer
+     *
+     * @param int $user_id ID des Nutzers
+     * @return array Gibt ein Array der Statistiken zuruck
+     * - wishlist_count (int): Anzahl der Wunschlisten
+     * - wish_count (int): Anzahl der Geschenken
+     * - shared_count (int): Anzahl der geteilten Wunschlisten
+     * - archived_count (int): Anzahl der Archivierten Wunschlisten
+     */
+    public function getStatsByUser($user_id)
+    {
+        # Lade alle Statistike aus der Wunschliste eines Nutzer
+        # Anzahl der Listen, Anzahl aller Wünsche eines Nutzer, Anzahl der geteilten Listen, Anzahl der Archivierten Listen
+        $stmt = $this->db->prepare("SELECT COUNT(*) AS wishlist_count, SUM(wish_count) AS wish_count, COUNT(CASE WHEN is_public = 1 THEN 1 END) AS shared_count, COUNT(CASE WHEN is_archived = 1 THEN 1 END) AS archived_count FROM wishlist w LEFT JOIN (SELECT wishlist_id, COUNT(*) AS wish_count FROM wish GROUP BY wishlist_id) wi ON w.wishlist_id = wi.wishlist_id WHERE user_id = :user_id");
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+        return $stmt->fetch();
     }
 
     ##################
@@ -84,7 +113,8 @@ class WishlistController
      * - description (string): Beschreibung der Wunschliste
      * - is_favorite (boolean): Ist die Wunschliste favorisiert
      * - targetDate (string): Ziel Datum der Wunschliste
-     * @return void
+     * - share_token (string): Share Token der Wunschliste (64 Zeichen)
+     * @return mixed Gibt die ID der Wunschliste zuruck oder false bei Fehler.
      */
     public function createWishlist($user_id, $data)
     {
@@ -97,23 +127,27 @@ class WishlistController
         # Prüfe ob target Date überhaupt gesetzt worden ist und nicht leer ist
         $targetDate = isset($data['targetDate']) && !empty($data['targetDate']) ? $data['targetDate'] : null;
 
-        # Wenn es ein Fatum gibt, dann formatieren
+        # Wenn es ein Datum gibt, dann formatieren
         if ($targetDate) {
             # Formatieren ins Format YYYY-MM-DD 
             $targetDate = date('Y-m-d', strtotime($targetDate));
         }
+        try {
+            # Erstelle die SQL Abfrage (SQL Statement)
+            $stmt = $this->db->prepare("INSERT INTO wishlist (user_id, name, description, target_date, is_favorite, share_token) VALUES (:user_id, :name, :description, :targetDate, :is_favorite, :share_token)");
 
-        # Erstelle die SQL Abfrage (SQL Statement)
-        $stmt = $this->db->prepare("INSERT INTO wishlist (user_id, name, description, target_date, is_favorite) VALUES (:user_id, :name, :description, :targetDate, :is_favorite)");
-
-        # Füge die Parameter in die Abfrage ein, auf diese art werden Injektions verhindert.
-        $stmt->bindParam(':user_id', $user_id);
-        $stmt->bindParam(':name', $data['name']);
-        $stmt->bindParam(':description', $description);
-        $stmt->bindParam(':targetDate', $targetDate);
-        $stmt->bindParam(':is_favorite', $is_favorite);
-        $stmt->execute();
-
+            # Füge die Parameter in die Abfrage ein, auf diese art werden Injektions verhindert.
+            $stmt->bindParam(':user_id', $user_id);
+            $stmt->bindParam(':name', $data['name']);
+            $stmt->bindParam(':description', $description);
+            $stmt->bindParam(':targetDate', $targetDate);
+            $stmt->bindParam(':is_favorite', $is_favorite);
+            $stmt->bindParam(':share_token', $data['share_token']);
+            $stmt->execute();
+        } catch (Exception $e) {
+            # Gebe Fehlermeldung aus
+            return $e->getMessage();
+        }
         # Gebe die zuletzt eingefügte Zeilen ID zurück
         return $this->db->lastInsertId();
     }

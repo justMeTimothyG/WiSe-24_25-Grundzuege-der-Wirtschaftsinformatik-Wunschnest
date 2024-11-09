@@ -18,6 +18,12 @@ CREATE TABLE IF NOT EXISTS wishlist (
     target_date DATE,
     -- Favorit oder nicht -> Zum speichern in der Seitenleiste
     is_favorite BOOLEAN DEFAULT FALSE,
+    -- Ob die Liste archiviert ist
+    is_archived BOOLEAN DEFAULT FALSE,
+    -- Freigegeben oder nicht 
+    is_public BOOLEAN DEFAULT FALSE,
+    -- Token für die Freigabe der Wunschliste
+    share_token VARCHAR(64) DEFAULT NULL,
     -- Datum, zu der der Eintrag erstellt wurde
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     -- Zuordnung zu einem User, lösche alle Daten, wenn der User gelöscht wird

@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     # Hole die Daten aus dem Formular und Bereinige diese
     $kennung = trim($_POST['kennung']);
-    $remember = trim($_POST['remember']);
+    // $remember = trim($_POST['remember']);
     $password = $_POST['password'];
 
     # Stelle eine Verbdingung zur Datenbank her
@@ -36,13 +36,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         # Wenn login Fehlschägt dann gebe Fehler aus
         $_SESSION['login_check'] = "error";
         $_SESSION['login_message'] = "Falscher Benutzername oder Passwort";
-        header("Location: /login.php");
+        header("Location: /index.php?page=login.php");
         exit();
     } else {
         # $user ist nicht false, also muss $user ein Nutzer Objekt sein. 
         $_SESSION['login_check'] = "success";
         $_SESSION['login_message'] = "Login erfolgreich";
-        header("Location: /login.php");
+
+        # Speichere den Nutzer in der Session
+        $_SESSION['session_token'] = $user["session_token"];
+        $_SESSION['name'] = $user["name"];
+        $_SESSION['username'] = $user["username"];
+
+        header("Location: /index.php?page=dashboard");
         exit();
     }
 
@@ -54,6 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     # Setze die Nachricht in die Session zur Ausgabe im Register Formular Wenn Fehlerhaft
     $_SESSION['login_message'] = $message;
     $_SESSION['login_check'] = "error";
-    header("Location: /login.php");
+    header("Location: /index.php?page=login");
     exit();
 }

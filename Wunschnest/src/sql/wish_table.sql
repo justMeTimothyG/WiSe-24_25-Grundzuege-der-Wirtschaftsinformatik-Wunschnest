@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS wish (
     name VARCHAR(255) NOT NULL,
     -- Preis des Wunsches
     price DECIMAL(10, 2) DEFAULT 0.00,
-    -- Kategorie des Wunsches
-    category VARCHAR(255),
+    -- Kategorie des Wunsches - Soll eine Verbindung zur Kategorie Tabelle sein. 
+    category_id int,
     -- Beschreibung des Wunsches
     description TEXT,
     -- URL des Wunsches
@@ -29,5 +29,7 @@ CREATE TABLE IF NOT EXISTS wish (
     -- von Wem der Wunsch erfüllt wurde
     fulfilled_by VARCHAR(255),
     -- Zuordnung zu einer Wunschliste, lösche alle Daten, wenn die Wunschliste gelöscht wird
-    FOREIGN KEY (wishlist_id) REFERENCES WISHLIST(wishlist_id) ON DELETE CASCADE
+    FOREIGN KEY (wishlist_id) REFERENCES WISHLIST(wishlist_id) ON DELETE CASCADE,
+    -- Zuordnung zu einer Kategorie (EIntrag soll nicht gelöscht werden, sondern nur leer gemacht)
+    FOREIGN KEY (wishlist_id) REFERENCES WISHLIST(wishlist_id)
 );

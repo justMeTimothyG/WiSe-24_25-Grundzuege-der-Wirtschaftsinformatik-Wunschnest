@@ -103,17 +103,6 @@ Wünsche sind das grundlegenste an dieser App. So muss man diese Interaktionen g
 - Erfüllt von
 - Erfüllt am
 
-Desweiteren kann man hier natürlich noch einige weitere Funktionen anbieten die durch weitere Datenpunkte ergänzt werden können. Folgende Features kann man sich überlegen, die die Nutzerfreundlichkeit erhöhen könnten.
-
-- Anzeige wann der Wunsch erstellt oder aktualisiert worden ist. Um irrelevante Geschenke zu vermeiden.
-  - ggf. Berechnen wann ein Geschenk
-- Sortierung/Eingruppierung der Wünsche in Preisklassen (Interessant für Gruppen in denen man sich ein Limit setzt).
-- Zuordnung an eine Zielgruppe (Wünsche nur für den Partner, nur Für die Familie, nur für die Freunde, Nur für eine Clique) aber alle Wünsche in einer Gesamtliste (bsp. Geburtstag).
-
-### Möglicher Flow
-
-Der Ablauf könnte wie folgt dargestellt werden:
-
 ```mermaid
 flowchart TD
     Start[Start] --> Login[Benutzer gibt Login-Daten ein]
@@ -124,6 +113,17 @@ flowchart TD
     CheckDB -->|Fehlgeschlagen| Error[Fehler: Ungültige Anmeldedaten]
     Error --> Login
 ```
+
+Desweiteren kann man hier natürlich noch einige weitere Funktionen anbieten die durch weitere Datenpunkte ergänzt werden können. Folgende Features kann man sich überlegen, die die Nutzerfreundlichkeit erhöhen könnten.
+
+- Anzeige wann der Wunsch erstellt oder aktualisiert worden ist. Um irrelevante Geschenke zu vermeiden.
+  - ggf. Berechnen wann ein Geschenk
+- Sortierung/Eingruppierung der Wünsche in Preisklassen (Interessant für Gruppen in denen man sich ein Limit setzt).
+- Zuordnung an eine Zielgruppe (Wünsche nur für den Partner, nur Für die Familie, nur für die Freunde, Nur für eine Clique) aber alle Wünsche in einer Gesamtliste (bsp. Geburtstag).
+
+### Möglicher Flow
+
+Der Ablauf könnte wie folgt dargestellt werden:
 
 ## Wunschlisten
 
