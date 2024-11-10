@@ -93,6 +93,10 @@ include BASE_PATH . '/components/includes/basic-head.php';
                                 # diff in Zahl umwandeln
                                 $daysUntil = $diff->format("%a");
 
+                                if (date_create($wishlist['target_date']) < date_create()) {
+                                    $daysUntil = -$daysUntil; // Negativ wenn schon vergangen
+                                }
+
                                 if ($daysUntil == NULL) {
                                     $daysUntilString = "";
                                 } else {
@@ -101,7 +105,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                                     } else if ($daysUntil == 1) {
                                         $daysUntilString = "(Morgen 🎉)";
                                     } else if ($daysUntil < 0) {
-                                        $daysUntilString = "(seit " . $daysUntil . " Tagen vergangen 🐛)";
+                                        $daysUntilString = "(seit " . $daysUntil * -1 . " Tagen vergangen 🐛)";
                                     } else {
                                         $daysUntilString = "(in " . $daysUntil . " Tagen)";
                                     }
@@ -161,6 +165,11 @@ include BASE_PATH . '/components/includes/basic-head.php';
                                 # diff in Zahl umwandeln
                                 $daysUntil = $diff->format("%a");
 
+                                if (date_create($wishlist['target_date']) < date_create()) {
+                                    $daysUntil = -$daysUntil; // Negativ wenn schon vergangen
+                                }
+
+
                                 if ($daysUntil == NULL) {
                                     $daysUntilString = "";
                                 } else {
@@ -169,7 +178,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                                     } else if ($daysUntil == 1) {
                                         $daysUntilString = "Morgen 🎉";
                                     } else if ($daysUntil < 0) {
-                                        $daysUntilString = "seit " . $daysUntil . " Tagen vergangen 🐛";
+                                        $daysUntilString = "seit " . $daysUntil * -1 . " Tagen vergangen 🐛";
                                     } else {
                                         $daysUntilString = "in " . $daysUntil . " Tagen";
                                     }
