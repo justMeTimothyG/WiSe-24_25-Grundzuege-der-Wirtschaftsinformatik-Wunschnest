@@ -85,80 +85,97 @@ Zur Überprüfung des Fortschritts wird ein Ampel System verwendet. (🟢 | 🟡
   - Ein Nachholen des Defizits ist kaum bis gar nicht möglich.
   - ggf. muss das Projekt neu formuliert werden, Features rausgenommen oder reduziert werden, da nicht mehr machbar in der Zeit.
 
-- Termin 1
-  - ✅
-  - Liegen gut in der Zeit. Überlegungen sind bereits erfolgt und
+#### Termin 1
+
+- ✅
+- Liegen gut in der Zeit. Überlegungen sind bereits erfolgt und
+
+#### Termin 2
+
+#### Termin 3
+
+#### Termin 4
+
+#### Termin 5
+
+#### Termin 6
+
+#### Termin 7
+
+#### Termin 8
+
+#### Termin 9
 
 ### Meilensteine
 
 #### Frontend
 
 - [x] Erste Ideen - Mockup erstellen
-- [] "Front-end Designsystem" grob entwickeln haben
-- [] Front-end Theme stabil
-- [] auf Respnsiveness prüfen
-- [] Front-end Fertiggestellt
+- [ ] "Front-end Designsystem" grob entwickeln haben
+- [ ] Front-end Theme stabil
+- [ ] auf Respnsiveness prüfen
+- [ ] Front-end Fertiggestellt
 
 Nice-to Haves:
 
-- [] Dark Mode
-- [] Layout auf verschiedenen Geräten/Browsern prüfen
+- [ ] Dark Mode
+- [ ] Layout auf verschiedenen Geräten/Browsern prüfen
 
 #### UML
 
 Formulierung von Flows: (Berücksichtigung der Flows im Code und Routing)
 
-- [] Überragender User Flow von Anfang bis Ende
-- [] Login
-- [] Logout
-- [] Registrierungs
-- [] Erstellen von Wunschlisten
-- [] Erstellen von Wünschen
-- [] Erstellen von Kategorien
-- [] Teilen einer Wunschliste (Rückgängig Machung einer geteilten Liste)
-- [] Ein Erfüller erhält einen Link und erfüllt einen Wunsch
+- [ ] Überragender User Flow von Anfang bis Ende
+- [ ] Login
+- [ ] Logout
+- [ ] Registrierungs
+- [ ] Erstellen von Wunschlisten
+- [ ] Erstellen von Wünschen
+- [ ] Erstellen von Kategorien
+- [ ] Teilen einer Wunschliste (Rückgängig Machung einer geteilten Liste)
+- [ ] Ein Erfüller erhält einen Link und erfüllt einen Wunsch
 
 #### Datenbanken
 
-- [] Erste Überlegungen der Strukturen dokumentieren
-- [] Formuliere die nötigen Datenpunkte (Auflistung der Eigenschaften)
-- [] Beziehungen zwischen den Tabellen herstellen
-- [] Überlegungen zu den Aktionen an den Datensätzen formulieren
-- [] SQL Statements formulieren anhand der nötigen Aktionen
-- [] Datenbank finalisieren
-- [] Testdaten für die Entwicklung erstellen
-- []
+- [ ] Erste Überlegungen der Strukturen dokumentieren
+- [ ] Formuliere die nötigen Datenpunkte (Auflistung der Eigenschaften)
+- [ ] Beziehungen zwischen den Tabellen herstellen
+- [ ] Überlegungen zu den Aktionen an den Datensätzen formulieren
+- [ ] SQL Statements formulieren anhand der nötigen Aktionen
+- [ ] Datenbank finalisieren
+- [ ] Testdaten für die Entwicklung erstellen
+- [ ]
 
 #### PHP Entwicklung
 
-- [] Ordnerstrukturen angelegt
-- [] Controller und Funktionen formuliert und dokumentiert (Jeweils ein Controller pro Datenbank Tabelle)
-  - [] User Controller
-  - [] Wishlist Controller
-  - [] Wish COntroller
-  - [] Category Controller
-  - [] Favorite Controller
-- [] Wiederkehrende Elemente als separate Komponenten ausgelagert.
-- []
-- [] Helfer Scripts und Test Scripts formuliert
-  - [] ggf. ins Admin Dashboard einbauen
-- [] Views fertiggestellt
+- [ ] Ordnerstrukturen angelegt
+- [ ] Controller und Funktionen formuliert und dokumentiert (Jeweils ein Controller pro Datenbank Tabelle)
+  - [ ] User Controller
+  - [ ] Wishlist Controller
+  - [ ] Wish COntroller
+  - [ ] Category Controller
+  - [ ] Favorite Controller
+- [ ] Wiederkehrende Elemente als separate Komponenten ausgelagert.
+- [ ]
+- [ ] Helfer Scripts und Test Scripts formuliert
+  - [ ] ggf. ins Admin Dashboard einbauen
+- [ ] Views fertiggestellt
 
 Nice to Haves:
 
-- [] Umgang mit Fehlern, damit Fehler, mit denen nicht gerechnet worden ist standardmäßig verborgen werden, aber geloggt werden.
+- [ ] Umgang mit Fehlern, damit Fehler, mit denen nicht gerechnet worden ist standardmäßig verborgen werden, aber geloggt werden.
 
 #### Javascript (Generell Nice to haves)
 
 - [x] Dark Mode Toggle
 - [/] Animationen einbauen (Lottie Animationen)
-- [] Link kopieren ins Clipboard (Zwischenablage) beim sharing
-- [] Validierung der Formulare im Frontend vor der Übermittlung an den Server
+- [ ] Link kopieren ins Clipboard (Zwischenablage) beim sharing
+- [ ] Validierung der Formulare im Frontend vor der Übermittlung an den Server
 
 #### Präsentation
 
-- [] Schlachtplan erstellen für den Ablauf der Vorstellung
-- [] Liste an besonderen Features erstellen und als Spicker vorbereiten, sodass diese Features nicht vergessen werden vorzustellen
-- [] UML in eine vernünftige Sortierung bringen für die Vorstellung
-- [] 2x Probevorstellung mit Kontrolle der Zeit.
-- [] Fertigstellung der Dokumentation, sodass jeder sich diese durchlesen kann und sich darauf vorbereiten kann.
+- [ ] Schlachtplan erstellen für den Ablauf der Vorstellung
+- [ ] Liste an besonderen Features erstellen und als Spicker vorbereiten, sodass diese Features nicht vergessen werden vorzustellen
+- [ ] UML in eine vernünftige Sortierung bringen für die Vorstellung
+- [ ] 2x Probevorstellung mit Kontrolle der Zeit.
+- [ ] Fertigstellung der Dokumentation, sodass jeder sich diese durchlesen kann und sich darauf vorbereiten kann.
