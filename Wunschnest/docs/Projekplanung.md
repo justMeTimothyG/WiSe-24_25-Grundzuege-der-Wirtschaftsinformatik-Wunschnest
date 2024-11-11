@@ -57,10 +57,8 @@ Hier sind 9 Termine geplant:
   - Controller Entwickeln und weiter optimieren
 - (6) (Statusupdate) Datenbanken II
   - Datenbank finalisieren. Darstellung der Daten sind nicht redundant und normalisiert
-  -
 - (7) PHP
   - Programmierung dokumentieren und Kommentieren, sodass andere den Code nachvollziehen können
-  -
 - (8) PHP II
   - Tests formulieren, Grenzfälle testen
   - Koordination und Gegenseitige Vorstellung der gemeinsamen Entwicklung, sodass jeder den Code versteht.
@@ -85,12 +83,23 @@ Zur Überprüfung des Fortschritts wird ein Ampel System verwendet. (🟢 | 🟡
   - Ein Nachholen des Defizits ist kaum bis gar nicht möglich.
   - ggf. muss das Projekt neu formuliert werden, Features rausgenommen oder reduziert werden, da nicht mehr machbar in der Zeit.
 
-#### Termin 1
+#### Termin 1 🟢
 
-- ✅
-- Liegen gut in der Zeit. Überlegungen sind bereits erfolgt und
+- Mockups erstellt
+- Erste Version des Frontends hat sich herausgearbeitet
+- Periphere Seiten wurden erstellt
+- Entwicklungsumgebung wurde bei allen eingerichtet
+- Erstes statisches Frontend wurde erstellt.
 
-#### Termin 2
+#### Termin 2 🟢
+
+- Benutzer Login ANsichten erstellt
+- Datenbanken bereits angelegt
+- Dynamisches Einfügen von Daten in einigen Views
+- Erstellen von einträgen in Datenbanken
+- Dark Mode
+- Eine Animation wurde eingebaut (Logo)
+- Datenbankdesign (erste Formulierung)
 
 #### Termin 3
 
@@ -111,14 +120,33 @@ Zur Überprüfung des Fortschritts wird ein Ampel System verwendet. (🟢 | 🟡
 #### Frontend
 
 - [x] Erste Ideen - Mockup erstellen
-- [ ] "Front-end Designsystem" grob entwickeln haben
-- [ ] Front-end Theme stabil
+- [x] "Front-end Designsystem" grob entwickeln haben
+- [x] Front-end Theme stabil
 - [ ] auf Respnsiveness prüfen
 - [ ] Front-end Fertiggestellt
 
+Views:
+
+- [x] Startseite
+- [x] Impressum
+- [x] Datenschutz
+- [x] Kontakt
+- [x] Admin Page
+- [x] Login
+- [x] Register
+- [x] Dashboard
+- [x] Wunschliste (Einzelne Liste)
+- [ ] Archiv
+- [ ] Wunsch Detail Ansicht
+- [x] Erstellen von Wünschen
+- [x] Erstellen von Wunschlisten
+- [ ] Erstellen von Kategorien
+- [ ] Geteilte Ansicht für Erfüller
+- [ ] Formular für Erfüller eines Wunschnest
+
 Nice-to Haves:
 
-- [ ] Dark Mode
+- [x] Dark Mode
 - [ ] Layout auf verschiedenen Geräten/Browsern prüfen
 
 #### UML
@@ -137,9 +165,9 @@ Formulierung von Flows: (Berücksichtigung der Flows im Code und Routing)
 
 #### Datenbanken
 
-- [ ] Erste Überlegungen der Strukturen dokumentieren
-- [ ] Formuliere die nötigen Datenpunkte (Auflistung der Eigenschaften)
-- [ ] Beziehungen zwischen den Tabellen herstellen
+- [x] Erste Überlegungen der Strukturen dokumentieren
+- [x] Formuliere die nötigen Datenpunkte (Auflistung der Eigenschaften)
+- [x] Beziehungen zwischen den Tabellen herstellen
 - [ ] Überlegungen zu den Aktionen an den Datensätzen formulieren
 - [ ] SQL Statements formulieren anhand der nötigen Aktionen
 - [ ] Datenbank finalisieren
@@ -148,22 +176,30 @@ Formulierung von Flows: (Berücksichtigung der Flows im Code und Routing)
 
 #### PHP Entwicklung
 
-- [ ] Ordnerstrukturen angelegt
-- [ ] Controller und Funktionen formuliert und dokumentiert (Jeweils ein Controller pro Datenbank Tabelle)
-  - [ ] User Controller
-  - [ ] Wishlist Controller
-  - [ ] Wish COntroller
-  - [ ] Category Controller
-  - [ ] Favorite Controller
+- [x] Ordnerstrukturen angelegt
+- [x] Controller und Funktionen formuliert und dokumentiert (Jeweils ein Controller pro Datenbank Tabelle)
+  - [x] User Controller
+  - [x] Wishlist Controller
+  - [x] Wish COntroller
+  - [x] Category Controller
+  - [x] Favorite Controller
 - [ ] Wiederkehrende Elemente als separate Komponenten ausgelagert.
-- [ ]
 - [ ] Helfer Scripts und Test Scripts formuliert
-  - [ ] ggf. ins Admin Dashboard einbauen
-- [ ] Views fertiggestellt
+- [ ] Controller testen
+- [ ] ggf. ins Admin Dashboard einbauen
+- [ ] Bearbeitung von Wunschlisten (Vorbelegung des Formulars mit bestehenden Werten)
+- [ ] Bearbeitung von Wünschen (Vorbelegung des Formulars mit bestehenden Werten)
+- [ ] Bearbeitung des Favoriten Status (Button in der Wunschliste)
+- [ ] Auflistung der Wünsche nach Kategorien
+- [ ] Archivfunktion (Nicht bearbeitbar - Reaktivieren oder Duplizieren mit übrigen Wünschen) Nachdem es archiviert worden ist sieht man, wer das erfüllt hat.
+- [ ] Logout ermöglichen
+- [ ] Demo funktionsfähig ohne Login
+- [ ]
 
 Nice to Haves:
 
 - [ ] Umgang mit Fehlern, damit Fehler, mit denen nicht gerechnet worden ist standardmäßig verborgen werden, aber geloggt werden.
+- [ ]
 
 #### Javascript (Generell Nice to haves)
 
