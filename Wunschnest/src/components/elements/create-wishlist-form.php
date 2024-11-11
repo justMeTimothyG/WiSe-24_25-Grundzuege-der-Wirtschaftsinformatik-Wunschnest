@@ -15,9 +15,9 @@
         </div>
         <div class="mb-5 flex items-start">
             <div class="flex h-5 items-center">
-                <input id="favorit" type="checkbox" value="" class="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600" />
+                <input id="favorite" type="checkbox" name="favorite" class="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600" />
             </div>
-            <label for="favorit" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-200">Als Favorit markieren</label>
+            <label for="favorite" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-200">Als Favorit markieren</label>
         </div>
         <button type="submit" class="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto">Submit</button>
     </form>

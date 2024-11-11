@@ -13,7 +13,7 @@ function wunschlistenAlternative($title, $count, $shared, $wishlist_id,  $daysUn
         } else if ($daysUntil == 1) {
             $daysUntilString = "Morgen 🎉  • ";
         } else if ($daysUntil < 0) {
-            $daysUntilString = "seit " . $daysUntil . " Tagen vergangen 🐛 • ";
+            $daysUntilString = "seit " . $daysUntil * -1 . " Tagen vergangen 🐛 • ";
         } else {
             $daysUntilString = "in " . $daysUntil . " Tagen • ";
         }

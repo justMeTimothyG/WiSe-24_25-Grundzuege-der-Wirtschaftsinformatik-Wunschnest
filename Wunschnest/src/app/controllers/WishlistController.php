@@ -121,11 +121,11 @@ class WishlistController
         # Erstelle eine neue Wunschliste
         # Lade die Daten falls es unausgefüllte Felder gibt die NULL sein dürfen
         $description = isset($data['description']) && !empty($data['description']) ? $data['description'] : null;
-        $is_favorite = isset($data['is_favorite']) && !empty($data['is_favorite']) ? $data['is_favorite'] : false;
+        $is_favorite = isset($data['is_favorite']) && !empty($data['is_favorite']) ? $data['is_favorite'] : 0;
 
         # Formatiere das Datum vor dem einfügen der Wunschliste
         # Prüfe ob target Date überhaupt gesetzt worden ist und nicht leer ist
-        $targetDate = isset($data['targetDate']) && !empty($data['targetDate']) ? $data['targetDate'] : null;
+        $targetDate = isset($data['target_date']) && !empty($data['target_date']) ? $data['target_date'] : null;
 
         # Wenn es ein Datum gibt, dann formatieren
         if ($targetDate) {

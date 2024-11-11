@@ -15,6 +15,9 @@
                 <a href="/index.php?page=impressum" class="hover:underline me-4 md:me-6">Impressum</a>
             </li>
             <li>
+                <a href="/index.php?page=admin" class="hover:underline me-4 md:me-6">Admin</a>
+            </li>
+            <li>
                 <a href="/index.php?page=datenschutz" class="hover:underline me-4 md:me-6">Datenschutz</a>
             </li>
             <li>

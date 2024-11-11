@@ -79,7 +79,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 </div>
                 <div class="mb-8 sm:rounded-lg">
                     <div class="hb us asn asx cni dmm">
-                        <ul class="grid grid-cols-3 gap-6">
+                        <ul class="grid grid-cols-3 gap-6 items-stretch">
                             <?php
                             # Liste erstellen der Wunschlisten
 
@@ -95,13 +95,16 @@ include BASE_PATH . '/components/includes/basic-head.php';
                                     $diff = date_diff(date_create($liste["target_date"]), date_create());
                                     # diff in Zahl umwandeln
                                     $daysUntil = $diff->format("%a");
+                                    if (date_create($liste['target_date']) < date_create()) {
+                                        $daysUntil = -$daysUntil; // Negativ wenn schon vergangen
+                                    }
                                 }
 
                                 # Erstelle Kachel
                                 echo wunschlistenAlternative($liste["name"], $liste["wish_count"], $liste["is_public"] == 1, $liste["wishlist_id"], $daysUntil);
                             }
                             ?>
-                            <a href="/index.php?page=create?type=list" class="cursor-pointer flex dark:text-gray-500 hover:bg-blue-200 hover:text-blue-700 items-center justify-center overflow-hidden rounded-xl border-[1px] border-gray-100 bg-gray-50 dark:border-gray-950 dark:bg-gray-800 dark:hover:bg-gray-700">
+                            <a href="/index.php?page=create&type=list" class="cursor-pointer flex dark:text-gray-500 hover:bg-blue-200 hover:text-blue-700 items-center justify-center overflow-hidden rounded-xl border-[1px] border-gray-100 bg-gray-50 dark:border-gray-950 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <li
                                     class="">
 

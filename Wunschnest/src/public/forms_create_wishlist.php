@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = isset($_POST['name']) ? trim($_POST['name']) : null;
     $description = isset($_POST['description']) ? trim($_POST['description']) : null;
     $target_date = isset($_POST['target-date']) ? trim($_POST['target-date']) : null;
-    $is_favorite = isset($_POST['favorite']) ? trim($_POST['favorite']) : false;
+    $is_favorite = isset($_POST['favorite']) && !empty($_POST['favorite']) && ($_POST['favorite'] == "on") ? 1 : 0;
 
     # Erstelle aus Date Objekte aus Datumseingabe 
     # Prüfe ob Eingabe gut formatiert ist
@@ -59,26 +59,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "description",
         "target_date",
         "is_favorite",
-        "share-token"
+        "share_token"
     ];
 
     $data = array_combine($datafields, [$name, $description, $target_date, $is_favorite, $token]);
     $user_id = $userController->getUserByUsername($_SESSION['username'])['user_id'];
 
     # Schreibe den Wunsch in die Datenbank
-    $wishlist_id = false;
-    $test = $wishlistController->createWishlist($user_id, $data);
+    $wishlist_id = $wishlistController->createWishlist($user_id, $data);
 
-    if ($wishlist_id != false) {
+    if (is_numeric($wishlist_id)) {
+
+        # Add to favorite table (because code here runs after wishlist is created)
+        $wishlistController->addFavorite($user_id, $wishlist_id);
 
         # Setze die Nachricht in die Session zur Ausgabe in der Wunschliste
         $_SESSION['message'] = "Wunschliste erfolgreich erstellt.";
         $_SESSION['check'] = "success";
 
-        header("Location: /index.php?page=wishlist&wishlist_id=" . '1');
+        header("Location: /index.php?page=wishlist&wishlist_id=" . $wishlist_id);
         exit();
     } else {
-        $_SESSION['message'] = 'Fehler beim Erstellen der Wunschliste. Bitte erneut versuchen. wishlist id:' . $test . ' data:' . json_encode($data);
+        $_SESSION['message'] = 'Fehler beim Erstellen der Wunschliste. Bitte erneut versuchen.' . gettype($wishlist_id);
         $_SESSION['check'] = "error";
         header("Location: /index.php?page=create&type=wishlist");
         exit();

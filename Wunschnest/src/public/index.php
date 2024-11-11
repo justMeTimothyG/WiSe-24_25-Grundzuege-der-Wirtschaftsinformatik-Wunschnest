@@ -17,6 +17,9 @@ switch ($page) {
     case 'impressum':
         include_once VIEWS_PATH . 'impressum.php';
         break;
+    case 'admin':
+        include_once VIEWS_PATH . 'admin.php';
+        break;
     case 'contact':
         include_once VIEWS_PATH . 'contact.php';
         break;
