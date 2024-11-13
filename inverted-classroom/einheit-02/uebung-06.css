@@ -1,0 +1,16 @@
+.red-underline {
+  text-decoration: underline double;
+  text-decoration-color: red;
+}
+
+.large {
+  font-size: 150%;
+}
+
+.fett-kursiv {
+  font-weight: bold;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

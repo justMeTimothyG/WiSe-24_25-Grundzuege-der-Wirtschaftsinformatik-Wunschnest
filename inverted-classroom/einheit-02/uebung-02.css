@@ -1,0 +1,11 @@
+em {
+  color: blue;
+}
+
+ul li {
+  color: red;
+}
+
+p > span {
+  color: green;
+}

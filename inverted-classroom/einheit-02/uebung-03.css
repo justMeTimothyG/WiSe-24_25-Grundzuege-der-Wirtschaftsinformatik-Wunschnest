@@ -1,0 +1,14 @@
+body {
+}
+
+.absolute {
+  position: absolute;
+  top: 10cm;
+  left: 10cm;
+}
+
+.relative {
+  position: relative;
+  top: 30%;
+  left: 30%;
+}

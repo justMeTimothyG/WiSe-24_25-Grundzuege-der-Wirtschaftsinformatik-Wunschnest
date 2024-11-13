@@ -77,13 +77,14 @@ Zur Überprüfung des Fortschritts wird ein Ampel System verwendet. (🟢 | 🟡
   - Verzögerung kann noch nachgeholt werden
   - Projekt kann in seiner Formulierung noch möglich ausgearbeitet werden.
 - 🔴
-
   - Projekt liegt hängt deutlich hinterher.
   - Kaum Fortschritte
   - Ein Nachholen des Defizits ist kaum bis gar nicht möglich.
   - ggf. muss das Projekt neu formuliert werden, Features rausgenommen oder reduziert werden, da nicht mehr machbar in der Zeit.
 
 #### Termin 1 🟢
+
+Erledigte Meilensteine:
 
 - Mockups erstellt
 - Erste Version des Frontends hat sich herausgearbeitet
@@ -93,13 +94,18 @@ Zur Überprüfung des Fortschritts wird ein Ampel System verwendet. (🟢 | 🟡
 
 #### Termin 2 🟢
 
-- Benutzer Login ANsichten erstellt
+Erledigte Meilensteine:
+
+- Benutzer Login Ansichten erstellt
 - Datenbanken bereits angelegt
 - Dynamisches Einfügen von Daten in einigen Views
 - Erstellen von einträgen in Datenbanken
 - Dark Mode
 - Eine Animation wurde eingebaut (Logo)
 - Datenbankdesign (erste Formulierung)
+
+Reflexion:
+Wir liegen in der Projekttimeline voraus und können erstmal unbesorgt fortfahren.
 
 #### Termin 3
 
@@ -141,6 +147,7 @@ Views:
 - [x] Erstellen von Wünschen
 - [x] Erstellen von Wunschlisten
 - [ ] Erstellen von Kategorien
+- [ ] Bearbeiten von (Wunschlisten, Wünschen, Kategorien)
 - [ ] Geteilte Ansicht für Erfüller
 - [ ] Formular für Erfüller eines Wunschnest
 
