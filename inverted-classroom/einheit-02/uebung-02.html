@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="uebung-02.css" />
+    <title>Übung 02</title>
+  </head>
+  <body>
+    <h1>CSS 2.0 Selektoren</h1>
+
+    <h2>E matches any E Element.</h2>
+
+    Beispiel: <em>em</em> in <em>blau</em>.
+    <hr />
+    <h2>E F matches any F Element that is a descendent of an E Element</h2>
+    Beispiel:
+    <ul>
+      <li>
+        Funktioniert über Tag Ebenen hinweg (z.B. von einem &lt;ul&gt;
+        ausgehend) (solange als Parent irgendwann ein &lt;ul&gt; vorkommt).
+      </li>
+    </ul>
+    <hr />
+    <h2>E &gt; F matches any F Element that is a child of E</h2>
+    <p>
+      <span>Dies sollte eingefärbt werden.</span>
+      <em>Dies nicht (... Bzw. über den ersten Sektor in blau).</em>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+#link-list1 {
+  padding: 10px 5px;
+  margin-bottom: -1px;
+  border: 1px solid black;
+}
+#link-list2 {
+  padding: 10px 5px;
+  margin-bottom: -1px;
+  border: 1px solid black;
+}
+#link-list3 {
+  padding: 10px 5px;
+  margin-bottom: -1px;
+  border: 1px solid black;
+}
+
+#link-list1:hover {
+  color: green;
+}
+
+#link-list1:hover .links-1 {
+  display: block;
+  background-color: red;
+}
+
+.links-1 {
+  /* display: none; */
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+  background-color: palegoldenrod;
+  border: 1px solid black;
+}
+.links-2 {
+  /* display: none; */
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+  background-color: palegoldenrod;
+  border: 1px solid black;
+}
+.links-3 {
+  /* display: none; */
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+  background-color: palegoldenrod;
+  border: 1px solid black;
+}

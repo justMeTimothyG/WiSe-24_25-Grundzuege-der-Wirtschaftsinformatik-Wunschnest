@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  justify: start;
+  gap: 10px;
+}
+
+.header {
+  padding: 10px 5px;
+  margin-bottom: -1px;
+  border: 1px solid black;
+}
+
+.link-group {
+  display: inline-block;
+}
+
+.link-group:hover .list {
+  display: block;
+  color: green;
+}
+
+.list {
+  display: none;
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+  background-color: palegoldenrod;
+  border: 1px solid black;
+}
