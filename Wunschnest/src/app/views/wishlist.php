@@ -43,7 +43,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
 
 
 ?>
-
+<!-- Script für den Share-Link -->
 <title><?php echo $title ?></title>
 </head>
 
@@ -133,7 +133,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                     <!-- Action Buttons like Share Link and Edit -->
                     <div class="mt-4 flex gap-2">
                         <!-- Bearbeiten -->
-                        <button class="transition-all duration-75 relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 dark:text-gray-400 rounded-lg group  bg-gray-200 dark:bg-gray-800 hover:bg-cyan-800 hover:text-white dark:hover:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-900">
+                        <button class=" flex-shrink-0 transition-all duration-75 relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 dark:text-gray-400 rounded-lg group  bg-gray-200 dark:bg-gray-800 hover:bg-cyan-800 hover:text-white dark:hover:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-900">
                             <span class="relative px-4 py-2 inline-flex gap-2 items-center rounded-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
@@ -143,15 +143,28 @@ include BASE_PATH . '/components/includes/basic-head.php';
                             </span>
                         </button>
                         <!-- Teilen -->
-                        <button class="transition-all duration-75 relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 dark:text-gray-400 rounded-lg group bg-gray-200 dark:bg-gray-800 hover:bg-gradient-to-br hover:from-orange-500 hover:to-red-600 hover:text-white  dark:hover:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
-                            <span class="relative px-4 py-2 inline-flex gap-2 items-center rounded-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                                </svg>
-                                Teilen
-                            </span>
-                        </button>
+                        <div class="flex flex-shrink-1 items-center gap-4">
+                            <button id="share-list-button" data-share-link="<?php echo 'http://localhost/index.php?page=share&token=' . $wishlist['share_token'] . '' ?>" class="flex-shrink-0 transition-all duration-75 relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 dark:text-gray-400 rounded-lg group bg-gray-200 dark:bg-gray-800 hover:bg-gradient-to-br hover:from-orange-500 hover:to-red-600 hover:text-white  dark:hover:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                                <span class="relative px-4 py-2 inline-flex gap-2 items-center rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                                    </svg>
+                                    <span id="share-info">
+                                        <?php echo $wishlist['is_public'] == 1 ? 'Link Kopieren' : 'Teilen' ?>
+                                    </span>
+                                </span>
+                            </button>
+                            <?php
+                            if ($wishlist['is_public'] == 1) {
+                            ?>
+                                <div class="text-gray-500 dark:text-gray-400 italic flex-shrink-1">
+                                    <?php echo 'http://localhost/index.php?page=share&token=' . $wishlist['share_token'] . '' ?>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
 
                     </div>
                 </div>
