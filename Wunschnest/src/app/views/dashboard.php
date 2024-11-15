@@ -79,7 +79,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 </div>
                 <div class="mb-8 sm:rounded-lg">
                     <div class="hb us asn asx cni dmm">
-                        <ul class="grid grid-cols-3 gap-6 items-stretch">
+                        <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
                             <?php
                             # Liste erstellen der Wunschlisten
 
@@ -120,7 +120,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 <h2 class="mb-4 dark:text-gray-300">
                     Statistiken
                 </h2>
-                <div class="flex gap-8">
+                <div class="flex gap-8 flex-wrap">
 
                     <?php
 
