@@ -156,18 +156,17 @@ include BASE_PATH . '/components/includes/basic-head.php';
                     $categories = [];
 
                     # Wenn user_id = 1 (Test Nutzer), benutzer Testdaten, sonst die echten Daten
-                    if ($user_id == 1) {
-                        $categories = [
-                            ["name" => "Elektronik", "wish_count" => 13],
-                            ["name" => "Haushalt", "wish_count" => 5],
-                            ["name" => "Familie", "wish_count" => 2],
-                            ["name" => "Wohnen", "wish_count" => 1],
-                            ["name" => "Hobby", "wish_count" => 3],
-                            ["name" => "Sonstiges", "wish_count" => 1]
-                        ];
-                    } else {
-                        $categories = $categoryController->getCategoriesByUser($user_id);
-                    }
+                    // if ($user_id == 1) {
+                    //     $categories = [
+                    //         ["name" => "Elektronik", "wish_count" => 13],
+                    //         ["name" => "Haushalt", "wish_count" => 5],
+                    //         ["name" => "Familie", "wish_count" => 2],
+                    //         ["name" => "Wohnen", "wish_count" => 1],
+                    //         ["name" => "Hobby", "wish_count" => 3],
+                    //         ["name" => "Sonstiges", "wish_count" => 1]
+                    //     ];
+                    // } else {
+                    $categories = $categoryController->getCategoriesByUser($user_id);
 
                     # Importiere Funktion um Kategorien mit Anzahl anzuzeigen
                     include BASE_PATH . "/components/elements/category-counter-tag.php";
