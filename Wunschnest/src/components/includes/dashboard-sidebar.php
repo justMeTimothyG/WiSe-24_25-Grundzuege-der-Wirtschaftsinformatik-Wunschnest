@@ -126,10 +126,17 @@ $active = 'bg-gray-500 dark:bg-gray-900 hover:shadow-md';
         <!--  Gefühlt fehlt hier noch ein Bereich an Listen auf die man schnell zugreifen muss. Wenn es hierzu kommt kann dies am besten an dieser Stelle hinzugefügt werden -->
         <div>
             <div class="flex items-center gap-4 p-3">
-                <div class="s-6 inline-flex items-center justify-center overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
-
+                <div class="size-10 inline-flex items-center justify-center overflow-hidden rounded-full bg-orange-500">
+                    TL
                 </div>
                 <span class="text-md font-semibold"><?php echo $_SESSION['name']; ?></span>
+                <div class="ml-auto">
+                    <a href="/logout.php" class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4M16 17l5-5-5-5M19.8 12H9" />
+                        </svg>
+                    </a>
+                </div>
             </div>
             <!-- <div class="flex items-center gap-4 p-3">
                 <span>

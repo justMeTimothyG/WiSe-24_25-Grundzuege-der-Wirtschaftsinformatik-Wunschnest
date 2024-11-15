@@ -236,15 +236,15 @@ INSERT INTO wish (wishlist_id, name, price, category_id, description, url) VALUE
 
 
 INSERT INTO wish (wishlist_id, name, price, category_id, description, url) VALUES
-(8, 'Aquarellfarben-Set', 30.00, 23, 'Ein Set hochwertiger Aquarellfarben für Kunstprojekte', 'https://example.com/aquarellfarben-set'),
-(8, 'Leinwandpackung', 20.00, 23, 'Ein Packung mit Leinwänden in verschiedenen Größen', 'https://example.com/leinwandpackung'),
-(8, 'Pinselset', 15.00, 23, 'Ein Set mit verschiedenen Pinseln für unterschiedliche Maltechniken', 'https://example.com/pinselset'),
-(8, 'Acrylfarben-Set', 25.00, 23, 'Ein Set leuchtender Acrylfarben für vielseitige Malerei', 'https://example.com/acrylfarben-set'),
-(8, 'Zeichenblock', 10.00, 23, 'Ein hochwertiger Zeichenblock für Skizzen und Zeichnungen', 'https://example.com/zeichenblock'),
-(8, 'Malkoffer', 50.00, 23, 'Ein tragbarer Malkoffer mit allen wichtigen Utensilien', 'https://example.com/malkoffer'),
-(8, 'Pastellkreiden', 18.00, 23, 'Ein Set von Pastellkreiden für farbenfrohe Kunstwerke', 'https://example.com/pastellkreiden'),
-(8, 'Kalligrafie-Set', 22.00, 23, 'Ein Set für die Kunst der Kalligrafie mit verschiedenen Stiften und Tinten', 'https://example.com/kalligrafie-set'),
-(8, 'Staffelei aus Holz', 35.00, 23, 'Eine robuste Holzstaffelei für das Arbeiten an großen Leinwänden', 'https://example.com/staffelei');
+(8, 'Aquarellfarben-Set', 30.00, 26, 'Ein Set hochwertiger Aquarellfarben für Kunstprojekte', 'https://example.com/aquarellfarben-set'),
+(8, 'Leinwandpackung', 20.00, 26, 'Ein Packung mit Leinwänden in verschiedenen Größen', 'https://example.com/leinwandpackung'),
+(8, 'Pinselset', 15.00, 26, 'Ein Set mit verschiedenen Pinseln für unterschiedliche Maltechniken', 'https://example.com/pinselset'),
+(8, 'Acrylfarben-Set', 25.00, 26, 'Ein Set leuchtender Acrylfarben für vielseitige Malerei', 'https://example.com/acrylfarben-set'),
+(8, 'Zeichenblock', 10.00, 26, 'Ein hochwertiger Zeichenblock für Skizzen und Zeichnungen', 'https://example.com/zeichenblock'),
+(8, 'Malkoffer', 50.00, 26, 'Ein tragbarer Malkoffer mit allen wichtigen Utensilien', 'https://example.com/malkoffer'),
+(8, 'Pastellkreiden', 18.00, 26, 'Ein Set von Pastellkreiden für farbenfrohe Kunstwerke', 'https://example.com/pastellkreiden'),
+(8, 'Kalligrafie-Set', 22.00, 26, 'Ein Set für die Kunst der Kalligrafie mit verschiedenen Stiften und Tinten', 'https://example.com/kalligrafie-set'),
+(8, 'Staffelei aus Holz', 35.00, 26, 'Eine robuste Holzstaffelei für das Arbeiten an großen Leinwänden', 'https://example.com/staffelei');
 
 
 INSERT INTO wish (wishlist_id, name, price, category_id, description, url) VALUES
