@@ -32,6 +32,9 @@ switch ($page) {
     case 'login':
         include_once VIEWS_PATH . 'login.php';
         break;
+    case 'logout':
+        include_once VIEWS_PATH . 'logout.php';
+        break;
     case 'demo-dashboard':
         include_once VIEWS_PATH . 'dashboard.php';
         break;
