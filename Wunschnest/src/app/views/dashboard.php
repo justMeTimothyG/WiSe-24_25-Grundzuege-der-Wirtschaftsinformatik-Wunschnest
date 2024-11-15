@@ -79,7 +79,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 </div>
                 <div class="mb-8 sm:rounded-lg">
                     <div class="hb us asn asx cni dmm">
-                        <ul class="grid grid-cols-3 gap-6 items-stretch">
+                        <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
                             <?php
                             # Liste erstellen der Wunschlisten
 
@@ -120,7 +120,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 <h2 class="mb-4 dark:text-gray-300">
                     Statistiken
                 </h2>
-                <div class="flex gap-8">
+                <div class="flex gap-8 flex-wrap">
 
                     <?php
 
@@ -156,18 +156,17 @@ include BASE_PATH . '/components/includes/basic-head.php';
                     $categories = [];
 
                     # Wenn user_id = 1 (Test Nutzer), benutzer Testdaten, sonst die echten Daten
-                    if ($user_id == 1) {
-                        $categories = [
-                            ["name" => "Elektronik", "wish_count" => 13],
-                            ["name" => "Haushalt", "wish_count" => 5],
-                            ["name" => "Familie", "wish_count" => 2],
-                            ["name" => "Wohnen", "wish_count" => 1],
-                            ["name" => "Hobby", "wish_count" => 3],
-                            ["name" => "Sonstiges", "wish_count" => 1]
-                        ];
-                    } else {
-                        $categories = $categoryController->getCategoriesByUser($user_id);
-                    }
+                    // if ($user_id == 1) {
+                    //     $categories = [
+                    //         ["name" => "Elektronik", "wish_count" => 13],
+                    //         ["name" => "Haushalt", "wish_count" => 5],
+                    //         ["name" => "Familie", "wish_count" => 2],
+                    //         ["name" => "Wohnen", "wish_count" => 1],
+                    //         ["name" => "Hobby", "wish_count" => 3],
+                    //         ["name" => "Sonstiges", "wish_count" => 1]
+                    //     ];
+                    // } else {
+                    $categories = $categoryController->getCategoriesByUser($user_id);
 
                     # Importiere Funktion um Kategorien mit Anzahl anzuzeigen
                     include BASE_PATH . "/components/elements/category-counter-tag.php";

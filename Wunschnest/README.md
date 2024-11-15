@@ -20,10 +20,11 @@ Zur Entwicklung musst du folgendes installiert haben:
   - mysql
   - apache
 - git
+- VS Code
 
 #### node und npm installieren
 
-Für Windows kann du folgendes ind PowerShell ausführen:
+Für Windows kann du folgendes in PowerShell ausführen (Als Administrator ausführen!):
 
 Fast Node Manager installieren
 
@@ -34,6 +35,8 @@ winget install Schniz.fnm
 fnm env --use-on-cd | Out-String | Invoke-Expression
 # download and install Node.js
 fnm use --install-if-missing 22
+#Auführen von Skripten erlauben
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 # verifies the right Node.js version is in the environment
 node -v # should print `v22.11.0`
 # verifies the right npm version is in the environment
@@ -67,16 +70,37 @@ Wichtig ist dass du das Verzeichnis `/Wunschnest/src` als Stammverzeichnis angib
 > [!NOTE]
 > Für Mac kann ich MAMP empfehlen, die kostenlose Version ist auch völlig ausreichend. Denn XAMPP scheint aktuell nicht auf MacOS zu laufen.
 
+#### VS Code installieren
+
+Am besten könnt ihr einfach den Installer von VS Code downloaden und alles standard mäßig einrichten.
+
+Wenn ihr VS Code gestartet habt müsst ihr folgende Extensions installieren:
+
+- HTML CSS Support
+- PHP Intelliphense
+- Prettier Code Formatter
+- GitLens
+- GitHub Pull Requests
+- Tailwind CSS Intellisense
+- Tailwind Fold
+- Git Graph
+
+Optional auch folgendes:
+
+- Highlight Matching Tag
+- Live Server
+-
+
 #### Git installieren
 
-Git ist die Versionierung des Codes. So kann man zurückgehen, falls man was kaputt gemacht hat und auch sehen wer welchen Code geändert und hinzugefügt hat, und auch wann.
+Git ist die Versionierung des Codes. So kann man zurückgehen, falls man was kaputt gemacht hat und auch sehen wer welchen Code geändert und hinzugefügt hat, und auch wann. Bitte beachte, dass du die Installation als Administrator durchführen musst! Damit git funktioniert musst du ggf. Windows neu starten.
 
 > [!NOTE]
 > Zur Installation von git Verweise ich mal an die [Offizielle Dokumentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). Für Windows ist die Anleitung ist etwas verwirrend, aber [Heise](https://www.heise.de/tipps-tricks/Git-auf-Windows-installieren-und-einrichten-5046134.html) hatte beim Überfliegen eine gute und Kurze Anleitung (Ganz unten ist sogar eine Kurzanleitung der schon eh kurzen Anleitung).
 >
 > Alternativ kannst du natürlich auch WSL (Windows Subsystem for Linux) verwenden, wo du dann ein Linux System auf Windows hast, um diese ganze Entwicklung auch einfacher zu verfolgen.
 
-Falls es graphisch sein soll für Windows kannst du auch GitHub Desktop installieren. Das ist natürlich auf GitHub zugeschnitten: [GitHub Desktop](https://desktop.github.com/)
+Falls es graphisch sein soll für Windows kannst du auch GitHub Desktop installieren. Das ist natürlich auf GitHub zugeschnitten: [GitHub Desktop](https://desktop.github.com/) . Du musst aber trotzdem Git installieren.
 
 Für den Mac kannst du folgendes tun um git mit homebrew zu installieren:
 
@@ -86,9 +110,27 @@ brew install git
 
 Damit solltest du alles startklar haben, um zu arbeiten.
 
+#### XAMPP einrichten (Windows)
+
+Möglicherweise kommt ein (UAC Fehler) auf. Aber diesen kannst du erstmal ignorieren.
+
 ### Anfangen zu Entwickeln
 
 Du solltest du die dir aktuelle Version vom Repo immer holen. Falls du dies zum ersten mal machst kannst du erstmal das Repo wie folgt kopieren.
+
+Wechsel Dafür in den Ordner wo du die Datei haben möchtest mittels `cd`
+
+Windows:
+
+```PowerShell
+cd $HOME\Documents
+```
+
+UNIX/Mac:
+
+```bash
+cd ~/Documents
+```
 
 ```bash
 git clone https://github.com/justMeTimothyG/WiSe-24_25-Grundzuege-der-Wirtschaftsinformatik-Wunschnest.git
@@ -135,6 +177,25 @@ Damit hast du dann zunächst erstmal alles wichtigste am laufen, damit du weiter
 
 Wenn du fertig bist, bzw. während dessen schon werden dir auch deine Änderungen und Details angezeigt im IDE deiner wahl (IntelliJ oder VS Code) angezeigt. Dateien und COde Zeilen werden farblich hinterlegt, damit du sehen kannst was geändert worden ist.
 
+#### Server Starten
+
+Öffne XAMPP als Administrator und Ändere die Konfiguration für Apache. Das ist bei geöffnetem Fenster bei XAMPP die erste Zeile.
+
+geöffnet wird es standardmäßig mit Notepad. Suche nach der Zeile: (Circa Zeile 255)
+
+```
+DocumentRoot “C:/xampp/htdocs”
+<Directory “C:/xampp/htdocs”>
+```
+
+Um ersetze den Pfad mit dem Pfand für das Projekt, das du von Git kopiert hast. In der Regel sollte es circa So Aussehen:
+
+```
+C:\DEIN_PFAD_Wo_DU_DAS_PROJEKT_GESPEICHERT_HAST\WiSe-24_25-Grundzuege-der-Wirtschaftsinformatik-Wunschnest\Wunschnest\src\public
+```
+
+#### Änderungen bei Git Speichern.
+
 Um deine Änderungen bei git hinzuzufügen machst du:
 
 ```bash
@@ -157,3 +218,19 @@ git push origin <kürzel>
 ```
 
 Abhängig von den Änderungen die in der Zwischenzeit passiert sind kannst du Fehlermeldungen kriegen, Aber nur wenn du überlappend Änderungen mit anderen gemacht hast. Deswegen ist es wichtig Änderungen vor dem Anfangen sich zu ziehen und nach dem Beenden direkt zu speichern! Wenn du nicht weißt was du tun sollst kannst du auch einfach auf das nächste Teammeeting warten und wir lösen das gemeinsam auf.
+
+#### Änderungen von Git im Master in dein Branch hinzufügen
+
+Damit du die aktuellsten Änderungen hast sollte du vor jedem weiteren entwickeln prüfen welche Änderungen geschehen sind. Zunächst musst du erstmal die Neuerungen herunterladen.
+
+```bash
+git fetch
+```
+
+Dann musst du prüfen ob Änderungen überhaupt vorhanden sind. Am einfachsten ist es `view git graph (git log)` zu öffnen und zu schauen ob master im voraus ist zu deinem eigenem Branch. Wenn dies der Fall ist, dann solltest die Änderungen in Master auf dein Branch hinzufügen.
+
+```bash
+git merge origin/master
+```
+
+Falls es Abweichungen gibt wird dir das angezeigt. Du kannst die Dateien einzeln anschauen und Entscheiden welche Änderungen du behalten willst. Dann musst du den merge wieder commiten.
