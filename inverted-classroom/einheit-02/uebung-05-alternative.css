@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.green-box {
+  background-image: url("glas.jpeg");
+  background-size: cover;
+  color: white;
+  height: 100px;
+  width: 100px;
+  /* position: relative;
+  left: 50px;
+  top: 50px; */
+  transition-duration: 1s;
+  transition-timing: ease-in;
+  /* Test with transition  */
+  margin: 50px 0 0 50px;
+}
+.green-box:hover {
+  transform: rotate(60deg) rotatex(180deg);
+}

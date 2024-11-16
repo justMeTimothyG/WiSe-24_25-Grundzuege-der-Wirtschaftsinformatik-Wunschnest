@@ -13,5 +13,4 @@ div {
 div:hover {
   /* Rotieren um 60° */
   transform: rotate(60deg) rotatex(180deg);
-  /* transform: rotate(270deg); */
 }

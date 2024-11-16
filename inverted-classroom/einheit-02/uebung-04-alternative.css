@@ -1,0 +1,14 @@
+.a {
+  background-color: lightblue;
+  padding: 10px;
+  top: 10px;
+  left: 20px;
+  width: 270px;
+  position: fixed;
+  border: 1px solid black;
+}
+
+.a input {
+  position: absolute;
+  left: 8rem;
+}
