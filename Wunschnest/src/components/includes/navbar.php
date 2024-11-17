@@ -19,6 +19,13 @@
                     <a href="/logout.php">
                         <button type="button" class="dark:hover:t ext-white rounded-lg px-4 py-2 text-center text-sm font-medium text-gray-800 hover:bg-blue-100 hover:text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-gray-600 dark:text-gray-300 dark:hover:bg-gray-500 dark:focus:ring-blue-800">Ausloggen</button>
                     </a>
+                    <a href="/index.php?page=dashboard">
+                        <button type="button" class="rounded-lg flex items-center gap-2 bg-blue-700 px-4 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Zum Dashboard
+                            <svg class="h-3 w-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                        </button>
+                    </a>
 
                 <?php
                 } else {
