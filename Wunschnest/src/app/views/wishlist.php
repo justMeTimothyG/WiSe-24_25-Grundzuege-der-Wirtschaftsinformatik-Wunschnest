@@ -44,6 +44,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
 
 ?>
 <!-- Script für den Share-Link -->
+<script src="/js/share-link.js" defer></script>
 <title><?php echo $title ?></title>
 </head>
 
@@ -143,8 +144,11 @@ include BASE_PATH . '/components/includes/basic-head.php';
                             </span>
                         </button>
                         <!-- Teilen -->
+                        <?php
+                        # TODO : Share Link Design etwas aufbessern - vor allem mit der länge des Links und des uneinheitlichen Button Größe
+                        ?>
                         <div class="flex flex-shrink-1 items-center gap-4">
-                            <button id="share-list-button" data-share-link="<?php echo 'http://localhost/index.php?page=share&token=' . $wishlist['share_token'] . '' ?>" class="flex-shrink-0 transition-all duration-75 relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 dark:text-gray-400 rounded-lg group bg-gray-200 dark:bg-gray-800 hover:bg-gradient-to-br hover:from-orange-500 hover:to-red-600 hover:text-white  dark:hover:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                            <button id="share-list-button" data-wishlist-id="<?php echo $wishlist['wishlist_id'] ?>" data-share-link="<?php echo 'http://localhost/index.php?page=share&token=' . $wishlist['share_token'] . '' ?>" class="flex-shrink-0 transition-all duration-75 relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 dark:text-gray-400 rounded-lg group bg-gray-200 dark:bg-gray-800 hover:bg-gradient-to-br hover:from-orange-500 hover:to-red-600 hover:text-white  dark:hover:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
                                 <span class="relative px-4 py-2 inline-flex gap-2 items-center rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>

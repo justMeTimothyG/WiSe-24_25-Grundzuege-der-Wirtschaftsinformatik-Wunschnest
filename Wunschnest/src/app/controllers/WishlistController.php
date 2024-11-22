@@ -175,6 +175,19 @@ class WishlistController
         }
     }
 
+    /**
+     * Markiere eine Wunschliste als öffentlich
+     *
+     * @param int $wishlistID Die ID der Wunschliste
+     * @return bool True, falls die Wunschliste markiert wurde
+     */
+    public function shareWishlist($wishlistID)
+    {
+        $stmt = $this->db->prepare("UPDATE wishlist SET is_public = 1 WHERE wishlist_id = :wishlist_id");
+        $stmt->bindParam(':wishlist_id', $wishlistID);
+        return $stmt->execute();
+    }
+
     #####################
     # Delete Funktionen #
     #####################
