@@ -127,7 +127,18 @@ $active = 'bg-gray-500 dark:bg-gray-900 hover:shadow-md';
         <div>
             <div class="flex items-center gap-4 p-3">
                 <div class="size-10 inline-flex items-center justify-center overflow-hidden rounded-full bg-orange-500">
-                    TL
+                    <?php
+                    # Hole die ersten Beiden Buschstaben des Users 
+                    # entweder ein Buchstabe bei einem Namen oder max 2 Buchstaben bei mehreren Namen
+
+                    # Erstelle ein Array mit den einzelnen Teilbereichen des Namens getrennt durch ein Leerzeichen
+                    $kuerzel = explode(" ", $_SESSION['name']);
+                    # Nehme nur die ersten beiden Teilnamen und lasse den rest fallen
+                    $kuerzel = array_slice($kuerzel, 0, 2);
+                    # Erstelle einen String aus den erstbuchstaben der Teilnamen
+                    $kuerzel = implode("", array_map(fn($value) => mb_substr($value, 0, 1), $kuerzel));
+                    echo $kuerzel;
+                    ?>
                 </div>
                 <span class="text-md font-semibold"><?php echo $_SESSION['name']; ?></span>
                 <div class="ml-auto">
