@@ -25,7 +25,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
 
             <!-- Hero Section - Startseitenbereich  -->
 
-            <section class="lottie-hover-target mx-auto my-16 flex w-10/12 items-center rounded-3xl border-[1px] border-gray-200 bg-white p-16 transition duration-300 ease-in-out hover:border-white hover:shadow-xl dark:border-gray-950 dark:bg-gray-800 dark:hover:shadow-black">
+            <section class="lottie-hover-target mx-auto my-16 flex lg:flex-row flex-col-reverse w-10/12 items-center rounded-3xl border-[1px] border-gray-200 bg-white p-16 transition duration-300 ease-in-out hover:border-white hover:shadow-xl dark:border-gray-950 dark:bg-gray-800 dark:hover:shadow-black">
                 <div class="align-center px-4 py-8">
                     <div class="flex flex-col">
                         <h2 class="mb-2 text-xl font-extrabold text-orange-500 lg:text-xl">WunschNest</h2>
@@ -46,7 +46,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
                         </div>
                     </div>
                 </div>
-                <div class="flex max-w-[300px] flex-[0_0_50%]">
+                <div class="flex min-w-[250px] max-w-[300px] flex-[0_0_50%]">
                     <div class="lottie-animation w-full align-middle"></div>
                 </div>
             </section>
