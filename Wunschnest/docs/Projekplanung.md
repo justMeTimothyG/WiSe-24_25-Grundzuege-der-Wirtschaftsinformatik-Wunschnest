@@ -97,17 +97,26 @@ Erledigte Meilensteine:
 Erledigte Meilensteine:
 
 - Benutzer Login Ansichten erstellt
-- Datenbanken bereits angelegt
+- Datenbanken entworfen
 - Dynamisches Einfügen von Daten in einigen Views
-- Erstellen von einträgen in Datenbanken
-- Dark Mode
+- Dark Model
 - Eine Animation wurde eingebaut (Logo)
 - Datenbankdesign (erste Formulierung)
 
 Reflexion:
 Wir liegen in der Projekttimeline voraus und können erstmal unbesorgt fortfahren.
 
+Feedback:
+
+- Fehlende Aufteilung der Aufgaben unter den Teammitgliedern
+
 #### Termin 3
+
+Erledigte Meilensteine:
+
+- Dashboard Übersicht (Testdaten)
+- Formulare zum hinzufügen von Wünschen
+-
 
 #### Termin 4
 
@@ -133,78 +142,77 @@ Wir liegen in der Projekttimeline voraus und können erstmal unbesorgt fortfahre
 
 Views:
 
-- [x] Startseite
-- [x] Impressum
-- [x] Datenschutz
-- [x] Kontakt
-- [x] Admin Page
-- [x] Login
-- [x] Register
-- [x] Dashboard
+- [x] Startseite (Tim)
+- [x] Impressum (Mussnah)
+- [x] Datenschutz (Raphael)
+- [x] Kontakt (Lenny & Leo)
+- [x] Admin Page (Tim)
+- [x] Login (Raphael)
+- [x] Register (Tim)
+- [x] Dashboard (Alle)
+  - Sidebar (Raphael)
+  - Übersicht (Tim)
+  - Formular zum hinzufügen (Leo & Lenny)
+  - Detailsansicht (Mussnah)
 - [x] Wunschliste (Einzelne Liste)
-- [ ] Archiv
-- [ ] Wunsch Detail Ansicht
-- [x] Erstellen von Wünschen
-- [x] Erstellen von Wunschlisten
-- [ ] Erstellen von Kategorien
-- [ ] Bearbeiten von (Wunschlisten, Wünschen, Kategorien)
-- [ ] Geteilte Ansicht für Erfüller
-- [ ] Formular für Erfüller eines Wunschnest
+- [ ] Wunsch Detail Ansicht (Tim)
+- [ ] Erstellen von Kategorien (Leo & Lenny)
+- [ ] Geteilte Ansicht für Erfüller (Mussnah)
+- [ ] Formular für Erfüller eines Wunschnest (Leo und Lenny)
 
 Nice-to Haves:
 
-- [x] Dark Mode
-- [ ] Layout auf verschiedenen Geräten/Browsern prüfen
+- [ ] Archiv (Mussnah)
+- [x] Dark Mode (Tim)
+- [ ] Layout auf verschiedenen Geräten/Browsern prüfen (Alle)
 
 #### UML
 
 Formulierung von Flows: (Berücksichtigung der Flows im Code und Routing)
 
-- [ ] Überragender User Flow von Anfang bis Ende
-- [ ] Login
-- [ ] Logout
-- [ ] Registrierungs
-- [ ] Erstellen von Wunschlisten
-- [ ] Erstellen von Wünschen
-- [ ] Erstellen von Kategorien
-- [ ] Teilen einer Wunschliste (Rückgängig Machung einer geteilten Liste)
-- [ ] Ein Erfüller erhält einen Link und erfüllt einen Wunsch
+- [x] Klassendiagramm (Leo)
+- [x] Use Cases von Nutzer und Erfüllern Formulieren (Lenny)
+- [ ] Login (Tim)
+- [ ] Registrierung (Mussnah)
+- [ ] Erstellen von Wunschlisten (Leo)
+- [ ] Erstellen von Wünschen (Lenny)
+- [ ] Erstellen von Kategorien (Mussnah)
+- [ ] Teilen einer Wunschliste (Rückgängig Machung einer geteilten Liste) (Tim)
+- [ ] Ein Erfüller erhält einen Link und erfüllt einen Wunsch (Raphael)
 
 #### Datenbanken
 
-- [x] Erste Überlegungen der Strukturen dokumentieren
-- [x] Formuliere die nötigen Datenpunkte (Auflistung der Eigenschaften)
-- [x] Beziehungen zwischen den Tabellen herstellen
-- [ ] Überlegungen zu den Aktionen an den Datensätzen formulieren
-- [ ] SQL Statements formulieren anhand der nötigen Aktionen
-- [ ] Datenbank finalisieren
-- [ ] Testdaten für die Entwicklung erstellen
+- [x] Erste Überlegungen der Strukturen dokumentieren (Tim)
+- [x] Formuliere die nötigen Datenpunkte (Auflistung der Eigenschaften) (Tim)
+- [x] Beziehungen zwischen den Tabellen herstellen (Tim)
+- [ ] Überlegungen zu den Aktionen an den Datensätzen formulieren (Leo & Lenny)
+- [ ] SQL Statements formulieren anhand der nötigen Aktionen (Lenny)
+- [ ] Datenbank finalisieren (Alle)
+- [ ] Testdaten für die Entwicklung erstellen (Raphael)
 - [ ]
 
 #### PHP Entwicklung
 
-- [x] Ordnerstrukturen angelegt
-- [x] Controller und Funktionen formuliert und dokumentiert (Jeweils ein Controller pro Datenbank Tabelle)
-  - [x] User Controller
-  - [x] Wishlist Controller
-  - [x] Wish COntroller
-  - [x] Category Controller
-  - [x] Favorite Controller
-- [ ] Wiederkehrende Elemente als separate Komponenten ausgelagert.
-- [ ] Helfer Scripts und Test Scripts formuliert
-- [ ] Controller testen
-- [ ] ggf. ins Admin Dashboard einbauen
-- [ ] Bearbeitung von Wunschlisten (Vorbelegung des Formulars mit bestehenden Werten)
-- [ ] Bearbeitung von Wünschen (Vorbelegung des Formulars mit bestehenden Werten)
-- [ ] Bearbeitung des Favoriten Status (Button in der Wunschliste)
-- [ ] Auflistung der Wünsche nach Kategorien
-- [ ] Archivfunktion (Nicht bearbeitbar - Reaktivieren oder Duplizieren mit übrigen Wünschen) Nachdem es archiviert worden ist sieht man, wer das erfüllt hat.
-- [ ] Logout ermöglichen
-- [ ] Demo funktionsfähig ohne Login
-- [ ]
+- [x] Ordnerstrukturen angelegt (Tim)
+- [ ] Controller und Funktionen formuliert und dokumentiert (Jeweils ein Controller pro Datenbank Tabelle)
+  - [ ] User Controller (Mussnah)
+  - [ ] Wishlist Controller (Tim)
+  - [ ] Wish COntroller (Lenny)
+  - [ ] Category Controller (Raphael)
+  - [ ] Favorite Controller (Leo)
+- [ ] Wiederkehrende Elemente als separate Komponenten ausgelagert. (Tim)
+- [ ] Bearbeitung von Wunschlisten (Vorbelegung des Formulars mit bestehenden Werten) (Leo)
+- [ ] Bearbeitung von Wünschen (Vorbelegung des Formulars mit bestehenden Werten) (Lenny)
+- [ ] Bearbeitung des Favoriten Status (Button in der Wunschliste) (Mussnah)
+- [ ] Archivfunktion (Nicht bearbeitbar - Reaktivieren oder Duplizieren mit übrigen Wünschen) Nachdem es archiviert worden ist sieht man, wer das erfüllt hat. (Tim)
+- [ ] Logout ermöglichen (Tim)
+- [ ] Demo funktionsfähig ohne Login (Alle)
 
 Nice to Haves:
 
+- [ ] Auflistung der Wünsche nach Kategorien
+- [ ] Helfer Scripts und Test Scripts formuliert
+- [ ] ggf. ins Admin Dashboard einbauen
 - [ ] Umgang mit Fehlern, damit Fehler, mit denen nicht gerechnet worden ist standardmäßig verborgen werden, aber geloggt werden.
 - [ ]
 
@@ -212,7 +220,7 @@ Nice to Haves:
 
 - [x] Dark Mode Toggle
 - [/] Animationen einbauen (Lottie Animationen)
-- [ ] Link kopieren ins Clipboard (Zwischenablage) beim sharing
+- [/] Link kopieren ins Clipboard (Zwischenablage) beim sharing
 - [ ] Validierung der Formulare im Frontend vor der Übermittlung an den Server
 
 #### Präsentation

@@ -20,3 +20,6 @@ pnpm-debug.log*
 
 # Media Files 
 Mockups/
+
+# Visual Paradigm BAK Files
+*.bak*
