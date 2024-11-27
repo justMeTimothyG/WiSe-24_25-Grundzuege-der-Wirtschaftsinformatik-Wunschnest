@@ -99,7 +99,7 @@ Erledigte Meilensteine:
 - Benutzer Login Ansichten erstellt
 - Datenbanken entworfen
 - Dynamisches Einfügen von Daten in einigen Views
-- Dark Model
+- Dark Mode
 - Eine Animation wurde eingebaut (Logo)
 - Datenbankdesign (erste Formulierung)
 
@@ -110,15 +110,30 @@ Feedback:
 
 - Fehlende Aufteilung der Aufgaben unter den Teammitgliedern
 
-#### Termin 3
+#### Termin 3 🟢
 
 Erledigte Meilensteine:
 
-- Dashboard Übersicht (Testdaten)
-- Formulare zum hinzufügen von Wünschen
--
+- Dashboard Übersicht (Tim)(mit Testdaten)
+- Formulare zum hinzufügen von Wünschen (Lenny)
+- Formulare zum hinzufügen von Wunschlisten (Leo)
+- Registrierung Formular (Mussnah)
 
-#### Termin 4
+#### Termin 4 🟢
+
+Erledigte Meilensteine:
+
+- Dashboard Seitenleiste erstellt (Raphael)
+- Dashboard Ansichten zusammengefügt (Tim)
+- Wunschlisten Ansicht (Mussnah + Tim)
+- Weitere Überlegungen/Vorbereitung zum erfassen des Kontaktformulars (Leo und Lenny)
+- UML Flowcharts (Alle)
+  - Klassendiagramm
+  - Userflow: Login
+  - Userflow: Registrierung
+  - Userflow: Wunsch erfüllen
+  - Userflow: Wunschliste erstellen
+  - Userflow: Wunsch eintragen
 
 #### Termin 5
 
@@ -172,13 +187,13 @@ Formulierung von Flows: (Berücksichtigung der Flows im Code und Routing)
 
 - [x] Klassendiagramm (Leo)
 - [x] Use Cases von Nutzer und Erfüllern Formulieren (Lenny)
-- [ ] Login (Tim)
-- [ ] Registrierung (Mussnah)
-- [ ] Erstellen von Wunschlisten (Leo)
-- [ ] Erstellen von Wünschen (Lenny)
+- [x] Login (Tim)
+- [x] Registrierung (Mussnah)
+- [x] Erstellen von Wunschlisten (Leo)
+- [x] Erstellen von Wünschen (Lenny)
 - [ ] Erstellen von Kategorien (Mussnah)
 - [ ] Teilen einer Wunschliste (Rückgängig Machung einer geteilten Liste) (Tim)
-- [ ] Ein Erfüller erhält einen Link und erfüllt einen Wunsch (Raphael)
+- [x] Ein Erfüller erhält einen Link und erfüllt einen Wunsch (Raphael)
 
 #### Datenbanken
 
@@ -204,12 +219,12 @@ Formulierung von Flows: (Berücksichtigung der Flows im Code und Routing)
 - [ ] Bearbeitung von Wunschlisten (Vorbelegung des Formulars mit bestehenden Werten) (Leo)
 - [ ] Bearbeitung von Wünschen (Vorbelegung des Formulars mit bestehenden Werten) (Lenny)
 - [ ] Bearbeitung des Favoriten Status (Button in der Wunschliste) (Mussnah)
-- [ ] Archivfunktion (Nicht bearbeitbar - Reaktivieren oder Duplizieren mit übrigen Wünschen) Nachdem es archiviert worden ist sieht man, wer das erfüllt hat. (Tim)
 - [ ] Logout ermöglichen (Tim)
 - [ ] Demo funktionsfähig ohne Login (Alle)
 
 Nice to Haves:
 
+- [ ] Archivfunktion (Nicht bearbeitbar - Reaktivieren oder Duplizieren mit übrigen Wünschen) Nachdem es archiviert worden ist sieht man, wer das erfüllt hat. (Tim)
 - [ ] Auflistung der Wünsche nach Kategorien
 - [ ] Helfer Scripts und Test Scripts formuliert
 - [ ] ggf. ins Admin Dashboard einbauen
