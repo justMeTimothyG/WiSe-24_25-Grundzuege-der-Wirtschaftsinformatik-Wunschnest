@@ -77,7 +77,7 @@ try {
                         <h1 class="my-0 mb-4 text-3xl font-bold tracking-tight">Dein Persönlicher Wunschzettel</h1>
                         <p class="dark:text-gray-400">Erstelle ganz einfach deine persönlichen Wunschlisten und teile sie mit Familie und Freunden. Keine unpassenden Überraschungen mehr - nur Geschenke, die Freude bereiten!</p>
                         <div class="mt-12 flex space-x-16">
-                            <a href="/register.php">
+                            <a href="/index.php?page=register">
                                 <button type="button" class="rounded-lg bg-gray-800 px-10 py-4 text-center text-sm font-light text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-gray-700 dark:hover:bg-blue-700">Kostenlos Registrieren</button>
                             </a>
                             <a href="/index.php?page=dashboard">
