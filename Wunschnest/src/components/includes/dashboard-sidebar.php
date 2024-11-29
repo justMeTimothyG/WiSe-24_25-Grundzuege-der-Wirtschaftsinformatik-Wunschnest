@@ -69,7 +69,7 @@ $active = 'bg-gray-500 dark:bg-gray-900 hover:shadow-md';
                         <h2 class="text-md font-semibold">Dashboard</h2>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="/index.php?page=wishlists" class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -78,7 +78,7 @@ $active = 'bg-gray-500 dark:bg-gray-900 hover:shadow-md';
                         </span>
                         <h2 class="text-md font-semibold">Wunschlisten</h2>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="/index.php?page=archive" class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
                         <span>

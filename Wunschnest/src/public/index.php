@@ -56,6 +56,9 @@ switch ($page) {
         break;
     case 'share':
         break;
+    case 'archiv':
+        include_once VIEWS_PATH . 'archive.php';
+        break;
     case 'landing':
         # Standardmäßig die Homepage/Landing Seite laden. 
         # Aber nur wenn nichts angegeben. 
