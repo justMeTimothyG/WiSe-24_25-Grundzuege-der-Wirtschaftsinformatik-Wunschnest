@@ -130,9 +130,9 @@ $active = 'bg-gray-500 dark:bg-gray-900 hover:shadow-md';
                     <?php
                     # Hole die ersten Beiden Buschstaben des Users 
                     # entweder ein Buchstabe bei einem Namen oder max 2 Buchstaben bei mehreren Namen
-
+                    $name = isset($_SESSION['name']) ? $_SESSION['name'] : "Testnutzer";
                     # Erstelle ein Array mit den einzelnen Teilbereichen des Namens getrennt durch ein Leerzeichen
-                    $kuerzel = explode(" ", $_SESSION['name']);
+                    $kuerzel = explode(" ", $name);
                     # Nehme nur die ersten beiden Teilnamen und lasse den rest fallen
                     $kuerzel = array_slice($kuerzel, 0, 2);
                     # Erstelle einen String aus den erstbuchstaben der Teilnamen
@@ -140,14 +140,20 @@ $active = 'bg-gray-500 dark:bg-gray-900 hover:shadow-md';
                     echo $kuerzel;
                     ?>
                 </div>
-                <span class="text-md font-semibold"><?php echo $_SESSION['name']; ?></span>
-                <div class="ml-auto">
-                    <a href="/logout.php" class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4M16 17l5-5-5-5M19.8 12H9" />
-                        </svg>
-                    </a>
-                </div>
+                <span class="text-md font-semibold"><?php echo $name; ?></span>
+                <?php
+                if (isset($_SESSION['username'])) {
+                ?>
+                    <div class="ml-auto">
+                        <a href="/logout.php" class="flex items-center gap-4 rounded-lg p-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4M16 17l5-5-5-5M19.8 12H9" />
+                            </svg>
+                        </a>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
             <!-- <div class="flex items-center gap-4 p-3">
                 <span>

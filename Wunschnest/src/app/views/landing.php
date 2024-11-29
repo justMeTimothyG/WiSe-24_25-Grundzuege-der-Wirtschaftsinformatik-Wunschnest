@@ -37,7 +37,13 @@ include BASE_PATH . '/components/includes/basic-head.php';
                             </a>
                             <a href="/index.php?page=dashboard">
                                 <button type="button" class="flex items-center gap-4 rounded-lg px-10 py-4 text-center text-sm font-medium text-gray-800 hover:bg-blue-100 hover:text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-blue-800 dark:hover:text-white">
-                                    Demo testen
+                                    <?php
+                                    if (isset($_SESSION['username'])) {
+                                        echo "Zum Dashboard";
+                                    } else {
+                                        echo "Dashboard testen";
+                                    }
+                                    ?>
                                     <svg class="h-3 w-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                                     </svg>

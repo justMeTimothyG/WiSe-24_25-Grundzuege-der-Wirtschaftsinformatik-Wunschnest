@@ -16,13 +16,12 @@ $wishlistController = new WishlistController($pdo);
 $userController = new UserController($pdo);
 $categoryController = new CategoryController($pdo);
 
-# Prüfe ob Testdaten geladen werden sollen oder die des Nutzers: 
-if (isset($_GET['demo']) && $_GET['demo'] == 'true') {
-    # Da Demo Nutzer: Benutze ID 1 für den ersten User in Datenbank, der der Test User ist.
-    $user_id = 1;
-} else {
+# Prüfe ob Nutzer Session vorhanden ist: 
+if (isset($_SESSION['username'])) {
     $user = $userController->getUserByUsername($_SESSION['username']);
     $user_id = $user['user_id'];
+} else {
+    $user_id = 1;
 }
 
 # Hole die Wunschlistn des Users   
@@ -48,10 +47,19 @@ include BASE_PATH . '/components/includes/basic-head.php';
         include BASE_PATH . '/components/includes/dashboard-sidebar.php';
         ?>
         <div class="w-full flex flex-col">
-            <!-- Banner Image  -->
-            <div class="h-32 bg-teal-700 bg-gradient-to-tr from-cyan-500">
+            <?php
+            if (!isset($_SESSION['username'])) {
+            ?>
+                <!-- Banner Image  -->
+                <div class="flex justify-center items-center h-32 bg-teal-700 bg-gradient-to-tr from-cyan-500">
+                    <?php
+                    include_once BASE_PATH . '/components/elements/test-user-info.php';
+                    ?>
+                </div>
 
-            </div>
+            <?php
+            }
+            ?>
 
 
 
