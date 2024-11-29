@@ -5,6 +5,51 @@ $title = "WunschNest";
 
 include BASE_PATH . '/components/includes/basic-head.php';
 
+# Setze Statistik Daten Fest
+$statistics = [
+    'users' => 348,
+    'wishlists' => 420,
+    'wishes' => 678
+];
+
+# Try Loading Database and data if already init
+try {
+    include_once BASE_PATH . '/app/config/database.php';
+    $pdo = getDatabaseConnection();
+
+    ######
+    # Hole die Statistiken aus der Datenbank
+    ######
+
+    # Bereite die SQL Statements vor
+    # Anzahl der Nutzer
+    $sql_user = "SELECT COUNT(*) AS count FROM users";
+    # ANzahl der Wünsche 
+    $sql_wish = "SELECT COUNT(*) AS count FROM wish";
+    # Anzahl der Wunschlisten
+    $sql_wishlist = "SELECT COUNT(*) AS count FROM wishlist";
+
+    # Führe die Statements aus
+    $stmt_user = $pdo->query($sql_user);
+    $stmt_wish = $pdo->query($sql_wish);
+    $stmt_wishlist = $pdo->query($sql_wishlist);
+
+    # Hole die Daten aus den Statements
+    $user_count = $stmt_user->fetchColumn();
+    $wish_count = $stmt_wish->fetchColumn();
+    $wishlist_count = $stmt_wishlist->fetchColumn();
+
+    # Setze die Statistik Daten
+    $statistics = [
+        'users' => $user_count,
+        'wishlists' => $wishlist_count,
+        'wishes' => $wish_count
+    ];
+} catch (Exception $e) {
+    # Falls Verbindung zur Datenbank fehlgeschlagen ist, logge einen Fehler
+    error_log("Database connection failed: " . $e->getMessage());
+}
+
 ?>
 </head>
 
@@ -140,9 +185,9 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 <h2 class="my-4 mb-16 text-5xl font-semibold text-gray-900 dark:text-gray-200">Statistiken</h2>
 
                 <div class="flex justify-around rounded-3xl border-gray-100 bg-gray-100 p-12 transition duration-300 ease-in-out hover:border-white hover:bg-white hover:text-orange-500 hover:shadow-xl dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <div class="flex flex-col items-center"><span class="mb-4 text-7xl">678</span><span>Wünsche</span></div>
-                    <div class="flex flex-col items-center"><span class="mb-4 text-7xl">420</span><span>Wunschlisten</span></div>
-                    <div class="flex flex-col items-center"><span class="mb-4 text-7xl">348</span><span>Benutzer</span></div>
+                    <div class="flex flex-col items-center"><span class="mb-4 text-7xl"><?php echo $statistics['wishes']; ?></span><span>Wünsche</span></div>
+                    <div class="flex flex-col items-center"><span class="mb-4 text-7xl"><?php echo $statistics['wishlists']; ?></span><span>Wunschlisten</span></div>
+                    <div class="flex flex-col items-center"><span class="mb-4 text-7xl"><?php echo $statistics['users']; ?></span><span>Benutzer</span></div>
                 </div>
             </section>
 
