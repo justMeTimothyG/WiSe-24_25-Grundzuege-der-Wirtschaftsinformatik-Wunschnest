@@ -25,6 +25,15 @@ function getDatabaseConnection()
         # Gebe die Datenbank Verbindung zurück
         return $pdo;
     } catch (PDOException $e) {
-        die("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
+        error_log("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
+        # Falls nicht möglich versuche eine Verbindung zur Datenbank herzustellen, ohne Datenbankangabe
+        try {
+                // Fallback: Verbindung ohne Angabe einer Datenbank herstellen
+                $pdo = new PDO("mysql:host=$host", $username, $password);
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                return $pdo;
+            } catch (PDOException $e1) {
+                    throw $e1;
+            }
     }
 }

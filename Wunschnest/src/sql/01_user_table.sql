@@ -14,5 +14,5 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     last_login_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     session_token VARCHAR(64) DEFAULT NULL,
-    session_token_expiration TIMESTAMP
+    session_token_expiration TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
