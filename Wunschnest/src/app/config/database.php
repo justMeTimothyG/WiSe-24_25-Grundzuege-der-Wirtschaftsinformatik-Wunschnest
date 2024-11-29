@@ -25,6 +25,7 @@ function getDatabaseConnection()
         # Gebe die Datenbank Verbindung zurück
         return $pdo;
     } catch (PDOException $e) {
-        die("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
+        error_log("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
+        throw $e;
     }
 }

@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS wish (
     -- Wunsch bereits erfüllt?
     is_fulfilled BOOLEAN DEFAULT FALSE,
     -- Datum, zu dem der Wunsch erledigt wurde
-    fulfilled_at TIMESTAMP,
+    fulfilled_at DATETIME DEFAULT NULL,
     -- von Wem der Wunsch erfüllt wurde
     fulfilled_by VARCHAR(255),
     -- Zuordnung zu einer Wunschliste, lösche alle Daten, wenn die Wunschliste gelöscht wird
