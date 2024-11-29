@@ -7,6 +7,7 @@ include_once BASE_PATH . '/app/config/database.php';
 # Versuche die Datenbankverbindung herzustellen, falls nicht möglich verbinde ohne Datenbankangabe und erstelle die Datenbank
 try {
     $pdo_reset = getDatabaseConnection();
+    // echo var_dump($pdo_reset);
 
 } catch (PDOException $e) {
     // echo "get database connection failed. <brY";
@@ -27,7 +28,7 @@ try {
             $pdo_reset = new PDO("mysql:host=$host", $username, $password);
             $pdo_reset->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
-            // echo "connection successful";
+            //  echo "connection successful";
         } catch (PDOException $e) {
             // Fehler bei der Verbindung zum Server
             die("Kritischer Fehler: Verbindung zum Server nicht möglich. " . $e->getMessage());
@@ -62,7 +63,7 @@ session_start();
 
 # Zeige Benachrichtigung mit dem Standardlogin an 
 $_SESSION['check'] = "success";
-$_SESSION['message'] = "Die Datenbank wurde erfolgreich zurueckgesetzt. Versuche dich mit 'starlord', 'rocket' oder 'groot' mit dem Passwort '1234' ";
+$_SESSION['message'] = "Die Datenbank wurde erfolgreich zurueckgesetzt. Versuche dich mit 'starlord', 'rocket' oder 'groot' mit dem Passwort '1234' einzuloggen.  <br> <br>";
 
 
 header("Location: /index.php?page=login");
