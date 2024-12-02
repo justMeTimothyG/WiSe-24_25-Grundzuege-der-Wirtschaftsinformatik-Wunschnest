@@ -23,11 +23,6 @@ if (isset($_SESSION['username'])) {
     $user_id = 1;
 }
 
-
-# Typ definieren was kreiert werden soll. 
-$type = $_GET['type'];
-
-
 $title = "Wunschnest - Wunsch erstellen";
 
 include BASE_PATH . '/components/includes/basic-head.php';
@@ -65,36 +60,19 @@ include BASE_PATH . '/components/includes/basic-head.php';
             <div class="mx-auto w-full max-w-screen-xl flex flex-col flex-grow p-8 pb-0">
 
 
-                <?php
-                include BASE_PATH . '/components/includes/toast.php';
-                ?>
-                <div class="mx-auto mb-16 mt-8">
-                    <span class=" text-lg text-orange-500">Ich habe mir schon immer gewünscht...</span>
-                    <h1 class="my-4 mb-8 text-3xl font-semibold text-gray-900 dark:text-gray-200">Wunsch Erstellen</h1>
-                    <p class="dark:text-gray-400">Hier kannst du deinen Wunsch erstellen! Und deinen Liebsten es einfach machen genau das richtige für dich zu geben. Versuche daran ranzugehen als wärst du jemand anderes, der dich beschenken will. Füge so viele Details wie möglich aber auch nur so viel wie nötig. Man will ja auch nochmal leben. </p>
+                <!-- Auflistung der Archive -->
+                <div class="w-full flex flex-col">
+
+                    <?php
+                    # Wenn kein Archivierten Listen vorhanden sind, dann gebe einen Hinweis einer Leeren Listen an
+                    $archive_count = count($wishlistController->getArchivedWishlistsByUser($user_id));
+
+                    echo $archive_count;
+                    if ($archive_count == 0) {
+                    }
+
+                    ?>
                 </div>
-
-                <?php
-                # Lade das richtige Formular abhängig vom Typ der Anfrage
-                switch ($type) {
-                    case 'wishlist':
-                        include BASE_PATH . '/components/elements/create-wishlist-form.php';
-                        break;
-                    case 'wish':
-                        # Hole alle Kategorien und Wunschlisten des Nutzers
-                        $categories = $categoryController->getCategoriesByUser($user_id);
-                        $wishlists = $wishlistController->getWishlistsByUser($user_id);
-                        include BASE_PATH . '/components/elements/create-wish-form.php';
-                        break;
-                    case 'category':
-                        include BASE_PATH . '/components/elements/create-category-form.php';
-                    default:
-                        include BASE_PATH . '/components/elements/create-wishlist-form.php';
-                        break;
-                }
-
-                ?>
-
 
                 <div class="mt-auto">
 

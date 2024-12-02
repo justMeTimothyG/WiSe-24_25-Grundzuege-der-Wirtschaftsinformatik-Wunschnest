@@ -56,7 +56,7 @@ switch ($page) {
         break;
     case 'share':
         break;
-    case 'archiv':
+    case 'archive':
         include_once VIEWS_PATH . 'archive.php';
         break;
     case 'landing':

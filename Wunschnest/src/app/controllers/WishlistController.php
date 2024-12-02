@@ -81,6 +81,22 @@ class WishlistController
     }
 
     /**
+     * Lade alle archivierten Wunschlisten eines Nutzers
+     *
+     * @param int $user_id ID des Nutzers
+     * @return array Gibt ein Array der Wunschlisten zuruck
+     */
+    public function getArchivedWishlistsByUser($user_id)
+    {
+        # Lade alle Wunschlisten eines Nutzers aus der Datenbank
+        // $stmt = $this->db->prepare("SELECT * FROM wishlist WHERE user_id = :user_id");
+        $stmt = $this->db->prepare("SELECT w.*, COUNT(wi.wishlist_id) AS wish_count FROM wishlist w LEFT JOIN wish wi ON w.wishlist_id = wi.wishlist_id WHERE user_id = :user_id AND is_archived = 1 GROUP BY w.wishlist_id ORDER BY  w.target_date IS NULL ASC, w.target_date DESC");
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    /**
      * Lade alle Statistike aus der Wunschliste eines Nutzer
      *
      * @param int $user_id ID des Nutzers
