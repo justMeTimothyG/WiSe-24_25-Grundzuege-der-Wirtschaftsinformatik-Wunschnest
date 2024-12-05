@@ -10,6 +10,7 @@ INSERT INTO users (username, name, email, password_hash) VALUES
 ('starlord', 'Peter Quill', 'peter@guardians.com', '$2y$10$1SftQWI/1Eg9ixwyfjkKuOXhOR6JTmdHZYni6XpMIlwg5UcW5TsNm'),
 ('rocket', 'Rocket Raccoon', 'rocket@guardians.com', '$2y$10$Fq/lWPHpeLDfK9Q5ZtqEFOP4KZuz0IcNiWUSEEuBoTwBU9//lHb.W'),
 ('groot', 'Groot', 'groot@guardians.com', '$2y$10$iYAPsWI513fZhlUSWDPDfuYfk1zV.5H06TwIyVWw.l.I5qUJ8vAjy');
+('wei.nerd', 'Benjamin Weinert', 'b.weinert@hs-osnabrueck.de', '$2y$10$iYAPsWI513fZhlUSWDPDfuYfk1zV.5H06TwIyVWw.l.I5qUJ8vAjy');
 
 -- Füge Testdaten für die `category` Tabelle hinzu (Standard- und benutzerdefinierte Kategorien)
 -- Für Peter
