@@ -20,8 +20,10 @@ $categoryController = new CategoryController($pdo);
 if (isset($_SESSION['username'])) {
     $user = $userController->getUserByUsername($_SESSION['username']);
     $user_id = $user['user_id'];
+    $title = "Dashboard";
 } else {
     $user_id = 1;
+    $title = "Demo Dashboard";
 }
 
 # Hole die Wunschlistn des Users   
@@ -31,8 +33,6 @@ $wishlists = $wishlistController->getWishlistsByUser($user_id);
 $favorites = $wishlistController->getFavoritesByUser($user_id);
 
 
-
-$title = "Demo Dashboard";
 
 include BASE_PATH . '/components/includes/basic-head.php';
 

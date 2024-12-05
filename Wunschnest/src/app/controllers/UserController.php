@@ -30,7 +30,7 @@ class UserController
      * @param string $username Der Nutzername
      * @param string $email Die Email
      * @param string $password Das Passwort im Klartext (wird gehasht)
-     * @return string Nachricht als Rückgabe der Registrierung (Erfolg oder ggf. die Fehlermeldung)
+     * @return array Nachricht als Rückgabe der Registrierung (Erfolg oder ggf. die Fehlermeldung)
      */
     public function register($name, $username, $email, $password, $categoryController)
     {
@@ -59,14 +59,20 @@ class UserController
 
                 # Füge die Standard Kategorien hinzu
                 $categoryController->addDefaultCategories($user_id);
+
+                $check = "success";
+                $message = "Nutzer erfolgreich angelegt, Bitte loggen Sie sich ein.";
+            } else {
+                $check = "error";
+                $message = "Fehler beim Anlegen des Nutzers: <br><br> Bitte versuchen Sie es erneut.";
             };
 
 
-            return "Ihr Nutzerkonto wurde erfolgreich angelegt!";
+            return ["check" => $check, "message" => $message];
 
             # Wenn die Abfrage fehlschlägt dann gebe eine Fehlermedlung aus
         } catch (PDOException $e) {
-            return "Fehler beim Anlegen des Nutzers: " . $e->getMessage() . ".<br> <br>Bitte versuchen Sie es erneut.";
+            return ["check" => "error", "message" => "Fehler beim Anlegen des Nutzers: <br><br>" . $e->getMessage() . ".<br> <br>Bitte versuchen Sie es erneut."];
         }
     }
 

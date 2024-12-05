@@ -45,19 +45,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userController = new UserController($pdo);
 
     # Trage den Nutzer in die Datenbank ein
-    $message = $userController->register($name, $username, $email, $password, new CategoryController($pdo));
+    $result = $userController->register($name, $username, $email, $password, new CategoryController($pdo));
 
     # Setze die Nachricht in die Session zur Ausgabe im Login Formular
-    $_SESSION['register_message'] = $message;
-    $_SESSION['register_check'] = "success";
+    $_SESSION['message'] = $result["message"];
+    $_SESSION['check'] = $result["check"];
 
     header("Location: /index.php?page=login");
     exit();
 } else {
     $message = "Falsche Anfrage Methode. Nutze ein POST Request.";
     # Setze die Nachricht in die Session zur Ausgabe im Register Formular Wenn Fehlerhaft
-    $_SESSION['register_message'] = $message;
-    $_SESSION['register_check'] = "fail";
+    $_SESSION['message'] = $message;
+    $_SESSION['check'] = "fail";
     header("Location: /index.php?page=register");
     exit();
 }
