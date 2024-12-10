@@ -135,9 +135,15 @@ Erledigte Meilensteine:
   - Userflow: Wunschliste erstellen
   - Userflow: Wunsch eintragen
 
-#### Termin 5
+#### Termin 5 🟢
 
-#### Termin 6
+- Keine weiteren Entwicklungen
+
+#### Termin 6 🟢
+
+- Überlegungen zur Benutzer Tabelle
+- Überlegungen zu SQL Statements bezüglich Nutzer und Kontakt Formular
+- Erste Anbindung zur Datenbank für das Kontaktformular
 
 #### Termin 7
 
@@ -200,11 +206,15 @@ Formulierung von Flows: (Berücksichtigung der Flows im Code und Routing)
 - [x] Erste Überlegungen der Strukturen dokumentieren (Tim)
 - [x] Formuliere die nötigen Datenpunkte (Auflistung der Eigenschaften) (Tim)
 - [x] Beziehungen zwischen den Tabellen herstellen (Tim)
-- [ ] Überlegungen zu den Aktionen an den Datensätzen formulieren (Leo & Lenny)
-- [ ] SQL Statements formulieren anhand der nötigen Aktionen (Lenny)
-- [ ] Datenbank finalisieren (Alle)
+- [x] Überlegungen zu den Aktionen an den Datensätzen formulieren (Leo & Lenny)
+- [x] SQL Statements formulieren anhand der nötigen Aktionen (Lenny)
+- [x] SQL Script: Benutzer Tabelle
+- [x] SQL Script: Kontakt Tabelle
+- [x] SQL Script: Wunschliste Tabelle
+- [x] SQL Script: Wunsch Tabelle
+- [x] SQL Script: Favoriten Tabelle
 - [ ] Testdaten für die Entwicklung erstellen (Raphael)
-- [ ]
+- [ ] Datenbank finalisieren (Alle)
 
 #### PHP Entwicklung
 
