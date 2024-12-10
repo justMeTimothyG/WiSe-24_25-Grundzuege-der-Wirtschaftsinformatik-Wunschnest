@@ -9,7 +9,7 @@ if (isset($_SESSION['message']) && isset($_SESSION['check'])) {
 
     # Wenn Erfolgreich gebe eine Erfolgsnachricht aus
     if ($_SESSION['check'] === 'success') {
-        echo toast('success', $_SESSION['message'] . " Bitte loggen Sie sich nun ein.");
+        echo toast('success', $_SESSION['message']);
     } else {
         # Falls ein Fehler gegeben wurde, gebe eine Fehlernachricht aus
         echo toast('error', $_SESSION['message']);
