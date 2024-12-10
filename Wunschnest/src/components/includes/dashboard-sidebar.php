@@ -52,6 +52,18 @@ $active = 'bg-gray-500 dark:bg-gray-900 hover:shadow-md';
                         <h2 class="text-md font-semibold">Wunsch</h2>
                     </a>
                 </li>
+                <li>
+                    <a href="/index.php?page=create&type=category" class="active flex cursor-pointer items-center gap-4 rounded-lg p-3 hover:shadow-md hover:outline-orange-400 dark:hover:bg-orange-700">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                        </span>
+                        <h2 class="text-md font-semibold">Category</h2>
+                    </a>
+                </li>
             </ul>
             <!-- Bereiche -->
             <ul class="flex flex-col gap-2">

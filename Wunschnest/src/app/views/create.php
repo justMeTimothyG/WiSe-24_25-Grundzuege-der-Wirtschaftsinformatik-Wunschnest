@@ -68,27 +68,51 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 <?php
                 include BASE_PATH . '/components/includes/toast.php';
                 ?>
-                <div class="mx-auto mb-16 mt-8">
-                    <span class=" text-lg text-orange-500">Ich habe mir schon immer gewünscht...</span>
-                    <h1 class="my-4 mb-8 text-3xl font-semibold text-gray-900 dark:text-gray-200">Wunsch Erstellen</h1>
-                    <p class="dark:text-gray-400">Hier kannst du deinen Wunsch erstellen! Und deinen Liebsten es einfach machen genau das richtige für dich zu geben. Versuche daran ranzugehen als wärst du jemand anderes, der dich beschenken will. Füge so viele Details wie möglich aber auch nur so viel wie nötig. Man will ja auch nochmal leben. </p>
-                </div>
 
                 <?php
                 # Lade das richtige Formular abhängig vom Typ der Anfrage
                 switch ($type) {
-                    case 'wishlist':
+                    case 'list':
+                        ?>
+                            <div class="mb-16 mt-2">
+                                <span class=" text-lg text-orange-500">Ich habe mir schon immer gewünscht...</span>
+                                <h1 class="my-4 mb-8 text-3xl font-semibold text-gray-900 dark:text-gray-200">Wunschliste Erstellen</h1>
+                                <p class="dark:text-gray-400">Sortiere deine Wünsche nach Thema oder nach Anlass. Listen kannst du einzelnd teilen. </p>
+                            </div>
+                        <?php
                         include BASE_PATH . '/components/elements/create-wishlist-form.php';
                         break;
                     case 'wish':
                         # Hole alle Kategorien und Wunschlisten des Nutzers
                         $categories = $categoryController->getCategoriesByUser($user_id);
                         $wishlists = $wishlistController->getWishlistsByUser($user_id);
+                        ?>
+                            <div class="mb-16 mt-2">
+                                <span class=" text-lg text-orange-500">Ich habe mir schon immer gewünscht...</span>
+                                <h1 class="my-4 mb-8 text-3xl font-semibold text-gray-900 dark:text-gray-200">Wunsch Erstellen</h1>
+                                <p class="dark:text-gray-400">Hier kannst du deinen Wunsch erstellen! Und deinen Liebsten es einfach machen genau das richtige für dich zu geben. Versuche daran ranzugehen als wärst du jemand anderes, der dich beschenken will. Füge so viele Details wie möglich aber auch nur so viel wie nötig. Man will ja auch nochmal leben. </p>
+                            </div>
+                        <?php
                         include BASE_PATH . '/components/elements/create-wish-form.php';
                         break;
                     case 'category':
+                        ?>
+                            <div class="mb-16 mt-2">
+                                <span class=" text-lg text-orange-500">Ich habe mir schon immer gewünscht...</span>
+                                <h1 class="my-4 mb-8 text-3xl font-semibold text-gray-900 dark:text-gray-200">Kategorien Erstellen</h1>
+                                <p class="dark:text-gray-400">Zur weiteren Sortierung unabhängig von deinen Wunschlisten kannst du deine Wünsche noch eine Kategorie zuordnen. Wofür? Ist dir überlassen. Die Kategorien Funktion musst du auch einfach nicht verwenden. </p>
+                            </div>
+                        <?php
                         include BASE_PATH . '/components/elements/create-category-form.php';
+                        break;
                     default:
+                        ?>
+                            <div class="mb-16 mt-2">
+                                <span class=" text-lg text-orange-500">Ich habe mir schon immer gewünscht...</span>
+                                <h1 class="my-4 mb-8 text-3xl font-semibold text-gray-900 dark:text-gray-200">Wunschliste Erstellen</h1>
+                                <p class="dark:text-gray-400">Sortiere deine Wünsche nach Thema oder nach Anlass. Listen kannst du einzelnd teilen. </p>
+                            </div>
+                        <?php
                         include BASE_PATH . '/components/elements/create-wishlist-form.php';
                         break;
                 }
