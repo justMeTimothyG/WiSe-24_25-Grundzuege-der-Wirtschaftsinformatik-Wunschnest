@@ -23,3 +23,6 @@ Mockups/
 
 # Visual Paradigm BAK Files
 *.bak*
+
+# MySQL VS COde Extension
+.vscode
