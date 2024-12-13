@@ -11,7 +11,7 @@ Hier sind 9 Termine geplant:
 | --- | --- | --- | --- |
 | 01.11.2024 | 15.00 - 17.30 | (1) Einführung Rechnernetze und HTML | |
 | 15.11.2024 | 15.00 - 17.30 | (2) HTML forts., CSS | Status Update |
-| 22.11.2024 | 15.00 - 17.30 | (3) Software Entwicklung - Einführung | Status Update |
+| 22.11.2024 | 15.00 - 17.30 | (3) Software Entwicklung - Einführung | |
 | 29.11.2024 | 15.00 - 17.30 | (4) UML | Status Update |
 | 06.12.2024 | 15.00 - 17.30 | (5) Datenbanken | |
 | 13.12.2024 | 15.00 - 17.30 | (6) Datenbanken forts. | Status Update |
@@ -135,15 +135,22 @@ Erledigte Meilensteine:
   - Userflow: Wunschliste erstellen
   - Userflow: Wunsch eintragen
 
+Feedback:
+
+- So weit alles in Ordnung, so weiter machen.
+
 #### Termin 5 🟢
 
-- Keine weiteren Entwicklungen
+- Erstellen von Kategorien (Formular)
 
 #### Termin 6 🟢
 
 - Überlegungen zur Benutzer Tabelle
 - Überlegungen zu SQL Statements bezüglich Nutzer und Kontakt Formular
 - Erste Anbindung zur Datenbank für das Kontaktformular
+- Erstellung von SQL Statements
+- Testdaten erstellt
+- Shared View
 
 #### Termin 7
 
@@ -177,8 +184,8 @@ Views:
   - Detailsansicht (Mussnah)
 - [x] Wunschliste (Einzelne Liste)
 - [ ] Wunsch Detail Ansicht (Tim)
-- [ ] Erstellen von Kategorien (Leo & Lenny)
-- [ ] Geteilte Ansicht für Erfüller (Mussnah)
+- [x] Erstellen von Kategorien (Leo & Lenny)
+- [x] Geteilte Ansicht für Erfüller (Mussnah)
 - [ ] Formular für Erfüller eines Wunschnest (Leo und Lenny)
 
 Nice-to Haves:
@@ -213,16 +220,17 @@ Formulierung von Flows: (Berücksichtigung der Flows im Code und Routing)
 - [x] SQL Script: Wunschliste Tabelle
 - [x] SQL Script: Wunsch Tabelle
 - [x] SQL Script: Favoriten Tabelle
-- [ ] Testdaten für die Entwicklung erstellen (Raphael)
+- [x] Testdaten für die Entwicklung erstellen (Raphael)
 - [ ] Datenbank finalisieren (Alle)
 
 #### PHP Entwicklung
 
 - [x] Ordnerstrukturen angelegt (Tim)
 - [ ] Controller und Funktionen formuliert und dokumentiert (Jeweils ein Controller pro Datenbank Tabelle)
+  - [x] Kontakt Controller (Alle)
   - [ ] User Controller (Mussnah)
   - [ ] Wishlist Controller (Tim)
-  - [ ] Wish COntroller (Lenny)
+  - [ ] Wish Controller (Lenny)
   - [ ] Category Controller (Raphael)
   - [ ] Favorite Controller (Leo)
 - [ ] Wiederkehrende Elemente als separate Komponenten ausgelagert. (Tim)
