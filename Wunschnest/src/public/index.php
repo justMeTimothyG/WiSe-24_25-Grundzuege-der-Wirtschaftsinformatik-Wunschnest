@@ -55,6 +55,7 @@ switch ($page) {
         # Authenticate
         break;
     case 'share':
+        include_once VIEWS_PATH . 'shared.php';
         break;
     case 'archive':
         include_once VIEWS_PATH . 'archive.php';

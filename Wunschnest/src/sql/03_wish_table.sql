@@ -1,9 +1,7 @@
 -- Erstelle Datenbank wenn sie noch nicht existiert
 CREATE DATABASE IF NOT EXISTS wunschnest_db;
-
 -- Verwede Datenbank
 USE wunschnest_db;
-
 -- Erstelle die `wish` Tabelle, wenn sie noch nicht existiert
 CREATE TABLE IF NOT EXISTS wish (
     -- PK wird automatisch erstellt
@@ -20,6 +18,8 @@ CREATE TABLE IF NOT EXISTS wish (
     description TEXT,
     -- URL des Wunsches
     url VARCHAR(255),
+    -- URL des Bildes des Wunsches
+    image_url VARCHAR(255),
     -- Datum, zu dem der Wunsch angelegt wurde
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     -- Wunsch bereits erfüllt?

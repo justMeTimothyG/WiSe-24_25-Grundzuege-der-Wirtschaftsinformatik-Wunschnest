@@ -97,6 +97,25 @@ class WishlistController
     }
 
     /**
+     * Lade eine Wunschliste aus der Datenbank anhand ihrer ID
+     *
+     * @param string $token Der Token zum teilen der Liste
+     * @return array Gibt ein Array der Wunschliste zuruck
+     */
+    public function getWishlistBySharetoken($token)
+    {
+        # Get the id of the share token
+        $stmt = $this->db->prepare('SELECT wishlist_id FROM wishlist WHERE share_token = :share_token');
+        $stmt->bindParam(':share_token', $token);
+        $stmt->execute();
+        $id = $stmt->fetch()['wishlist_id'];
+
+        $result = $this-> getWishlist($id);
+
+        return $result;
+    }
+
+    /**
      * Lade alle Statistike aus der Wunschliste eines Nutzer
      *
      * @param int $user_id ID des Nutzers
