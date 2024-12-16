@@ -200,7 +200,7 @@ include BASE_PATH . '/components/includes/basic-head.php';
 
                 <?php
 
-                    include BASE_PATH .'/components/bottom-cta.php';
+                    include BASE_PATH .'/components/elemets/bottom-cta.php';
 ?>  
 
 

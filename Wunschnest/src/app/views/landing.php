@@ -248,7 +248,7 @@ try {
             <!-- Letzter Call to Action -->
 
             <!-- Call to Action kann ggf. noch woanders benutzt werden, also als eigene Datei verwenden um sich im Code nicht zu wiederholen -->
-            <?php include BASE_PATH . '/components/bottom-cta.php'; ?>
+            <?php include BASE_PATH . '/components/elements/bottom-cta.php'; ?>
 
 
             <!-- Footer -->
