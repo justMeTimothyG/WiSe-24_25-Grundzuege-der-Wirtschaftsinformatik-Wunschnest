@@ -1,4 +1,4 @@
-const toggle = document.getElementById("dark-toggle");
+const toggle = document.getElementById('dark-toggle');
 
 // Icons in SVG (Sonne und Mond)
 const sunPath = `
@@ -10,22 +10,22 @@ const moonPath = `
 </svg>
 `;
 
-// Save user's preference in localStorage
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark");
+// Nutzereinstellung für Darkmode in localStorage speichern
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
   toggle.innerHTML = sunPath;
 } else {
-  document.body.classList.remove("dark");
+  document.body.classList.remove('dark');
   toggle.innerHTML = moonPath;
 }
 
-toggle.addEventListener("click", () => {
+toggle.addEventListener('click', () => {
   // Wenn Nutzer Drückt, dann Theme ändern
-  document.body.classList.toggle("dark");
+  document.body.classList.toggle('dark');
 
-  // Save user's preference in localStorage
-  const isDarkMode = document.body.classList.contains("dark");
-  localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+  // Speichern der Nutzereinstellung in localStorage
+  const isDarkMode = document.body.classList.contains('dark');
+  localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 
   // Wechseln der Icons
   if (isDarkMode) {
