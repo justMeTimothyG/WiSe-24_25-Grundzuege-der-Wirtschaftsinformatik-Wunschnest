@@ -34,7 +34,8 @@ include BASE_PATH . '/components/includes/basic-head.php';
 
 ?>
 <!-- Script für den Share-Link -->
-<script src="/js/share-link.js" defer></script>
+<script src="/js/filter-shared.js" defer></script>
+
 <title><?php echo $title ?></title>
 </head>
 
@@ -103,16 +104,34 @@ include BASE_PATH . '/components/includes/basic-head.php';
                 <div class="flex flex-wrap gap-4 mb-6">
                     <?php
 
-                    # Wenn user_id = 1 (Test Nutzer), benutzer Testdaten, sonst die echten Daten
-                    // if ($user_id == 1) {
-                        $categories = [
-                            ["name" => "Elektronik", "wish_count" => 13],
-                            ["name" => "Haushalt", "wish_count" => 5],
-                            ["name" => "Familie", "wish_count" => 2],
-                            ["name" => "Wohnen", "wish_count" => 1],
-                            ["name" => "Hobby", "wish_count" => 3],
-                            ["name" => "Sonstiges", "wish_count" => 1]
-                        ];
+                    # Wünsche abholen
+                    $wishes = $wishController->getWishesByWishlist($wishlist['wishlist_id']);
+ 
+                    # Filter all Wishes for Distinc Categories
+                    $categories = [];
+
+                    foreach ($wishes as $wish) {
+                        $categoryName = $wish['category_name'];
+                        $found = false;
+
+
+                        # Gehe durch bestehende Kategories und prüfe, ob diese schon vorhanden ist.
+                        foreach ($categories as &$category) {
+                            if ($category['name'] == $categoryName) {
+                                $category['wish_count']++;
+                                $found = true;
+                                break;
+                            }
+                        }
+
+                        # Wenn nicht gefunden füge einen Eintrag hinzu mit der Anzahl 1 
+                        if (!$found) {
+                            $categories[] = ["name" => $categoryName, "wish_count" => 1];
+                        }
+                        unset($category);
+
+                    }
+
                     // } else {
 
                     # Importiere Funktion um Kategorien mit Anzahl anzuzeigen
@@ -123,7 +142,12 @@ include BASE_PATH . '/components/includes/basic-head.php';
                         echo categoryCounterTag($kategorie["name"], $kategorie["wish_count"]);
                     }
                     ?>
-
+                    <button
+                    type="button"
+                    class="category-reset hidden relative items-center rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-center text-sm font-medium text-gray-700 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-gray-950 dark:bg-red-600 dark:text-gray-200 dark:hover:bg-red-800 dark:hover:text-gray-300 dark:focus:ring-gray-700"
+                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
                 </div>
 
                 <!-- Tabelle der Wünsche -->
@@ -131,76 +155,20 @@ include BASE_PATH . '/components/includes/basic-head.php';
 
                     <?php
 
-                        # Wünsche abholen
-                        $wishes = $wishController->getWishesByWishlist($wishlist['wishlist_id']);
-
                         include BASE_PATH .'/components/elements/wish-card.php';
 
                         foreach ($wishes as $wish) {
-                            echo wishlistCardItem($wish['name'], $wish['price'], $wish['description'], $wish['url'], $wish['image_url']);
+                            echo wishlistCardItem($wish['name'], $wish['price'], $wish['description'], $wish['category_name'], $wish['url'], $wish['image_url']);
                         }
 
                     ?>
 
 
-
-                    <div class="masonry-item max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <a href="#">
-                            <img class="rounded-t-lg" src="https://image.euronics.de/media/image/3b/f2/de/9dadfcaa-67c2-4f5e-8450-80a7a2f29f04_600x600.jpg" alt="" />
-                        </a>
-                        <div class="p-5">
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Samsung Galaxy</h5>
-                            </a>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Neues Handy ist immer gut oder?</p>
-                            <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Read more
-                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <a href="#">
-                            <img class="rounded-t-lg" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MXL53_FV98_VW_34FR+watch-case-44-aluminum-silver-nc-se_VW_34FR+watch-face-44-aluminum-silver-se_VW_34FR?wid=750&hei=712&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1725647080396" alt="" />
-                        </a>
-                        <div class="p-5">
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><div class="inline-flex items-center">Apple Watch 10 <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g fill="none" fill-rule="evenodd"><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"/></g></svg></div></h5> 
-                            </a>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Ich habe noch die 7er und endlich wird es mal Zeit.</p>
-                            <div class="flex items-center justify-between">
-                                <span class="text-3xl font-bold text-gray-900 dark:text-white">€ 599</span>
-                                <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Erfüllen</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <a href="#">
-                            <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
-                        </a>
-                        <div class="p-5">
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                            </a>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                            <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Read more
-                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
                 </div>
 
                 <?php
 
-                    include BASE_PATH .'/components/elemets/bottom-cta.php';
+                    include BASE_PATH .'/components/elements/bottom-cta.php';
 ?>  
 
 

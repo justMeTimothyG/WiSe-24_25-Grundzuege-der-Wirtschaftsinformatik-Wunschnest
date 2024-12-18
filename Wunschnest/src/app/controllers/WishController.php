@@ -91,7 +91,8 @@ class WishController
     public function getWishesByWishlist($wishlistId)
     {
         # Lade alle Wunschlisten eines Nutzers
-        $stmt = $this->db->prepare("SELECT * FROM WISH WHERE wishlist_id = :wishlist_id");
+        # $stmt = $this->db->prepare("SELECT * FROM WISH WHERE wishlist_id = :wishlist_id");
+        $stmt = $this->db->prepare("SELECT wish.*, category.name AS category_name FROM wish, category  WHERE wishlist_id = :wishlist_id AND wish.category_id = category.category_id");
         $stmt->bindParam(':wishlist_id', $wishlistId);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -102,7 +103,7 @@ class WishController
      *
      * @param int $wishId
      * @param array $data
-     * @return array Gibt das Array des Wunsches zurück
+     * @return mixed  Gibt das Array des Wunsches zurück
      */
     public function updateWish($wishId, $data = [])
     {
