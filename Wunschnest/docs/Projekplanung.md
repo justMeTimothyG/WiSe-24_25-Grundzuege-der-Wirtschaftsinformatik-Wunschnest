@@ -19,6 +19,35 @@ Hier sind 9 Termine geplant:
 | 03.01.2025 | 15.00 - 17.30 | (8) PHP forts. | |
 | 10.01.2025 | 12.15 - 17.30 | (9) Präsentations der Prüfungsleistung | Alle müssen es präsentieren können |
 
+### GANTT Diagramm:
+
+```mermaid
+gantt
+    title Projektplanung Wunschnest
+    dateFormat  YYYY-MM-DD
+    section HTML und CSS (Frontend)
+    Entwicklungsumgebung einrichten :done , t1_1, 2024-11-08, 14d
+    Landing Page               :t2_1, 2024-11-12, 4d
+    Status Update - HTML und CSS               :milestone, t2, 2024-11-15, 2d
+    Benutzer Login        :t2_2, 2024-11-14, 2d
+    Impressum & Co.         :t2_2, 2024-11-15, 1d
+    Kontakt Formular        :t2_2, 2024-11-14, 2d
+    Registrierung        :t2_2, 2024-11-26, 2d
+    section UML
+    Übungsaufgaben  :t4_1, 2024-11-20, 3d
+    Status Update - UML                        :milestone, t4, 2024-11-29, 1d
+    section Datenbanken
+    Vorüberlegungen                    :t5, 2024-11-18, 10d
+    SQL Script - Tabellen erstellen             :t5_1, after t5, 3d
+    Status Update Datenbanken II             :milestone, t6, 2024-12-13, 1d
+    section PHP Entwicklung
+    PHP Einführung                            :t7, 2024-12-20, 1d
+    PHP Grenzfälle und Tests                  :t8, 2025-01-03, 1d
+    section Präsentation
+    Präsentation der Prüfungsleistung         :t9, 2025-01-10, 1d
+    Vorbereitung und Dokumentation            :t9_1, after t8, 3d
+```
+
 ### Planung
 
 - (1) 01.11.2024 - HTML
