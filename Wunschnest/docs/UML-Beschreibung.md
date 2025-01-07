@@ -2,13 +2,36 @@
 
 Damit die App auch ein Grundgerüst hast und besser entwickelt werden kann müssen die Inhalte und Funktionen vorab beschrieben werden. Sie bilden quasi eine Blaupause für das Gesamte Projekt. Somit ist hier ein Sammelsorium an Beschreibungen der Funktionen der App.
 
+> ![NOTE] Bilder
+> Alle Bilder der Diagramme sind auch im Ordner [`./assets/`](./assets/) zu finden.
+
 ## Klassendiagram
 
 Hier sind die wichtigsten Klassen der App WunschNest.
 
-![](./UML/Klassendiagramm.jpg)
+![](./assets/klassendiagramm.png)
 
 Wie man sieht steht die Klasse Wunschliste im Mittelpunkt. Sie bildet die Zentrale Einheit, um die man die ganze Zeit interagiert.
+
+## Use Case Diagramm
+
+Die möglichen Nutzen unserer App
+
+![](./assets/usecase.png)
+
+## Zustandsdiagramm
+
+Dieses Zustandsdiagram beschreibt den Zustand einer Wunschliste.
+
+![](./assets/state-machine.png)
+
+## EER Diagramm
+
+![](./assets/EER.png)
+
+## Relations Diagramm
+
+![](./assets/Relation.png)
 
 ## User Flows
 
@@ -112,3 +135,5 @@ flowchart TD
 ```
 
 ---
+
+##

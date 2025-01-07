@@ -27,25 +27,29 @@ gantt
     dateFormat  YYYY-MM-DD
     section HTML und CSS (Frontend)
     Entwicklungsumgebung einrichten :done , t1_1, 2024-11-08, 14d
-    Landing Page               :t2_1, 2024-11-12, 4d
-    Status Update - HTML und CSS               :milestone, t2, 2024-11-15, 2d
-    Benutzer Login        :t2_2, 2024-11-14, 2d
-    Impressum & Co.         :t2_2, 2024-11-15, 1d
+    Landing Page++               :t2_1, 2024-11-12, 4d
+    Benutzer Login        :t2_2, 2024-11-14, 4d
     Kontakt Formular        :t2_2, 2024-11-14, 2d
-    Registrierung        :t2_2, 2024-11-26, 2d
+    Status Update - HTML und CSS               :milestone, t2, 2024-11-15, 2d
+    Dashboard         :t2_2, 2024-11-24, 7d
+    Weitere Formulare        :t2_2, 2024-12-08, 8d
+    Geteilte Ansicht        :t2_2, 2024-12-21, 4d
     section UML
     Übungsaufgaben  :t4_1, 2024-11-20, 3d
     Status Update - UML                        :milestone, t4, 2024-11-29, 1d
+    UML DIagramme  :t4_1, 2024-12-03, 13d
     section Datenbanken
-    Vorüberlegungen                    :t5, 2024-11-18, 10d
-    SQL Script - Tabellen erstellen             :t5_1, after t5, 3d
+    Vorüberlegungen                    :t5, 2024-11-23, 10d
+    SQL Script - Tabellen erstellen             :t5_1, after t5, 8d
     Status Update Datenbanken II             :milestone, t6, 2024-12-13, 1d
     section PHP Entwicklung
-    PHP Einführung                            :t7, 2024-12-20, 1d
-    PHP Grenzfälle und Tests                  :t8, 2025-01-03, 1d
+    Umstellung HTML -> PHP                            :t7, 2024-11-30, 14d
+    Aufteilung in Komponenten                   :t7.1, 2024-12-13, 9d
+    PHP Schleifen wiederholender Elemente                  :t8, 2024-12-21, 10d
+    PHP Grenzfälle                  :t8.1, 2024-12-28, 6d
     section Präsentation
-    Präsentation der Prüfungsleistung         :t9, 2025-01-10, 1d
-    Vorbereitung und Dokumentation            :t9_1, after t8, 3d
+    Präsentation der Prüfungsleistung         :milestone, 2025-01-10, 1d
+    Vorbereitung und Dokumentation            :t9_1, 2024-12-22, 14d
 ```
 
 ### Planung
@@ -255,19 +259,19 @@ Formulierung von Flows: (Berücksichtigung der Flows im Code und Routing)
 #### PHP Entwicklung
 
 - [x] Ordnerstrukturen angelegt (Tim)
-- [ ] Controller und Funktionen formuliert und dokumentiert (Jeweils ein Controller pro Datenbank Tabelle)
+- [x] Controller und Funktionen formuliert und dokumentiert (Jeweils ein Controller pro Datenbank Tabelle)
   - [x] Kontakt Controller (Alle)
-  - [ ] User Controller (Mussnah)
-  - [ ] Wishlist Controller (Tim)
-  - [ ] Wish Controller (Lenny)
-  - [ ] Category Controller (Raphael)
-  - [ ] Favorite Controller (Leo)
-- [ ] Wiederkehrende Elemente als separate Komponenten ausgelagert. (Tim)
+  - [x] User Controller (Mussnah)
+  - [x] Wishlist Controller (Tim)
+  - [x] Wish Controller (Lenny)
+  - [x] Category Controller (Raphael)
+  - [x] Favorite Controller (Leo)
+- [x] Wiederkehrende Elemente als separate Komponenten ausgelagert. (Tim)
 - [ ] Bearbeitung von Wunschlisten (Vorbelegung des Formulars mit bestehenden Werten) (Leo)
 - [ ] Bearbeitung von Wünschen (Vorbelegung des Formulars mit bestehenden Werten) (Lenny)
 - [ ] Bearbeitung des Favoriten Status (Button in der Wunschliste) (Mussnah)
-- [ ] Logout ermöglichen (Tim)
-- [ ] Demo funktionsfähig ohne Login (Alle)
+- [x] Logout ermöglichen (Tim)
+- [x] Demo funktionsfähig ohne Login (Alle)
 
 Nice to Haves:
 
@@ -281,14 +285,14 @@ Nice to Haves:
 #### Javascript (Generell Nice to haves)
 
 - [x] Dark Mode Toggle
-- [/] Animationen einbauen (Lottie Animationen)
-- [/] Link kopieren ins Clipboard (Zwischenablage) beim sharing
+- [x] Animationen einbauen (Lottie Animationen)
+- [x] Link kopieren ins Clipboard (Zwischenablage) beim sharing
 - [ ] Validierung der Formulare im Frontend vor der Übermittlung an den Server
 
 #### Präsentation
 
-- [ ] Schlachtplan erstellen für den Ablauf der Vorstellung
-- [ ] Liste an besonderen Features erstellen und als Spicker vorbereiten, sodass diese Features nicht vergessen werden vorzustellen
+- [x] Schlachtplan erstellen für den Ablauf der Vorstellung
+- [x] Liste an besonderen Features erstellen und als Spicker vorbereiten, sodass diese Features nicht vergessen werden vorzustellen
 - [ ] UML in eine vernünftige Sortierung bringen für die Vorstellung
-- [ ] 2x Probevorstellung mit Kontrolle der Zeit.
+- [x] 2x Probevorstellung mit Kontrolle der Zeit.
 - [ ] Fertigstellung der Dokumentation, sodass jeder sich diese durchlesen kann und sich darauf vorbereiten kann.

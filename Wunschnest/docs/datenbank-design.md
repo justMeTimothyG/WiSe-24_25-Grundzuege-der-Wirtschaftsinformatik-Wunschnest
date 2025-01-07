@@ -59,18 +59,23 @@ erDiagram
         int wishlist_id FK
     }
 
-    SHARE_LINK {
-        int link_id PK
-        int wishlist_id FK
-        string url_token
-        boolean is_active
-        datetime created_at
+    CATEGORY {
+        int category_id PK
+        int user_id FK
+    }
+
+    CONACT {
+      int contact_id PK
+      string name
+      string email
+      string message
     }
 
     USER ||--o{ WISHLIST : "owns"
     WISHLIST ||--o{ WISH : "contains"
     USER ||--o{ FAVORITE : "marks"
-    WISHLIST ||--o| SHARE_LINK : "has"
+    WISH ||--o| CATEGORY : "has"
+    USER ||--o| CATEGORY : "has"
     FAVORITE }|--o{ WISHLIST : "has"
 ```
 
