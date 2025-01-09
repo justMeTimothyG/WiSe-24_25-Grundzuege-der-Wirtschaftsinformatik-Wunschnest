@@ -31,5 +31,5 @@ CREATE TABLE IF NOT EXISTS wish (
     -- Zuordnung zu einer Wunschliste, lösche alle Daten, wenn die Wunschliste gelöscht wird
     FOREIGN KEY (wishlist_id) REFERENCES WISHLIST(wishlist_id) ON DELETE CASCADE,
     -- Zuordnung zu einer Kategorie (EIntrag soll nicht gelöscht werden, sondern nur leer gemacht)
-    FOREIGN KEY (wishlist_id) REFERENCES WISHLIST(wishlist_id)
+    FOREIGN KEY (category_id) REFERENCES category(category_id) ON DELETE CASCADE
 );

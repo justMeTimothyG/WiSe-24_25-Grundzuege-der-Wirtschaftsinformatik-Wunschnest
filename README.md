@@ -47,6 +47,11 @@ Im Ordner `/Wunschnest/src/` gibt es eine `example.env` datei. Diese Inhalte kö
 
 Nach diesen Einstellungen sollte der Server ohne weiteres Funktionieren.
 
+Jedoch muss noch die Datenbank mit seinen Daten initialisiert werden. Es besteht hier die Möglichkeit alle SQL Skripte nacheinander auszuführen die im `/Wunschnest/src/sql/` Ordner zu finden sind. Alternativ gibt es eine kleine Admin Seite, die alle SQL Skripte ein mal ausführt.
+Die Seite ist im Footer zu finden unter `Admin`. Sonst wenn localhost verwendet wird unter [http://localhost/index.php?page=admin](http://localhost/index.php?page=admin).
+
+Nachdem die Datenbank initialisiert worden ist sollte das Projekt verwendbar sein.
+
 ## Weitere Dokumentation
 
 Damit wir alle Gedanken für das Projekt festhalten können halten wir diese in einer Dokumentation fest. Hier haben wir folgende Gedanken festgehalten:
