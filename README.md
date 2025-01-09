@@ -30,12 +30,11 @@ Durch unsere Entscheidung das Projekt, abweichend von der Empfehlung der Veranst
 Es kann der MariaDB Server von XAMPP genommen werden oder auch ein anderer, hauptsache dieser ist über 127.0.0.1 erreichbar.
 
 Bei XAMPP kommt es auf den Apache Server. Hier muss vor allem die `Document Root` directive in der config des Apache Servers eingestellt werden.
-Auf Circa Zeile `157` muss folgender Text eingestellt werden. Hier muss bei XAMPP, beim Apache Server die Config Datei geöffnet werden.
+Auf Circa Zeile `252` muss folgender Text eingestellt werden. Hier muss bei XAMPP, beim Apache Server die Config Datei geöffnet werden.
 
 ```nginx
+# circa Zeile 252
 DocumentRoot "C:/<ORDNER_DES_PROJEKTS>/Wunschnest/src/public"
-
-# ...
 
 <Directory "C:/<ORDNER_DES_PROJEKTS>/Wunschnest/src/public">
 ```
